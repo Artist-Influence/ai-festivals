@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 10% 14%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 8% 18%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 15 80% 50%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 0 10% 18%;
+    --input: 0 10% 18%;
+    --ring: 0 72% 51%;
+    --radius: 0.75rem;
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 8% 55%;
+    --sidebar-primary: 0 72% 51%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 10% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 10% 16%;
+    --sidebar-ring: 0 72% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.slide-content {
+  font-size: 125%;
+}
+
+/* Hero text sitting directly on visualizer backdrops (no GlassPanel).
+   Forces white + soft glow so copy lifts cleanly off monogram/atelier fields. */
+@layer utilities {
+  .text-on-visual {
+    color: hsl(0 0% 100%);
+    text-shadow:
+      0 1px 2px hsl(var(--background) / 0.85),
+      0 2px 18px hsl(var(--background) / 0.7);
+  }
+  .text-on-visual-soft {
+    color: hsl(0 0% 100% / 0.94);
+    text-shadow:
+      0 1px 2px hsl(var(--background) / 0.9),
+      0 2px 16px hsl(var(--background) / 0.75),
+      0 0 28px hsl(var(--background) / 0.5);
+  }
+  .text-on-visual-accent {
+    /* Keep brand red, but add a glow so chips/kickers stay legible */
+    text-shadow:
+      0 1px 2px hsl(var(--background) / 0.85),
+      0 2px 12px hsl(var(--background) / 0.55);
+  }
+}
