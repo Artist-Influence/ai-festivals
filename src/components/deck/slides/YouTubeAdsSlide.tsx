@@ -7,19 +7,19 @@ import markTuanThumb from '@/assets/mark-tuan-sunsets-cigarettes-thumb.jpg';
 
 const cases = [
   {
-    artist: 'Jason Derulo & Michael Bublé', track: 'Spicy Margarita', thumb: spicyMargaritaThumb,
+    artistKey: 'youtube.case1Artist', trackKey: 'youtube.case1Track', thumb: spicyMargaritaThumb,
     metrics: [
-      { val: '11M', labelKey: 'kpi.views' }, { val: '6.5M', labelKey: 'kpi.uniqueViewers' },
-      { val: '1.1M+ hrs', labelKey: 'kpi.watchTime' }, { val: '76.4%', labelKey: 'kpi.avgViewed' },
-      { val: '207K', labelKey: 'kpi.likes' }, { val: '7.9K', labelKey: 'kpi.comments' },
+      { val: '—', labelKey: 'kpi.views' }, { val: '—', labelKey: 'kpi.uniqueViewers' },
+      { val: '—', labelKey: 'kpi.watchTime' }, { val: '—', labelKey: 'kpi.ctr' },
+      { val: '—', labelKey: 'kpi.clicks' }, { val: '—', labelKey: 'kpi.audienceGrowth' },
     ],
   },
   {
-    artist: 'Mark Tuan', track: 'Sunsets & Cigarettes', thumb: markTuanThumb,
+    artistKey: 'youtube.case2Artist', trackKey: 'youtube.case2Track', thumb: markTuanThumb,
     metrics: [
-      { val: '10M', labelKey: 'kpi.views' }, { val: '5.5M', labelKey: 'kpi.uniqueViewers' },
-      { val: '1.4M hrs', labelKey: 'kpi.watchTime' }, { val: '81.2%', labelKey: 'kpi.avgViewed' },
-      { val: '135K', labelKey: 'kpi.likes' }, { val: '6.3K', labelKey: 'kpi.comments' },
+      { val: '—', labelKey: 'kpi.views' }, { val: '—', labelKey: 'kpi.uniqueViewers' },
+      { val: '—', labelKey: 'kpi.watchTime' }, { val: '—', labelKey: 'kpi.lpv' },
+      { val: '—', labelKey: 'kpi.audienceGrowth' }, { val: '—', labelKey: 'kpi.clicks' },
     ],
   },
 ];
@@ -71,15 +71,15 @@ const YouTubeAdsSlide = () => {
 
         <div className="flex-1 flex flex-col gap-2 md:gap-4 md:min-h-[720px]">
           {cases.map((c) => (
-            <GlassPanel key={c.artist} variant="bright" className="p-2 md:p-5 md:flex-1 md:min-h-0">
+            <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-5 md:flex-1 md:min-h-0">
               <div className="flex flex-row gap-2 md:gap-5 mb-1.5 md:mb-4">
                   <div className="w-[70px] h-[50px] md:w-[240px] md:h-[150px] shrink-0 rounded-lg md:rounded-xl overflow-hidden border border-white/[0.08]">
-                    <img src={c.thumb} alt={`${c.artist}, ${c.track}`} loading="eager" decoding="sync" className="w-full h-full object-cover rounded-lg md:rounded-xl" />
+                    <img src={c.thumb} alt={t(c.artistKey)} loading="eager" decoding="sync" className="w-full h-full object-cover rounded-lg md:rounded-xl" />
                   </div>
                   <div className="flex-1 flex flex-col justify-center">
                     <p className="text-[10px] md:text-base text-primary font-mono mb-0.5 tracking-widest uppercase">{t('youtube.caseStudy')}</p>
-                    <p className="text-sm md:text-3xl font-bold text-foreground leading-tight">{c.artist}</p>
-                    <p className="text-xs md:text-xl text-muted-foreground">{c.track}</p>
+                    <p className="text-sm md:text-3xl font-bold text-foreground leading-tight">{t(c.artistKey)}</p>
+                    <p className="text-xs md:text-xl text-muted-foreground">{t(c.trackKey)}</p>
                   </div>
                 </div>
 

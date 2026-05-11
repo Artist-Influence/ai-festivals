@@ -4,13 +4,15 @@ import { useTranslation } from '@/i18n/LanguageContext';
 
 const HubDiagram = () => {
   const nodes = [
-    { label: ['Your', 'Song'], cx: 300, cy: 260, r: 72, primary: true },
-    { label: ['Short-form', 'Content'], cx: 470, cy: 92, r: 58, primary: false },
-    { label: ['Communities', '& Culture'], cx: 105, cy: 195, r: 58, primary: false },
-    { label: ['Streaming', 'Platforms'], cx: 390, cy: 450, r: 58, primary: false },
+    { label: ['Your', 'Event'], cx: 300, cy: 260, r: 72, primary: true },
+    { label: ['Short-form', 'Content'], cx: 470, cy: 90, r: 54, primary: false },
+    { label: ['Local', 'Culture'], cx: 95, cy: 170, r: 54, primary: false },
+    { label: ['Ticketing', 'Platforms'], cx: 130, cy: 430, r: 54, primary: false },
+    { label: ['Retargeting'], cx: 470, cy: 430, r: 54, primary: false },
+    { label: ['Creators'], cx: 300, cy: 70, r: 50, primary: false },
   ];
 
-  const connections = [[0, 1], [0, 2], [0, 3]];
+  const connections = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5]];
 
   return (
     <svg viewBox="0 0 560 540" className="w-[480px] h-[480px]">
@@ -34,8 +36,14 @@ const HubDiagram = () => {
           <circle cx={n.cx} cy={n.cy} r={n.r}
             fill="hsl(var(--primary))" fillOpacity="0.06"
             stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
-          <text x={n.cx} y={n.cy - 4} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="16" fontWeight="500" opacity="0.9">{n.label[0]}</text>
-          <text x={n.cx} y={n.cy + 16} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="14" fontWeight="400" opacity="0.65">{n.label[1]}</text>
+          {n.label.length > 1 ? (
+            <>
+              <text x={n.cx} y={n.cy - 4} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="15" fontWeight="500" opacity="0.9">{n.label[0]}</text>
+              <text x={n.cx} y={n.cy + 14} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="13" fontWeight="400" opacity="0.65">{n.label[1]}</text>
+            </>
+          ) : (
+            <text x={n.cx} y={n.cy + 4} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="14" fontWeight="500" opacity="0.85">{n.label[0]}</text>
+          )}
         </g>
       ))}
       <circle cx={nodes[0].cx} cy={nodes[0].cy} r={nodes[0].r}
@@ -43,7 +51,7 @@ const HubDiagram = () => {
         stroke="hsl(var(--primary))" strokeWidth="1.5" strokeOpacity="0.5"
         filter="url(#softGlow)" />
       <text x={nodes[0].cx} y={nodes[0].cy - 8} textAnchor="middle" fill="hsl(var(--primary))" fontSize="22" fontWeight="700">Your</text>
-      <text x={nodes[0].cx} y={nodes[0].cy + 18} textAnchor="middle" fill="hsl(var(--primary))" fontSize="22" fontWeight="700">Song</text>
+      <text x={nodes[0].cx} y={nodes[0].cy + 18} textAnchor="middle" fill="hsl(var(--primary))" fontSize="22" fontWeight="700">Event</text>
       <circle cx={nodes[0].cx} cy={nodes[0].cy} r="180" fill="none" stroke="hsl(var(--primary))" strokeWidth="0.5" opacity="0.1" strokeDasharray="4 6">
         <animateTransform attributeName="transform" type="rotate" from={`0 ${nodes[0].cx} ${nodes[0].cy}`} to={`360 ${nodes[0].cx} ${nodes[0].cy}`} dur="60s" repeatCount="indefinite" />
       </circle>

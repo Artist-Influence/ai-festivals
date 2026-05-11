@@ -30,9 +30,15 @@ const cases = [
     metrics: [{ val: '1.4M', labelKey: 'kpi.impressions' }, { val: '$0.31', labelKey: 'kpi.cpm' }, { val: '500.7K', labelKey: 'kpi.sixSecViews' }, { val: '34.7%', labelKey: 'kpi.viewRate' }],
   },
   {
-    platform: 'META ADS', artist: 'Zeds Dead', track: 'NA Tour, 6 campaigns, 1 per city',
+    platform: 'META ADS', artist: 'Zeds Dead', track: 'Journey of a Lifetime Tour 2026 · 6 city campaigns · Phase 2',
     descKey: 'metaTiktok.case2Desc', thumb: zedsDeadImg, imgPosition: 'object-center',
-    metrics: [{ val: '1.3M', labelKey: 'kpi.impressions' }, { val: '6,754', labelKey: 'kpi.layloSignups' }, { val: '$1.40', labelKey: 'kpi.cpr' }, { val: '25.4K', labelKey: 'kpi.linkClicks' }],
+    metrics: [
+      { val: '$1,230', labelKey: 'kpi.spend' },
+      { val: '385K', labelKey: 'kpi.impressions' },
+      { val: '17.6K', labelKey: 'kpi.linkClicks' },
+      { val: '5.61%', labelKey: 'kpi.ctr' },
+      { val: '$0.057', labelKey: 'kpi.cpc' },
+    ],
   },
 ];
 
@@ -104,11 +110,11 @@ const AdditionalServicesSlide = () => {
                   <p className="text-[10px] md:text-lg text-muted-foreground">{t(c.descKey)}</p>
                 </div>
 
-                <div className="grid grid-cols-4 gap-0.5 md:gap-3">
+                <div className={`grid gap-0.5 md:gap-3 ${c.metrics.length === 5 ? 'grid-cols-5' : 'grid-cols-4'}`}>
                   {c.metrics.map((m) => (
-                    <div key={m.labelKey} className="bg-white/[0.04] rounded p-1 md:px-3 md:py-4 text-center flex flex-col items-center justify-center">
-                      <p className="text-[10px] md:text-2xl font-bold text-foreground">{m.val}</p>
-                      <p className="text-[7px] md:text-sm text-muted-foreground uppercase tracking-wider leading-tight">{t(m.labelKey)}</p>
+                    <div key={m.labelKey} className="bg-white/[0.04] rounded p-1 md:px-2 md:py-3 text-center flex flex-col items-center justify-center">
+                      <p className="text-[10px] md:text-xl font-bold text-foreground">{m.val}</p>
+                      <p className="text-[7px] md:text-xs text-muted-foreground uppercase tracking-wider leading-tight">{t(m.labelKey)}</p>
                     </div>
                   ))}
                 </div>
