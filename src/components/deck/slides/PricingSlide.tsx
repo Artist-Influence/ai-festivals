@@ -1,5 +1,5 @@
 import GlassPanel from '../GlassPanel';
-import AtelierFieldVisual from '../visuals/AtelierFieldVisual';
+import PatternVisual from '../visuals/PatternVisual';
 import { useTranslation } from '@/i18n/LanguageContext';
 
 const PricingSlide = () => {
@@ -13,7 +13,7 @@ const PricingSlide = () => {
 
   return (
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-12 flex flex-col items-center justify-start md:justify-center">
-      <AtelierFieldVisual variant="centered" />
+      <PatternVisual />
       <div className="relative z-10 w-full max-w-[1400px]">
         <h1 className="text-2xl md:text-7xl font-bold text-on-visual mb-2 md:mb-4">{t('pricing.title')}</h1>
         <p className="text-sm md:text-2xl text-on-visual-soft mb-6 md:mb-12">{t('pricing.subtitle')}</p>
