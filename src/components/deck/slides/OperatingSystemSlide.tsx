@@ -1,6 +1,6 @@
 import GlassPanel from '../GlassPanel';
+import PatternVisual from '../visuals/PatternVisual';
 import SystemLoopDiagram from '../SystemLoopDiagram';
-import AtelierFieldVisual from '../visuals/AtelierFieldVisual';
 import { Code2, Radio, Workflow } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 
@@ -16,7 +16,7 @@ const OperatingSystemSlide = () => {
 
   return (
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden py-2 px-3 md:p-20 flex flex-col justify-start md:justify-center">
-      <AtelierFieldVisual variant="default" />
+      <PatternVisual />
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         {/* Tagline chip */}

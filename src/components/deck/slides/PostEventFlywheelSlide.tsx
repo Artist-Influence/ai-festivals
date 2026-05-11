@@ -1,5 +1,5 @@
 import GlassPanel from '../GlassPanel';
-import AtelierFieldVisual from '../visuals/AtelierFieldVisual';
+import PatternVisual from '../visuals/PatternVisual';
 import { Film, Sparkles, Target, Brain } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 

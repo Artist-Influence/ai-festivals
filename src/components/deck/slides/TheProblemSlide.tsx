@@ -1,5 +1,5 @@
 import GlassPanel from '../GlassPanel';
-import AtelierFieldVisual from '../visuals/AtelierFieldVisual';
+import PatternVisual from '../visuals/PatternVisual';
 import { useTranslation } from '@/i18n/LanguageContext';
 
 const TheProblemSlide = () => {
@@ -8,7 +8,7 @@ const TheProblemSlide = () => {
 
   return (
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-20 flex flex-col justify-start md:justify-center">
-      <AtelierFieldVisual variant="corner" />
+      <PatternVisual />
 
       <div className="relative z-10 w-full max-w-[1500px] mx-auto">
         <p className="text-xs md:text-sm text-primary font-medium tracking-[0.25em] uppercase mb-2 md:mb-4">The Problem</p>
