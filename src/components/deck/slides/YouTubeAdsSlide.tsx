@@ -7,19 +7,19 @@ import markTuanThumb from '@/assets/mark-tuan-sunsets-cigarettes-thumb.jpg';
 
 const cases = [
   {
-    artist: 'Jason Derulo & Michael Bublé', track: 'Spicy Margarita', thumb: spicyMargaritaThumb,
+    artistKey: 'youtube.case1Artist', trackKey: 'youtube.case1Track', thumb: spicyMargaritaThumb,
     metrics: [
-      { val: '11M', labelKey: 'kpi.views' }, { val: '6.5M', labelKey: 'kpi.uniqueViewers' },
-      { val: '1.1M+ hrs', labelKey: 'kpi.watchTime' }, { val: '76.4%', labelKey: 'kpi.avgViewed' },
-      { val: '207K', labelKey: 'kpi.likes' }, { val: '7.9K', labelKey: 'kpi.comments' },
+      { val: '—', labelKey: 'kpi.views' }, { val: '—', labelKey: 'kpi.uniqueViewers' },
+      { val: '—', labelKey: 'kpi.watchTime' }, { val: '—', labelKey: 'kpi.ctr' },
+      { val: '—', labelKey: 'kpi.clicks' }, { val: '—', labelKey: 'kpi.audienceGrowth' },
     ],
   },
   {
-    artist: 'Mark Tuan', track: 'Sunsets & Cigarettes', thumb: markTuanThumb,
+    artistKey: 'youtube.case2Artist', trackKey: 'youtube.case2Track', thumb: markTuanThumb,
     metrics: [
-      { val: '10M', labelKey: 'kpi.views' }, { val: '5.5M', labelKey: 'kpi.uniqueViewers' },
-      { val: '1.4M hrs', labelKey: 'kpi.watchTime' }, { val: '81.2%', labelKey: 'kpi.avgViewed' },
-      { val: '135K', labelKey: 'kpi.likes' }, { val: '6.3K', labelKey: 'kpi.comments' },
+      { val: '—', labelKey: 'kpi.views' }, { val: '—', labelKey: 'kpi.uniqueViewers' },
+      { val: '—', labelKey: 'kpi.watchTime' }, { val: '—', labelKey: 'kpi.lpv' },
+      { val: '—', labelKey: 'kpi.audienceGrowth' }, { val: '—', labelKey: 'kpi.clicks' },
     ],
   },
 ];
