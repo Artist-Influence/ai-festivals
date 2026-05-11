@@ -1,5 +1,5 @@
 import GlassPanel from '../GlassPanel';
-import AtelierFieldVisual from '../visuals/AtelierFieldVisual';
+import PatternVisual from '../visuals/PatternVisual';
 import { Inbox, Activity, FileBarChart, Brain, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 
@@ -20,7 +20,7 @@ const UnifiedOpsSlide = () => {
 
   return (
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden py-2 px-3 md:p-20 flex flex-col justify-start md:justify-center">
-      <AtelierFieldVisual variant="mirrored" />
+      <PatternVisual />
 
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
