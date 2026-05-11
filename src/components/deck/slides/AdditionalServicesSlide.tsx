@@ -30,9 +30,15 @@ const cases = [
     metrics: [{ val: '1.4M', labelKey: 'kpi.impressions' }, { val: '$0.31', labelKey: 'kpi.cpm' }, { val: '500.7K', labelKey: 'kpi.sixSecViews' }, { val: '34.7%', labelKey: 'kpi.viewRate' }],
   },
   {
-    platform: 'META ADS', artist: 'Zeds Dead', track: 'NA Tour, 6 campaigns, 1 per city',
+    platform: 'META ADS', artist: 'Zeds Dead', track: 'Journey of a Lifetime Tour 2026 · 6 city campaigns · Phase 2',
     descKey: 'metaTiktok.case2Desc', thumb: zedsDeadImg, imgPosition: 'object-center',
-    metrics: [{ val: '1.3M', labelKey: 'kpi.impressions' }, { val: '6,754', labelKey: 'kpi.layloSignups' }, { val: '$1.40', labelKey: 'kpi.cpr' }, { val: '25.4K', labelKey: 'kpi.linkClicks' }],
+    metrics: [
+      { val: '$1,230', labelKey: 'kpi.spend' },
+      { val: '385K', labelKey: 'kpi.impressions' },
+      { val: '17.6K', labelKey: 'kpi.linkClicks' },
+      { val: '5.61%', labelKey: 'kpi.ctr' },
+      { val: '$0.057', labelKey: 'kpi.cpc' },
+    ],
   },
 ];
 
