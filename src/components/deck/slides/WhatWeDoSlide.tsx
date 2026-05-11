@@ -36,8 +36,14 @@ const HubDiagram = () => {
           <circle cx={n.cx} cy={n.cy} r={n.r}
             fill="hsl(var(--primary))" fillOpacity="0.06"
             stroke="hsl(var(--primary))" strokeWidth="0.8" strokeOpacity="0.3" />
-          <text x={n.cx} y={n.cy - 4} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="16" fontWeight="500" opacity="0.9">{n.label[0]}</text>
-          <text x={n.cx} y={n.cy + 16} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="14" fontWeight="400" opacity="0.65">{n.label[1]}</text>
+          {n.label.length > 1 ? (
+            <>
+              <text x={n.cx} y={n.cy - 4} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="15" fontWeight="500" opacity="0.9">{n.label[0]}</text>
+              <text x={n.cx} y={n.cy + 14} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="13" fontWeight="400" opacity="0.65">{n.label[1]}</text>
+            </>
+          ) : (
+            <text x={n.cx} y={n.cy + 4} textAnchor="middle" fill="hsl(var(--foreground))" fontSize="14" fontWeight="500" opacity="0.85">{n.label[0]}</text>
+          )}
         </g>
       ))}
       <circle cx={nodes[0].cx} cy={nodes[0].cy} r={nodes[0].r}
