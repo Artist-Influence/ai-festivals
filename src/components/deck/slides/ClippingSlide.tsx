@@ -8,16 +8,16 @@ import yeatCover from '@/assets/yeat-bnyx-im-yeat.jpg';
 
 const casesData = [
   {
-    artist: 'Aries', track: 'In The Flesh', img: ariesCover, overviewKey: 'clipping.case1Overview',
-    metrics: [{ val: '$0.50', labelKey: 'kpi.cpm' }, { val: '1.1M+', labelKey: 'kpi.views' }, { val: '13.65%', labelKey: 'kpi.engagement' }, { val: '133K+', labelKey: 'kpi.likes' }, { val: '164', labelKey: 'kpi.videos' }],
+    artistKey: 'clipping.case1Artist', trackKey: 'clipping.case1Track', img: ariesCover, overviewKey: 'clipping.case1Overview',
+    metrics: [{ val: '1.1M+', labelKey: 'kpi.views' }, { val: '13.65%', labelKey: 'kpi.engagement' }, { val: '133K+', labelKey: 'kpi.likes' }, { val: '164', labelKey: 'kpi.videos' }],
   },
   {
-    artist: 'Gorgon City', track: 'Mitsubishi', img: gorgonCityCover, overviewKey: 'clipping.case2Overview',
-    metrics: [{ val: '$0.60', labelKey: 'kpi.cpm' }, { val: '3.08M+', labelKey: 'kpi.views' }, { val: '3.64%', labelKey: 'kpi.engagement' }, { val: '102K+', labelKey: 'kpi.likes' }, { val: '232', labelKey: 'kpi.videos' }],
+    artistKey: 'clipping.case2Artist', trackKey: 'clipping.case2Track', img: gorgonCityCover, overviewKey: 'clipping.case2Overview',
+    metrics: [{ val: '3.08M+', labelKey: 'kpi.views' }, { val: '3.64%', labelKey: 'kpi.engagement' }, { val: '102K+', labelKey: 'kpi.likes' }, { val: '232', labelKey: 'kpi.videos' }],
   },
   {
-    artist: 'Yeat, BNYX', track: "I'M YEAT", img: yeatCover, overviewKey: 'clipping.case3Overview',
-    metrics: [{ val: '$0.43', labelKey: 'kpi.cpm' }, { val: '9.97M+', labelKey: 'kpi.views' }, { val: '12.25%', labelKey: 'kpi.engagement' }, { val: '1.17M+', labelKey: 'kpi.likes' }, { val: '64', labelKey: 'kpi.posts' }],
+    artistKey: 'clipping.case3Artist', trackKey: 'clipping.case3Track', img: yeatCover, overviewKey: 'clipping.case3Overview',
+    metrics: [{ val: '9.97M+', labelKey: 'kpi.views' }, { val: '12.25%', labelKey: 'kpi.engagement' }, { val: '1.17M+', labelKey: 'kpi.likes' }, { val: '64', labelKey: 'kpi.posts' }],
   },
 ];
 
