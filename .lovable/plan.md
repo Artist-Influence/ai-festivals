@@ -1,48 +1,53 @@
-# Slide polish — round 2
+# Three small polish edits
 
-## 1. Slide 15 — YouTube Ads case study sizing
-
-Right now the three case-study cards on the right column run taller than the combined height of the left "What it is" + "How it works" panels, causing overflow / inconsistent height.
-
-In `src/components/deck/slides/YouTubeAdsSlide.tsx`:
-
-- Constrain the right column to the same height as the left column. The left column = title block + 2 GlassPanels. Make the right column wrapper `md:h-full md:max-h-full` and ensure each of the 3 case GlassPanels uses `md:flex-1 md:min-h-0` with internal `overflow-hidden`.
-- Shrink case-card internals so they actually fit:
-  - Outer padding: `md:p-4` → `md:p-3`
-  - Thumbnail: `md:w-[180px] md:h-[110px]` → `md:w-[140px] md:h-[84px]`
-  - Artist name: `md:text-2xl` → `md:text-xl`
-  - Track line: `md:text-base` → `md:text-sm`
-  - "Case study" eyebrow: `md:text-sm` → `md:text-xs`
-  - KPI tile value: `md:text-lg` → `md:text-base`
-  - KPI tile label: `md:text-xs` → `md:text-[10px]`
-  - KPI tile padding: `md:py-2 md:px-2` → `md:py-1.5 md:px-1.5`
-  - Header bottom margin: `md:mb-3` → `md:mb-2`
-- Add `md:gap-2` (was `md:gap-3`) between the 3 cards so the column total height matches the left column exactly.
-
-No copy or metric changes — Space Laces tiles stay as-is from the previous round.
-
-## 2. Slide 9 — New funnel visualizer in brand aesthetic
-
-The cyan→violet→magenta EQ visualizer doesn't fit the brand. Rewrite it again, this time staying inside the Artist Influence palette (primary red `hsl(0 72% 51%)` on dark) but with a fresher, more modern motif than the original trapezoid.
-
-Rewrite `src/components/deck/FunnelSignalVisualizer.tsx` as a **concentric "signal capture" funnel**:
-
-- All fills/strokes use `hsl(var(--primary))` with varying opacity (0.08 → 0.9). No off-brand hues.
-- Composition (top → bottom inside a ~220×520 viewBox):
-  1. **Wide top — scattered signal field**: ~40 small dots of varying radii (1–2.5px) and opacities (0.15–0.6) drifting slowly inside an implied wide top band. Uses subtle rAF jitter, not a literal grid.
-  2. **Concentric capture rings (mid)**: 4 stacked horizontal ellipses, each narrower than the one above (rx 95 → 30), stroke `hsl(var(--primary))` opacity 0.2 → 0.55, no fill. They subtly pulse `ry` on a 4s loop with staggered delays so it reads as energy being focused.
-  3. **Vertical "signal beam"**: a thin 2px-wide vertical line down the center from top to bottom with a linear gradient mask (transparent → primary 0.7 → transparent), animated via a moving `<rect>` clip so a bright pulse travels top-to-bottom every 2.4s.
-  4. **Conversion node (bottom)**: a filled circle r=6 in primary with two expanding ring pulses (`<animate>` on `r` 6→22 and `opacity` 0.6→0) staggered 1.2s apart — reads as a ticket "ping".
-- Use `<defs>` for one `linearGradient` (vertical, primary 0 → primary 0.6 → primary 0) for the beam, and one `radialGradient` (primary 0.35 center → 0 edge) for a soft halo behind the conversion node.
-- Animation driver: keep the existing `requestAnimationFrame` loop; particles get gentle vertical drift (downward, wrapping) plus tiny horizontal sine sway. No EQ bars.
-- Keep the component's outer sizing the same: `className="w-full max-w-[240px] h-auto max-h-[520px]"` so `TicketFunnelSlide.tsx` layout doesn't shift.
+## 1. Slide 9 — bigger, properly centered visualizer
 
 In `src/components/deck/slides/TicketFunnelSlide.tsx`:
+- Widen the right column from `md:w-[300px]` to `md:w-[380px]` so the visualizer has more room and the empty space between the left text stack and the slide edge balances out.
+- Keep `items-center justify-center` so the SVG sits centered both vertically and horizontally inside that column.
+- Bump halo size from `w-[260px] h-[260px]` to `w-[340px] h-[340px]` to scale with the larger visualizer.
 
-- Swap the neutral `bg-white/5` halo back to `bg-primary/10 blur-3xl` so the visualizer reads as part of the brand red accent system.
+In `src/components/deck/FunnelSignalVisualizer.tsx`:
+- Raise the outer cap so it can actually fill the left-stack height: `max-w-[240px] max-h-[520px]` → `max-w-[340px] max-h-[680px]`. The viewBox stays `220×520` so internal proportions are unchanged — it just renders larger.
+
+Net effect: the visualizer grows ~40% and the right column is centered between the left text stack and the slide's right edge.
+
+## 2. Clipping case study thumbnails (slide 10's case-study companion)
+
+User attached three thumbs. Copy them into `src/assets/` with the names:
+- `user-uploads://skrillex_-_FUS.jpg` → `src/assets/case-clipping-skrillex.jpg`
+- `user-uploads://doordash_x_50_cent.jpg` → `src/assets/case-clipping-doordash.jpg`
+- `user-uploads://super_mario_galaxy.jpg` → `src/assets/case-clipping-mario.jpg`
+
+In `src/components/deck/slides/CaseStudyClippingSlide.tsx`, replace the placeholder imports:
+```ts
+import skrillexCover from '@/assets/case-clipping-skrillex.jpg';
+import doordashCover from '@/assets/case-clipping-doordash.jpg';
+import marioCover from '@/assets/case-clipping-mario.jpg';
+```
+The three `cases[].coverArt` references already point at these variables, so no further wiring needed. Remove the `// TODO: swap to final cover art` comment.
+
+## 3. Slide 15 — shrink YouTube case cards to match left column height
+
+In `src/components/deck/slides/YouTubeAdsSlide.tsx`, the right column already uses `flex-1 + min-h-0` but the internal content forces overflow. Tighten further:
+
+- Card padding: `md:p-3` → `md:p-2.5`
+- Inter-card gap stays `md:gap-2`
+- Thumbnail: `md:w-[140px] md:h-[84px]` → `md:w-[120px] md:h-[72px]`
+- Header bottom margin: `md:mb-2` → `md:mb-1.5`
+- Artist name: `md:text-xl` → `md:text-lg`
+- Track line: `md:text-sm` → `md:text-xs`
+- "Case study" eyebrow: `md:text-xs` → `md:text-[10px]`, `mb-0.5` stays
+- KPI tile padding: `md:py-1.5 md:px-1.5` → `md:py-1 md:px-1`
+- KPI tile value: `md:text-base` → `md:text-sm`
+- KPI tile label: `md:text-[10px]` → `md:text-[9px]`
+- KPI grid gap: `md:gap-1.5` → `md:gap-1`
+
+No copy or metric changes. Mobile sizes untouched.
 
 ## Files touched
-
-- `src/components/deck/slides/YouTubeAdsSlide.tsx` — case card sizing + column height clamp
-- `src/components/deck/FunnelSignalVisualizer.tsx` — full rewrite in brand red, concentric capture motif
-- `src/components/deck/slides/TicketFunnelSlide.tsx` — restore primary halo
+- `src/components/deck/slides/TicketFunnelSlide.tsx`
+- `src/components/deck/FunnelSignalVisualizer.tsx`
+- `src/components/deck/slides/CaseStudyClippingSlide.tsx`
+- `src/assets/case-clipping-{skrillex,doordash,mario}.jpg` (new)
+- `src/components/deck/slides/YouTubeAdsSlide.tsx`
