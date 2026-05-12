@@ -2,10 +2,9 @@ import { Scissors } from 'lucide-react';
 import GlassPanel from '../GlassPanel';
 import PatternVisual from '../visuals/PatternVisual';
 import { useTranslation } from '@/i18n/LanguageContext';
-// TODO: replace with final cover art (Skrillex / DoorDash × 50 Cent / Super Mario Galaxy Movie) — placeholders for now
-import skrillexCover from '@/assets/skrillex-clip1.png';
-import doordashCover from '@/assets/all-american-rejects-get-this.jpg';
-import marioCover from '@/assets/sonny-fodera-all-this-time.jpg';
+import skrillexCover from '@/assets/case-clipping-skrillex.jpg';
+import doordashCover from '@/assets/case-clipping-doordash.jpg';
+import marioCover from '@/assets/case-clipping-mario.jpg';
 
 const casesData = [
   {
