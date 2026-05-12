@@ -2,22 +2,23 @@ import { Scissors } from 'lucide-react';
 import GlassPanel from '../GlassPanel';
 import PatternVisual from '../visuals/PatternVisual';
 import { useTranslation } from '@/i18n/LanguageContext';
-import ariesCover from '@/assets/aries-in-the-flesh.jpg';
-import gorgonCityCover from '@/assets/gorgon-city-mitsubishi.jpg';
-import yeatCover from '@/assets/yeat-bnyx-im-yeat.jpg';
+// TODO: replace with final cover art (Skrillex / DoorDash × 50 Cent / Super Mario Galaxy Movie) — placeholders for now
+import skrillexCover from '@/assets/skrillex-clip1.png';
+import doordashCover from '@/assets/all-american-rejects-get-this.jpg';
+import marioCover from '@/assets/sonny-fodera-all-this-time.jpg';
 
 const casesData = [
   {
-    artistKey: 'clipping.case1Artist', trackKey: 'clipping.case1Track', img: ariesCover, overviewKey: 'clipping.case1Overview',
-    metrics: [{ val: '1.1M+', labelKey: 'kpi.views' }, { val: '13.65%', labelKey: 'kpi.engagement' }, { val: '133K+', labelKey: 'kpi.likes' }, { val: '164', labelKey: 'kpi.videos' }],
+    artistKey: 'clipping.case1Artist', trackKey: 'clipping.case1Track', img: skrillexCover, overviewKey: 'clipping.case1Overview',
+    metrics: [{ val: '2.08M', labelKey: 'kpi.views' }, { val: '6.84%', labelKey: 'kpi.engagement' }, { val: '136K', labelKey: 'kpi.likes' }, { val: '1,557', labelKey: 'kpi.posts' }],
   },
   {
-    artistKey: 'clipping.case2Artist', trackKey: 'clipping.case2Track', img: gorgonCityCover, overviewKey: 'clipping.case2Overview',
-    metrics: [{ val: '3.08M+', labelKey: 'kpi.views' }, { val: '3.64%', labelKey: 'kpi.engagement' }, { val: '102K+', labelKey: 'kpi.likes' }, { val: '232', labelKey: 'kpi.videos' }],
+    artistKey: 'clipping.case2Artist', trackKey: 'clipping.case2Track', img: doordashCover, overviewKey: 'clipping.case2Overview',
+    metrics: [{ val: '4.74M', labelKey: 'kpi.views' }, { val: '5.77%', labelKey: 'kpi.engagement' }, { val: '206K', labelKey: 'kpi.likes' }, { val: '267', labelKey: 'kpi.posts' }],
   },
   {
-    artistKey: 'clipping.case3Artist', trackKey: 'clipping.case3Track', img: yeatCover, overviewKey: 'clipping.case3Overview',
-    metrics: [{ val: '9.97M+', labelKey: 'kpi.views' }, { val: '12.25%', labelKey: 'kpi.engagement' }, { val: '1.17M+', labelKey: 'kpi.likes' }, { val: '64', labelKey: 'kpi.posts' }],
+    artistKey: 'clipping.case3Artist', trackKey: 'clipping.case3Track', img: marioCover, overviewKey: 'clipping.case3Overview',
+    metrics: [{ val: '8.75M', labelKey: 'kpi.views' }, { val: '5.99%', labelKey: 'kpi.engagement' }, { val: '521K', labelKey: 'kpi.likes' }, { val: '105', labelKey: 'kpi.clips' }],
   },
 ];
 

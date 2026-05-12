@@ -1,38 +1,33 @@
 import GlassPanel from '../GlassPanel';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
-import ariesCover from '@/assets/aries-in-the-flesh.jpg';
-import gorgonCityCover from '@/assets/gorgon-city-mitsubishi.jpg';
-import nashRlyCover from '@/assets/nash-rly-u-and-me.jpg';
+// TODO: swap to final cover art when user attaches them
+import skrillexCover from '@/assets/skrillex-clip1.png';
+import doordashCover from '@/assets/all-american-rejects-get-this.jpg';
+import marioCover from '@/assets/sonny-fodera-all-this-time.jpg';
 
 const cases = [
   {
-    artist: 'Aries', track: 'In The Flesh', coverArt: ariesCover, overviewKey: 'csClipping.overview.0',
+    artist: 'Skrillex', track: 'FUS Album', coverArt: skrillexCover, overviewKey: 'csClipping.overview.0',
     metrics: [
-      { val: '$0.50', labelKey: 'kpi.cpm' }, { val: '1.1M+', labelKey: 'kpi.views' },
-      { val: '13.65%', labelKey: 'kpi.engagement' }, { val: '133K+', labelKey: 'kpi.likes' },
+      { val: '$1.20', labelKey: 'kpi.cpm' }, { val: '2.08M', labelKey: 'kpi.views' },
+      { val: '6.84%', labelKey: 'kpi.engagement' }, { val: '136K', labelKey: 'kpi.likes' },
     ],
-    clips: [
-      { url: 'https://www.tiktok.com/@chestercorneliusthethird/video/7567109238930050317' },
-      { url: 'https://www.tiktok.com/@chestercorneliusthethird/video/7568640706928069902' },
-    ],
+    clips: [],
   },
   {
-    artist: 'Gorgon City', track: 'Mitsubishi', coverArt: gorgonCityCover, overviewKey: 'csClipping.overview.1',
+    artist: 'DoorDash × 50 Cent', track: 'Brand Spot', coverArt: doordashCover, overviewKey: 'csClipping.overview.1',
     metrics: [
-      { val: '$0.60', labelKey: 'kpi.cpm' }, { val: '3.08M+', labelKey: 'kpi.views' },
-      { val: '102K+', labelKey: 'kpi.likes' }, { val: '3.64%', labelKey: 'kpi.engagement' },
+      { val: '4.74M', labelKey: 'kpi.views' }, { val: '206K', labelKey: 'kpi.likes' },
+      { val: '65.7K', labelKey: 'kpi.shares' }, { val: '5.77%', labelKey: 'kpi.engagement' },
     ],
-    clips: [
-      { url: 'https://www.instagram.com/p/DQmP6-JkvLS' },
-      { url: 'https://www.instagram.com/p/DQkQTC_D1kJ' },
-    ],
+    clips: [],
   },
   {
-    artist: 'Nash Rly', track: 'U & Me', coverArt: nashRlyCover, overviewKey: 'csClipping.overview.2',
+    artist: 'Super Mario Galaxy Movie', track: 'Film Launch', coverArt: marioCover, overviewKey: 'csClipping.overview.2',
     metrics: [
-      { val: '$0.49', labelKey: 'kpi.cpm' }, { val: '1.55M+', labelKey: 'kpi.views' },
-      { val: '48K+', labelKey: 'kpi.likes' }, { val: '3.78%', labelKey: 'kpi.engagement' },
+      { val: '$0.57', labelKey: 'kpi.cpm' }, { val: '8.75M', labelKey: 'kpi.views' },
+      { val: '521K', labelKey: 'kpi.likes' }, { val: '105', labelKey: 'kpi.clips' },
     ],
     clips: [],
   },
