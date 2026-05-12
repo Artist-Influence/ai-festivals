@@ -1,10 +1,9 @@
 import GlassPanel from '../GlassPanel';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
-// TODO: swap to final cover art when user attaches them
-import skrillexCover from '@/assets/skrillex-clip1.png';
-import doordashCover from '@/assets/all-american-rejects-get-this.jpg';
-import marioCover from '@/assets/sonny-fodera-all-this-time.jpg';
+import skrillexCover from '@/assets/case-clipping-skrillex.jpg';
+import doordashCover from '@/assets/case-clipping-doordash.jpg';
+import marioCover from '@/assets/case-clipping-mario.jpg';
 
 const cases = [
   {
