@@ -1,9 +1,6 @@
-## Fix
+I found slide 10 is `ClippingSlide`, and its Skrillex thumbnail is still importing the old `skrillex-clip1.png` placeholder.
 
-Overwrite the three Clipping case-study thumbnails with the newly uploaded versions:
-
-- `user-uploads://skrillex_-_FUS-2.jpg` → `src/assets/case-clipping-skrillex.jpg`
-- `user-uploads://doordash_x_50_cent-2.jpg` → `src/assets/case-clipping-doordash.jpg`
-- `user-uploads://super_mario_galaxy-2.jpg` → `src/assets/case-clipping-mario.jpg`
-
-No code or layout changes — `CaseStudyClippingSlide.tsx` already imports these exact paths.
+Plan:
+1. Copy the uploaded image `skrillex_-_FUS-3.jpg` into `src/assets/case-clipping-skrillex.jpg`, replacing the current asset used for the Skrillex clipping case study.
+2. Update `ClippingSlide.tsx` so slide 10 imports `case-clipping-skrillex.jpg` for the Skrillex thumbnail instead of `skrillex-clip1.png`.
+3. Leave the rest of the slide and other thumbnails unchanged.
