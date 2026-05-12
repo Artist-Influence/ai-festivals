@@ -11,7 +11,7 @@ const TicketFunnelSlide = () => {
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-16 flex flex-col justify-start md:justify-center">
       <PatternVisual />
 
-      <div className="relative z-10 w-full max-w-[1500px] mx-auto">
+      <div className="relative z-10 w-full max-w-[1750px] mx-auto">
         <p className="text-xs md:text-sm text-primary font-medium tracking-[0.25em] uppercase mb-2 md:mb-4">Ticket Sales Funnel</p>
         <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-2 md:mb-4 leading-tight">
           {t('funnel.title')}
@@ -32,8 +32,8 @@ const TicketFunnelSlide = () => {
           </div>
 
           {/* Abstract funnel signal — accent on the RIGHT (desktop only) */}
-          <div className="hidden md:flex md:w-[380px] relative items-center justify-center">
-            <div className="absolute inset-0 m-auto w-[340px] h-[340px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+          <div className="hidden md:flex md:w-[480px] relative items-center justify-center">
+            <div className="absolute inset-0 m-auto w-[400px] h-[400px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
             <FunnelSignalVisualizer />
           </div>
         </div>
