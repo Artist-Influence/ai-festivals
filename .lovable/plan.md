@@ -1,80 +1,76 @@
-## 1. Slide 9 — TicketFunnelSlide polish
+# Slide polish pass
 
-**Stage bubbles (left column):**
-- Constrain width: drop `flex-[2]` and use `md:max-w-[820px]` on the stages column so bubbles don't stretch full width.
-- Bump text sizes to fill the vertical space between subtitle and footer panel:
-  - Stage label: `md:text-base` → `md:text-xl`
-  - Stage description: `md:text-base` → `md:text-2xl`
-  - Panel padding: `md:p-4` → `md:p-6`
-  - Gap between bubbles: `md:gap-3` → `md:gap-5`
+## 1. Slide 9 — Ticket Funnel visualizer (replace, not red)
 
-**Visualizer (right column):**
-- Make it brighter and unmistakably centered:
-  - Wrap in a flex container with `items-center justify-center` (already), but widen lane: `md:w-[280px]`.
-  - In `FunnelSignalVisualizer.tsx`, raise opacities: walls 0.2 → 0.45, tiers 0.12 → 0.28, center guide 0.06 → 0.18, particle `maxOpacity` baseline 0.35 → 0.6, glow 0.08/0.55 → 0.18/0.85.
-  - Add a soft red radial halo behind the SVG (absolute div with `bg-primary/10 blur-3xl`) so it reads as centered red glow even at a glance.
-  - Center the SVG block explicitly: wrap in `relative flex items-center justify-center` and use `mx-auto` on the svg.
+Rewrite `src/components/deck/FunnelSignalVisualizer.tsx` as a "sick" audio-style funnel — vertical equalizer bars whose count and amplitude narrow from top to bottom, plus a soft converging glow at the base.
 
-## 2. Clipping case studies — new lineup
+- Drop the red `hsl(var(--primary))` fills. Use a cool→warm gradient defined inline in the SVG `<defs>`:
+  - stop 0%: `hsl(190 95% 60%)` (cyan)
+  - stop 50%: `hsl(265 90% 65%)` (violet)
+  - stop 100%: `hsl(330 90% 60%)` (magenta)
+- Replace the falling-particle system with ~9 columns of stacked EQ bars. Each column animates its bar heights via rAF using offset sine waves so it reads as a live music visualizer.
+- Column count narrows toward the bottom: top row = 9 bars wide, middle = 6, bottom = 3, creating an implied funnel without literal walls.
+- Add a soft horizontal glow ellipse at the base using the gradient's magenta stop.
+- Keep the component sized `max-w-[220px]` so the slide layout doesn't change.
+- In `TicketFunnelSlide.tsx`, swap the red `bg-primary/10 blur-3xl` halo for a neutral `bg-white/5` halo so it doesn't fight the new gradient.
 
-Replace cases in `ClippingSlide.tsx` AND `CaseStudyClippingSlide.tsx` with **Skrillex / DoorDash × 50 Cent / Super Mario Galaxy Movie**.
+## 2. Slide 10 — Clipping case study heights
 
-Data (from screenshots):
+In `ClippingSlide.tsx`, make the right column of three case-study cards match the combined height of the left "Pros / Why we're different" stack.
 
-| Artist | Title | Views | Engagement | Likes | Posts | Notes |
-|---|---|---|---|---|---|---|
-| Skrillex | FUS Album | 2.08M | 6.84% | 136K | 1,557 | ~42% album UGC, $1.20 CPM |
-| DoorDash × 50 Cent | Brand spot | 4.74M | 5.77% | 206K | 267 | 65.7K shares |
-| Super Mario Galaxy Movie | Film launch | 8.75M | 5.99% | 521K | 105 clips | $0.57 CPM, $5K budget |
+- Right column: add `md:flex-1` (already present) plus `md:justify-between` and give each `GlassPanel` `md:flex-1` so the three cards stretch evenly to fill the column height.
+- Bump card inner padding to `md:p-5` and metric tile padding to `md:p-3` so the taller cards don't look empty.
 
-- Update `casesData` in `ClippingSlide.tsx` (right-side cards). Use placeholder cover paths in `src/assets/clipping/skrillex.jpg`, `doordash-50cent.jpg`, `super-mario-galaxy.jpg` — referenced via imports but with TODO comment ("user will attach thumbnails"); for now point them at existing placeholders (`skrillexClip1` etc.) so build doesn't break.
-- Update `cases` array in `CaseStudyClippingSlide.tsx` similarly (deeper cards with overview/strategy text).
-- Add new i18n keys (`clipping.case1Artist/Track/Overview` etc., and `csClipping.overview.0..2`) in `src/i18n/en.ts`. Other locale files keep stale keys — acceptable per existing pattern.
-- Remove/retire references to Aries, Gorgon City, Yeat, Nash Rly in clipping slides only.
+## 3. Slide 11 — IG Seeding: keep only Space Laces + Sauti
 
-## 3. Space Laces — split across YouTube + Instagram
+In `InstagramSeedingSlide.tsx`, trim the `cases` array to just **Francis Mercier — Sauti** and **Space Laces — Vaultage 004**. Remove Gordo and Mau P entries (and their now-unused image imports).
 
-Split the Vaultage 004 case study:
+With only two cards on the right, give each card more breathing room (`md:p-6`, larger artwork `md:w-24 md:h-24`) so the column still fills the slide height alongside the two left panels.
 
-**YouTube Ads slide** — replace one of the existing placeholder cases with **Space Laces — Vaultage 004 (YouTube)**:
-- 290K WW display views, #2 search term for "Space Laces" on YouTube, 452K total views, 16K likes, 2 campaigns, 145K views/campaign.
+## 4. Slide 12 — Meta & TikTok Ads "How it works" timeframe cut off
 
-**Instagram Seeding slide** — add **Space Laces — Vaultage 004 (IG)** as a 4th card (or replace one):
-- 292K IG seeding views, 6,743 likes, 187 comments, 174 shares, 5 posts, 2.43% engagement.
+In `AdditionalServicesSlide.tsx` (Meta & TikTok Ads, slide 12), reduce font sizes inside the "How it works" panel so the timeframe line at the bottom is fully visible.
 
-User to provide cover art later — use a placeholder import for now.
+- Bullet text: `md:text-2xl` → `md:text-xl`
+- Timeframe line: `md:text-2xl` → `md:text-lg`
+- Tighten vertical spacing (`space-y-2` and `pt-2 mt-2`) only if needed after the type changes.
 
-## 4. YouTube Ads — two new case studies
+## 5. Slide 15 — YouTube Ads sizing + Space Laces tweaks
 
-Replace the two placeholder YouTube cases with:
+In `YouTubeAdsSlide.tsx`:
 
-**Case A — SVDDEN DEATH (VOYD): VOYDOME 2025**
-- 164K views, 8.4K likes, 544 comments
-- 634K subscriber growth, 19.1K watch hours, 7% CTR, 837K impressions
-- "#3 search term for artist name on YouTube"
+- **Title cut-off**: reduce `h1` from `md:text-6xl` to `md:text-5xl` and clamp the subtitle to `md:text-xl`. Reduce `md:min-h-[720px]` to `md:min-h-0` and let the flex container drive height naturally.
+- **Left panels (What/How)** trimmed: bullet text to `md:text-lg`, headings to `md:text-xl`, padding to `md:p-6`, so neither panel overflows.
+- **Right case-study cards**: change wrapper to `md:h-full` with each `GlassPanel` getting `md:flex-1 md:min-h-0` and `flex flex-col` so the three cards split the column evenly. Reduce thumbnail to `md:w-[180px] md:h-[110px]`, artist name to `md:text-2xl`, KPI tiles to `md:text-lg` so each card fits without clipping.
+- **Space Laces (case 3) metrics**: remove the `{ val: '2', labelKey: 'kpi.campaigns' }` tile and replace `kpi.viewsPerCampaign` with a `{ val: '9.2%', labelKey: 'kpi.ctr' }` tile. Final 6-tile grid becomes:
+  - 290K Display Views · 452K Total Views · 16K Likes
+  - 9.2% CTR · 145K Avg Views · #2 Search Rank
+  (If "Avg Views" no longer makes sense without the campaigns count, replace it with Impressions; will confirm during implementation, but default to keeping Avg Views.)
 
-**Case B — GORDO @ MUTE (TARAKA Argentina)**
-- 1.2M views, 29K likes, 783 comments, 2.1K subscriber growth
-- Derived (proportional to SVDDEN DEATH ratios: views×7.32):
-  - Impressions ≈ 6.13M
-  - Watch hours ≈ 140K
-  - CTR ≈ 7% (kept same — CTR is rate, not volume)
+## 6. Slide 20 — Pricing: remove two services
 
-Update `cases` in `YouTubeAdsSlide.tsx` with these values + new i18n keys (`youtube.case1Artist/Track`, `youtube.case2Artist/Track`). Replace thumb imports with placeholder paths (TODO — user to attach).
+In `src/i18n/en.ts`, delete pricing entries for service 5 (Laylo / SMS / Email Capture) and service 7 (Retargeting Systems). Renumber remaining entries to 0–5 so the array is contiguous:
 
-## 5. Files
+```text
+0  Clipping / Creator Distribution
+1  Instagram Seeding
+2  Meta & TikTok Ads
+3  YouTube Ads
+4  SoundCloud Reposts
+5  Event Landing Pages
+```
 
-- Edit: `src/components/deck/slides/TicketFunnelSlide.tsx`
-- Edit: `src/components/deck/FunnelSignalVisualizer.tsx`
-- Edit: `src/components/deck/slides/ClippingSlide.tsx`
-- Edit: `src/components/deck/slides/CaseStudyClippingSlide.tsx`
-- Edit: `src/components/deck/slides/YouTubeAdsSlide.tsx`
-- Edit: `src/components/deck/slides/InstagramSeedingSlide.tsx`
-- Edit: `src/i18n/en.ts` (new + replaced keys)
+In `PricingSlide.tsx`, change `Array.from({ length: 8 }, …)` to `length: 6`.
 
-No changes to other slides, routing, or backend.
+Apply the same key removal/renumbering to every locale file in `src/i18n/` (ar, de, es, fr, hi, ja, ko, nl, pt, zh) so translations stay in sync.
 
-## Open items (will use placeholders for now)
-- Clipping cover art for Skrillex / DoorDash / Super Mario Galaxy
-- Space Laces cover (for YT + IG cards)
-- VOYDOME 2025 + GORDO @ MUTE thumbnails
+## Files touched
+
+- `src/components/deck/FunnelSignalVisualizer.tsx` (rewrite)
+- `src/components/deck/slides/TicketFunnelSlide.tsx` (halo color)
+- `src/components/deck/slides/ClippingSlide.tsx` (right column heights)
+- `src/components/deck/slides/InstagramSeedingSlide.tsx` (trim cases)
+- `src/components/deck/slides/AdditionalServicesSlide.tsx` (text sizing)
+- `src/components/deck/slides/YouTubeAdsSlide.tsx` (sizing + Space Laces metrics)
+- `src/components/deck/slides/PricingSlide.tsx` (length: 6)
+- `src/i18n/{en,ar,de,es,fr,hi,ja,ko,nl,pt,zh}.ts` (remove service 5 & 7, renumber)

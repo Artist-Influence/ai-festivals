@@ -66,9 +66,9 @@ const ClippingSlide = () => {
             </GlassPanel>
           </div>
 
-          <div className="flex-1 flex flex-col gap-2 md:gap-3">
+          <div className="flex-1 flex flex-col gap-2 md:gap-3 md:justify-between">
             {casesData.map((c) => (
-              <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-4">
+              <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-5 md:flex-1 md:flex md:flex-col md:justify-center">
                 <div className="flex gap-2 md:gap-4">
                   <img loading="lazy" decoding="async" src={c.img} alt={t(c.artistKey)}
                     className="w-10 h-10 md:w-20 md:h-20 rounded-lg md:rounded-xl object-cover border border-white/[0.08] shrink-0" />

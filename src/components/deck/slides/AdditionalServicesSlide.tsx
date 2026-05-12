@@ -45,7 +45,7 @@ const cases = [
 const BulletPoint = ({ children }: { children: React.ReactNode }) => (
   <div className="flex items-start gap-2">
     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-    <p className="text-xs md:text-2xl text-muted-foreground">{children}</p>
+    <p className="text-xs md:text-xl text-muted-foreground">{children}</p>
   </div>
 );
 
@@ -86,7 +86,7 @@ const AdditionalServicesSlide = () => {
                 ))}
               </div>
               <div className="pt-3 border-t border-white/[0.06] mt-3">
-                <p className="text-xs md:text-2xl text-primary font-medium">{t('metaTiktok.timeframe')}</p>
+                <p className="text-xs md:text-lg text-primary font-medium">{t('metaTiktok.timeframe')}</p>
               </div>
             </GlassPanel>
           </div>

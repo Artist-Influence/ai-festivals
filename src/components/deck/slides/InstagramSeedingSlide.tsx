@@ -2,21 +2,11 @@ import GlassPanel from '../GlassPanel';
 import PatternVisual from '../visuals/PatternVisual';
 import { Instagram } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
-import gordoImg from '@/assets/gordo-gordos-dilemma.jpg';
-import mauPImg from '@/assets/mau-p-the-less-i-know-the-better.jpg';
 import francisMercierImg from '@/assets/francis-mercier-sauti-artwork.jpg';
 // TODO: swap to final Space Laces Vaultage 004 cover when attached
 import spaceLacesImg from '@/assets/dack-janiels-shock-therapy.jpg';
 
 const cases = [
-  {
-    artist: 'Gordo', track: "Gordo's Dilemma", artwork: gordoImg,
-    metrics: [{ val: '5.4M', labelKey: 'kpi.views' }, { val: '136.7K', labelKey: 'kpi.likes' }, { val: '$0.13', labelKey: 'kpi.cpm' }],
-  },
-  {
-    artist: 'Mau P', track: 'The Less I Know The Better', artwork: mauPImg,
-    metrics: [{ val: '3.9M', labelKey: 'kpi.views' }, { val: '138.7K', labelKey: 'kpi.likes' }, { val: '$0.71', labelKey: 'kpi.cpm' }],
-  },
   {
     artist: 'Francis Mercier', track: 'Sauti', artwork: francisMercierImg,
     metrics: [{ val: '16.8M', labelKey: 'kpi.views' }, { val: '1.18M', labelKey: 'kpi.likes' }, { val: '$0.042', labelKey: 'kpi.cpm' }],
@@ -89,9 +79,9 @@ const InstagramSeedingSlide = () => {
 
           <div className="flex-1 min-w-0 flex flex-col gap-2 md:gap-3 justify-between">
             {cases.map((c, idx) => (
-              <GlassPanel key={idx} variant="bright" className="p-3 md:p-5 flex flex-col">
-                <div className="flex gap-2.5 md:gap-4 mb-1 md:mb-3">
-                  <div className="w-12 h-12 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden border border-white/[0.08] shrink-0">
+              <GlassPanel key={idx} variant="bright" className="p-3 md:p-6 flex flex-col md:flex-1 md:justify-center">
+                <div className="flex gap-2.5 md:gap-5 mb-1 md:mb-4">
+                  <div className="w-12 h-12 md:w-24 md:h-24 rounded-lg md:rounded-xl overflow-hidden border border-white/[0.08] shrink-0">
                     <img loading="lazy" decoding="async" src={c.artwork} alt={`${c.artist} - ${c.track}`} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
@@ -105,7 +95,7 @@ const InstagramSeedingSlide = () => {
                   {c.metrics.map((m) => (
                     <div key={m.labelKey} className="bg-white/[0.04] rounded p-1.5 md:p-3 flex flex-col items-center justify-center text-center">
                       <p className="text-sm md:text-2xl font-bold text-foreground">{m.val}</p>
-                      <p className="text-[8px] md:text-lg text-muted-foreground uppercase tracking-wider">{t(m.labelKey)}</p>
+                      <p className="text-[8px] md:text-base text-muted-foreground uppercase tracking-wider">{t(m.labelKey)}</p>
                     </div>
                   ))}
                 </div>

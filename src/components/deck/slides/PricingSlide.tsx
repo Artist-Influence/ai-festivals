@@ -5,7 +5,7 @@ import { useTranslation } from '@/i18n/LanguageContext';
 const PricingSlide = () => {
   const { t } = useTranslation();
 
-  const services = Array.from({ length: 8 }, (_, i) => ({
+  const services = Array.from({ length: 6 }, (_, i) => ({
     name: t(`pricing.service.${i}.name`),
     unit: t(`pricing.service.${i}.unit`),
     note: t(`pricing.service.${i}.note`),
