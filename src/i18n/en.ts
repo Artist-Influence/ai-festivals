@@ -90,7 +90,6 @@ const en: Record<string, string> = {
   'youtube.case2Track': 'TARAKA Argentina',
   'youtube.case3Artist': 'Space Laces',
   'youtube.case3Track': 'Vaultage 004 — #2 search term on YouTube',
-  'kpi.impressions': 'Impressions',
   'kpi.subscriberGrowth': 'Sub Growth',
   'kpi.displayViews': 'Display Views',
   'kpi.totalViews': 'Total Views',
