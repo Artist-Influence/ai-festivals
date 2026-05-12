@@ -62,8 +62,8 @@ const FunnelSignalVisualizer = () => {
     lane: Math.sin(i * 1.7) * 0.9,
     startY: (i * 23) % (botY - topY + 40),
     speed: 32 + (i % 5) * 8,
-    r: 1.2 + (i % 3) * 0.5,
-    maxOpacity: 0.35 + (i % 4) * 0.12,
+    r: 1.6 + (i % 3) * 0.6,
+    maxOpacity: 0.6 + (i % 4) * 0.1,
   }));
 
   // Tier guide y-positions (5 tiers)
@@ -82,18 +82,18 @@ const FunnelSignalVisualizer = () => {
       <line
         x1={W / 2 - topW / 2} y1={topY}
         x2={W / 2 - bottomW / 2} y2={botY}
-        stroke="hsl(var(--primary))" strokeOpacity="0.2" strokeWidth="0.6"
+        stroke="hsl(var(--primary))" strokeOpacity="0.55" strokeWidth="1"
       />
       <line
         x1={W / 2 + topW / 2} y1={topY}
         x2={W / 2 + bottomW / 2} y2={botY}
-        stroke="hsl(var(--primary))" strokeOpacity="0.2" strokeWidth="0.6"
+        stroke="hsl(var(--primary))" strokeOpacity="0.55" strokeWidth="1"
       />
 
       {/* Center guide */}
       <line
         x1={W / 2} y1={topY} x2={W / 2} y2={botY}
-        stroke="hsl(var(--primary))" strokeOpacity="0.06" strokeWidth="0.4"
+        stroke="hsl(var(--primary))" strokeOpacity="0.18" strokeWidth="0.5"
         strokeDasharray="1 4"
       />
 
@@ -105,7 +105,7 @@ const FunnelSignalVisualizer = () => {
             key={`tier-${i}`}
             x1={W / 2 - w / 2} y1={y}
             x2={W / 2 + w / 2} y2={y}
-            stroke="hsl(var(--primary))" strokeOpacity="0.12" strokeWidth="0.5"
+            stroke="hsl(var(--primary))" strokeOpacity="0.32" strokeWidth="0.7"
           />
         );
       })}
@@ -128,12 +128,12 @@ const FunnelSignalVisualizer = () => {
       ))}
 
       {/* Conversion glow at the bottom */}
-      <ellipse cx={W / 2} cy={botY + 6} rx="34" ry="10" fill="hsl(var(--primary))" opacity="0.08">
-        <animate attributeName="opacity" values="0.05;0.14;0.05" dur="3.2s" repeatCount="indefinite" />
+      <ellipse cx={W / 2} cy={botY + 6} rx="44" ry="14" fill="hsl(var(--primary))" opacity="0.22">
+        <animate attributeName="opacity" values="0.16;0.32;0.16" dur="3.2s" repeatCount="indefinite" />
       </ellipse>
-      <circle cx={W / 2} cy={botY + 4} r="3.5" fill="hsl(var(--primary))" opacity="0.55">
-        <animate attributeName="r" values="3;5.5;3" dur="2.4s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="0.4;0.75;0.4" dur="2.4s" repeatCount="indefinite" />
+      <circle cx={W / 2} cy={botY + 4} r="4" fill="hsl(var(--primary))" opacity="0.9">
+        <animate attributeName="r" values="3.5;6.5;3.5" dur="2.4s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="0.7;1;0.7" dur="2.4s" repeatCount="indefinite" />
       </circle>
     </svg>
   );

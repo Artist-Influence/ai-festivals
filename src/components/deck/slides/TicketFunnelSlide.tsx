@@ -20,19 +20,20 @@ const TicketFunnelSlide = () => {
 
         <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-stretch">
           {/* Stage descriptions — primary content on the LEFT */}
-          <div className="flex-[2] flex flex-col gap-2 md:gap-3">
+          <div className="flex-1 md:max-w-[900px] flex flex-col gap-2 md:gap-5">
             {stages.map((i) => (
-              <GlassPanel key={i} variant="subtle" className="p-3 md:p-4">
-                <div className="flex items-start gap-3 md:gap-4">
-                  <span className="text-primary font-mono text-xs md:text-base tracking-widest shrink-0 w-20 md:w-32">{t(`funnel.stage.${i}.label`)}</span>
-                  <p className="text-xs md:text-base text-muted-foreground leading-relaxed">{t(`funnel.stage.${i}.desc`)}</p>
+              <GlassPanel key={i} variant="subtle" className="p-3 md:p-6">
+                <div className="flex items-start gap-3 md:gap-6">
+                  <span className="text-primary font-mono text-xs md:text-xl tracking-widest shrink-0 w-20 md:w-40">{t(`funnel.stage.${i}.label`)}</span>
+                  <p className="text-xs md:text-2xl text-muted-foreground leading-relaxed">{t(`funnel.stage.${i}.desc`)}</p>
                 </div>
               </GlassPanel>
             ))}
           </div>
 
           {/* Abstract funnel signal — accent on the RIGHT (desktop only) */}
-          <div className="hidden md:flex md:w-[240px] items-center justify-center">
+          <div className="hidden md:flex md:w-[300px] relative items-center justify-center">
+            <div className="absolute inset-0 m-auto w-[260px] h-[260px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
             <FunnelSignalVisualizer />
           </div>
         </div>
