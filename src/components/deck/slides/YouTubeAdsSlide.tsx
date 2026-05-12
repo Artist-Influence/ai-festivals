@@ -79,25 +79,25 @@ const YouTubeAdsSlide = () => {
           </GlassPanel>
         </div>
 
-        <div className="flex-1 flex flex-col gap-2 md:gap-3 md:min-h-0">
+        <div className="flex-1 flex flex-col gap-2 md:gap-2 md:min-h-0 md:h-full">
           {cases.map((c) => (
-            <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-4 md:flex-1 md:min-h-0 flex flex-col">
-              <div className="flex flex-row gap-2 md:gap-4 mb-1.5 md:mb-3">
-                  <div className="w-[70px] h-[50px] md:w-[180px] md:h-[110px] shrink-0 rounded-lg md:rounded-xl overflow-hidden border border-white/[0.08]">
+            <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-3 md:flex-1 md:min-h-0 flex flex-col overflow-hidden">
+              <div className="flex flex-row gap-2 md:gap-3 mb-1.5 md:mb-2">
+                  <div className="w-[70px] h-[50px] md:w-[140px] md:h-[84px] shrink-0 rounded-lg md:rounded-xl overflow-hidden border border-white/[0.08]">
                     <img src={c.thumb} alt={t(c.artistKey)} loading="eager" decoding="sync" className="w-full h-full object-cover rounded-lg md:rounded-xl" />
                   </div>
                   <div className="flex-1 flex flex-col justify-center min-w-0">
-                    <p className="text-[10px] md:text-sm text-primary font-mono mb-0.5 tracking-widest uppercase">{t('youtube.caseStudy')}</p>
-                    <p className="text-sm md:text-2xl font-bold text-foreground leading-tight">{t(c.artistKey)}</p>
-                    <p className="text-xs md:text-base text-muted-foreground">{t(c.trackKey)}</p>
+                    <p className="text-[10px] md:text-xs text-primary font-mono mb-0.5 tracking-widest uppercase">{t('youtube.caseStudy')}</p>
+                    <p className="text-sm md:text-xl font-bold text-foreground leading-tight">{t(c.artistKey)}</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">{t(c.trackKey)}</p>
                   </div>
                 </div>
 
-              <div className="grid grid-cols-3 gap-1 md:gap-2 md:mt-auto">
+              <div className="grid grid-cols-3 gap-1 md:gap-1.5 md:mt-auto">
                 {c.metrics.map((m) => (
-                  <div key={m.labelKey} className="bg-white/[0.04] rounded p-1 md:py-2 md:px-2 text-center flex flex-col items-center justify-center">
-                    <p className="text-[10px] md:text-lg font-bold text-foreground">{m.val}</p>
-                    <p className="text-[7px] md:text-xs text-muted-foreground uppercase tracking-wider leading-tight">{t(m.labelKey)}</p>
+                  <div key={m.labelKey} className="bg-white/[0.04] rounded p-1 md:py-1.5 md:px-1.5 text-center flex flex-col items-center justify-center">
+                    <p className="text-[10px] md:text-base font-bold text-foreground">{m.val}</p>
+                    <p className="text-[7px] md:text-[10px] text-muted-foreground uppercase tracking-wider leading-tight">{t(m.labelKey)}</p>
                   </div>
                 ))}
               </div>
