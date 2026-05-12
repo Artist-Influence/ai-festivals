@@ -32,8 +32,8 @@ const TicketFunnelSlide = () => {
           </div>
 
           {/* Abstract funnel signal — accent on the RIGHT (desktop only) */}
-          <div className="hidden md:flex md:w-[300px] relative items-center justify-center">
-            <div className="absolute inset-0 m-auto w-[260px] h-[260px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+          <div className="hidden md:flex md:w-[380px] relative items-center justify-center">
+            <div className="absolute inset-0 m-auto w-[340px] h-[340px] rounded-full bg-primary/10 blur-3xl pointer-events-none" />
             <FunnelSignalVisualizer />
           </div>
         </div>
