@@ -78,7 +78,7 @@ const FunnelSignalVisualizer = () => {
     <svg
       ref={ref}
       viewBox={`0 0 ${W} ${H}`}
-      className="w-full max-w-[340px] h-auto max-h-[680px]"
+      className="w-full max-w-[400px] h-auto max-h-[720px]"
       preserveAspectRatio="xMidYMid meet"
       role="img"
       aria-label="Signal capture funnel"
