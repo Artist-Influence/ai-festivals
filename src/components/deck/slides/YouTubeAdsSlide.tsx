@@ -2,10 +2,9 @@ import GlassPanel from '../GlassPanel';
 import PatternVisual from '../visuals/PatternVisual';
 import { Youtube } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
-// TODO: replace with final thumbnails for SVDDEN DEATH (VOYDOME 2025), GORDO @ MUTE, Space Laces Vaultage 004
-import voydomeThumb from '@/assets/jason-derulo-spicy-margarita-thumb.jpg';
-import gordoMuteThumb from '@/assets/mark-tuan-sunsets-cigarettes-thumb.jpg';
-import spaceLacesThumb from '@/assets/dack-janiels-shock-therapy.jpg';
+import voydomeThumb from '@/assets/case-yt-svdden-death.webp';
+import gordoMuteThumb from '@/assets/case-yt-gordo-mute.jpg';
+import spaceLacesThumb from '@/assets/case-space-laces-vaultage-004.jpeg';
 
 const cases = [
   {

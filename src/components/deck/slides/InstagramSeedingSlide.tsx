@@ -3,8 +3,7 @@ import PatternVisual from '../visuals/PatternVisual';
 import { Instagram } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
 import francisMercierImg from '@/assets/francis-mercier-sauti-artwork.jpg';
-// TODO: swap to final Space Laces Vaultage 004 cover when attached
-import spaceLacesImg from '@/assets/dack-janiels-shock-therapy.jpg';
+import spaceLacesImg from '@/assets/case-space-laces-vaultage-004.jpeg';
 
 const cases = [
   {

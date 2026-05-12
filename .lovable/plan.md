@@ -1,21 +1,37 @@
-# Slide 9 — actually center the visualizer between text and slide edge
-
 ## Problem
-The container is capped at `max-w-[1500px]` and centered in a 1920px slide, so ~210px of empty space sits to the right of the right column. The visualizer looks shoved left against the text instead of centered in the available white space.
+
+You uploaded 6 thumbnails named after their case-study sections, but only 3 (Skrillex / DoorDash / Mario) were slotted into the Clipping slide. The other 3 (Space Laces, GORDO @ MUTE, SVDDEN DEATH) are still pointing at unrelated placeholder art on the YouTube Ads + Instagram Seeding slides.
+
+Uploads found:
+- `skrillex_-_FUS.jpg` → Clipping slide (Skrillex FUS)
+- `doordash_x_50_cent.jpg` → Clipping slide (DoorDash × 50 Cent)
+- `super_mario_galaxy.jpg` → Clipping slide (Super Mario Galaxy)
+- `svdden_death.webp` → YouTube Ads slide, case 1 (SVDDEN DEATH — VOYDOME 2025)
+- `gordo_@_mute.jpg` → YouTube Ads slide, case 2 (GORDO @ MUTE)
+- `space_laces_vaultage_004.jpeg` → YouTube Ads slide, case 3 AND Instagram Seeding slide (Space Laces — Vaultage 004)
 
 ## Fix
-In `src/components/deck/slides/TicketFunnelSlide.tsx`:
 
-1. Widen the inner container: `max-w-[1500px]` → `max-w-[1750px]` so the right column extends much closer to the slide's right edge.
-2. Widen the right column: `md:w-[380px]` → `md:w-[480px]` so there's real horizontal room for the visualizer to sit centered with breathing room on both sides.
-3. Bump halo: `w-[340px] h-[340px]` → `w-[400px] h-[400px]` to scale with the wider column.
+1. **Re-copy clipping thumbnails** (in case last copy got cached/corrupted) to:
+   - `src/assets/case-clipping-skrillex.jpg`
+   - `src/assets/case-clipping-doordash.jpg`
+   - `src/assets/case-clipping-mario.jpg`
 
-In `src/components/deck/FunnelSignalVisualizer.tsx`:
+2. **Add 3 new asset files**:
+   - `src/assets/case-yt-svdden-death.webp`
+   - `src/assets/case-yt-gordo-mute.jpg`
+   - `src/assets/case-space-laces-vaultage-004.jpeg`
 
-4. Raise outer cap: `max-w-[340px]` → `max-w-[400px]`, `max-h-[680px]` → `max-h-[720px]` so the SVG actually fills the new column height (matching the left text-stack height).
+3. **`YouTubeAdsSlide.tsx`** (lines 5-8): replace the three TODO placeholder imports with the three new files above and remove the TODO comment.
 
-No copy, color, or animation changes. Mobile untouched.
+4. **`InstagramSeedingSlide.tsx`** (lines 6-7): swap the `dack-janiels-shock-therapy.jpg` placeholder for the new Space Laces cover and remove the TODO comment.
 
-## Files
-- `src/components/deck/slides/TicketFunnelSlide.tsx`
-- `src/components/deck/FunnelSignalVisualizer.tsx`
+No copy, layout, or styling changes — image swaps only.
+
+## Files touched
+- `src/assets/case-clipping-{skrillex,doordash,mario}.jpg` (overwrite)
+- `src/assets/case-yt-svdden-death.webp` (new)
+- `src/assets/case-yt-gordo-mute.jpg` (new)
+- `src/assets/case-space-laces-vaultage-004.jpeg` (new)
+- `src/components/deck/slides/YouTubeAdsSlide.tsx`
+- `src/components/deck/slides/InstagramSeedingSlide.tsx`
