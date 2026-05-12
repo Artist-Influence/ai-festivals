@@ -5,6 +5,8 @@ import { useTranslation } from '@/i18n/LanguageContext';
 import gordoImg from '@/assets/gordo-gordos-dilemma.jpg';
 import mauPImg from '@/assets/mau-p-the-less-i-know-the-better.jpg';
 import francisMercierImg from '@/assets/francis-mercier-sauti-artwork.jpg';
+// TODO: swap to final Space Laces Vaultage 004 cover when attached
+import spaceLacesImg from '@/assets/dack-janiels-shock-therapy.jpg';
 
 const cases = [
   {
@@ -18,6 +20,10 @@ const cases = [
   {
     artist: 'Francis Mercier', track: 'Sauti', artwork: francisMercierImg,
     metrics: [{ val: '16.8M', labelKey: 'kpi.views' }, { val: '1.18M', labelKey: 'kpi.likes' }, { val: '$0.042', labelKey: 'kpi.cpm' }],
+  },
+  {
+    artist: 'Space Laces', track: 'Vaultage 004', artwork: spaceLacesImg,
+    metrics: [{ val: '292K', labelKey: 'kpi.views' }, { val: '6.7K', labelKey: 'kpi.likes' }, { val: '2.43%', labelKey: 'kpi.engagement' }],
   },
 ];
 

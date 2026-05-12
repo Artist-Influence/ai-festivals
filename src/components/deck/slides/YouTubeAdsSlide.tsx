@@ -2,24 +2,34 @@ import GlassPanel from '../GlassPanel';
 import PatternVisual from '../visuals/PatternVisual';
 import { Youtube } from 'lucide-react';
 import { useTranslation } from '@/i18n/LanguageContext';
-import spicyMargaritaThumb from '@/assets/jason-derulo-spicy-margarita-thumb.jpg';
-import markTuanThumb from '@/assets/mark-tuan-sunsets-cigarettes-thumb.jpg';
+// TODO: replace with final thumbnails for SVDDEN DEATH (VOYDOME 2025), GORDO @ MUTE, Space Laces Vaultage 004
+import voydomeThumb from '@/assets/jason-derulo-spicy-margarita-thumb.jpg';
+import gordoMuteThumb from '@/assets/mark-tuan-sunsets-cigarettes-thumb.jpg';
+import spaceLacesThumb from '@/assets/dack-janiels-shock-therapy.jpg';
 
 const cases = [
   {
-    artistKey: 'youtube.case1Artist', trackKey: 'youtube.case1Track', thumb: spicyMargaritaThumb,
+    artistKey: 'youtube.case1Artist', trackKey: 'youtube.case1Track', thumb: voydomeThumb,
     metrics: [
-      { val: '—', labelKey: 'kpi.views' }, { val: '—', labelKey: 'kpi.uniqueViewers' },
-      { val: '—', labelKey: 'kpi.watchTime' }, { val: '—', labelKey: 'kpi.ctr' },
-      { val: '—', labelKey: 'kpi.clicks' }, { val: '—', labelKey: 'kpi.audienceGrowth' },
+      { val: '164K', labelKey: 'kpi.views' }, { val: '8.4K', labelKey: 'kpi.likes' },
+      { val: '19.1K hrs', labelKey: 'kpi.watchTime' }, { val: '7%', labelKey: 'kpi.ctr' },
+      { val: '837K', labelKey: 'kpi.impressions' }, { val: '+634K', labelKey: 'kpi.subscriberGrowth' },
     ],
   },
   {
-    artistKey: 'youtube.case2Artist', trackKey: 'youtube.case2Track', thumb: markTuanThumb,
+    artistKey: 'youtube.case2Artist', trackKey: 'youtube.case2Track', thumb: gordoMuteThumb,
     metrics: [
-      { val: '—', labelKey: 'kpi.views' }, { val: '—', labelKey: 'kpi.uniqueViewers' },
-      { val: '—', labelKey: 'kpi.watchTime' }, { val: '—', labelKey: 'kpi.lpv' },
-      { val: '—', labelKey: 'kpi.audienceGrowth' }, { val: '—', labelKey: 'kpi.clicks' },
+      { val: '1.2M', labelKey: 'kpi.views' }, { val: '29K', labelKey: 'kpi.likes' },
+      { val: '140K hrs', labelKey: 'kpi.watchTime' }, { val: '7%', labelKey: 'kpi.ctr' },
+      { val: '6.13M', labelKey: 'kpi.impressions' }, { val: '+2.1K', labelKey: 'kpi.subscriberGrowth' },
+    ],
+  },
+  {
+    artistKey: 'youtube.case3Artist', trackKey: 'youtube.case3Track', thumb: spaceLacesThumb,
+    metrics: [
+      { val: '290K', labelKey: 'kpi.displayViews' }, { val: '452K', labelKey: 'kpi.totalViews' },
+      { val: '16K', labelKey: 'kpi.likes' }, { val: '2', labelKey: 'kpi.campaigns' },
+      { val: '145K', labelKey: 'kpi.viewsPerCampaign' }, { val: '#2', labelKey: 'kpi.searchRank' },
     ],
   },
 ];
