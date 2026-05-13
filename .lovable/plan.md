@@ -1,25 +1,19 @@
-# Slide 15 — match left and right column heights
+# Slide 15 — align left panels top with first case study
 
 ## Goal
-Make the right column's 3 case-study cards collectively match the height of the left column's two explainer panels (What/How), so both sides look balanced.
+Position the left-column explainer panels (What It Is / How It Works) so their tops align with the top of the first case-study card (Svdden Death), rather than being vertically centered across the full height of all three case-study cards.
 
 ## Changes (desktop only — `src/components/deck/slides/YouTubeAdsSlide.tsx`)
 
 ### Body row layout
-- Restore `md:items-stretch` (currently `md:items-center`) so columns share equal height.
+- Change `md:items-stretch` → `md:items-start` so columns align to the top edge instead of stretching to equal height.
 
 ### Left column — explainer panels
-- Restore `flex-1` on both GlassPanels so they stretch to fill the column equally.
-- Keep current padding (`md:p-4`), text sizes, and spacing.
+- Remove `md:flex-1 md:min-h-0` from both GlassPanels so they shrink to content height and sit at the top of the column.
+- Keep current padding, text sizes, and spacing.
 
 ### Right column — case study cards
-- Restore `md:flex-1 md:min-h-0` on each card so the 3 cards divide column height evenly and match the left side.
-- Keep thumbnail at `md:w-[120px] md:h-[70px]`.
-- Keep card padding `md:p-3`.
-- Keep `md:mt-auto` on metrics grid so they anchor at the bottom of each (now-stretched) card.
-
-### Header
-- No changes.
+- No changes. Cards keep `md:flex-1 md:min-h-0` so they continue to fill the right column evenly.
 
 ## Out of scope
 - Mobile layout, copy, translations, other slides, image assets.

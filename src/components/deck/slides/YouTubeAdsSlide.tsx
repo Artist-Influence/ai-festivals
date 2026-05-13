@@ -49,9 +49,9 @@ const YouTubeAdsSlide = () => {
           <p className="text-sm md:text-xl text-on-visual-soft max-w-[700px]">{t('youtube.subtitle')}</p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-10 md:items-stretch md:flex-1 md:min-h-0">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-10 md:items-start md:flex-1 md:min-h-0">
           <div className="flex-1 flex flex-col gap-3 md:gap-4 md:min-h-0">
-            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center md:flex-1 md:min-h-0">
+            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center">
               <p className="text-sm md:text-lg font-semibold text-primary mb-2 md:mb-2">{t('youtube.whatTitle')}</p>
               <div className="space-y-1.5 md:space-y-1.5">
                 {[0, 1].map((i) => (
@@ -63,7 +63,7 @@ const YouTubeAdsSlide = () => {
               </div>
             </GlassPanel>
 
-            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center md:flex-1 md:min-h-0">
+            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center">
               <p className="text-sm md:text-lg font-semibold text-primary mb-2 md:mb-2">{t('youtube.howTitle')}</p>
               <div className="space-y-1.5 md:space-y-1.5">
                 {[0, 1, 2].map((i) => (
