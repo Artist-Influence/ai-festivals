@@ -1,32 +1,28 @@
-# Slide 15 — tighten text, enlarge case-study thumbnails
+# Slide 15 — shrink case-study cards and left panels for better proportions
 
 ## Goal
-Make slide 15 feel more evenly spaced by:
-- Enlarging each case-study thumbnail so it visually anchors the card.
-- Reducing text size/padding on both columns so panels stop dominating the canvas.
-- Letting the body row breathe with consistent vertical rhythm.
+Fix the remaining awkwardness on slide 15 by making both columns feel compact and evenly balanced, not oversized.
 
 ## Changes (desktop only — `src/components/deck/slides/YouTubeAdsSlide.tsx`)
 
+### Body row layout
+- Change `md:items-stretch` → `md:items-center` so both columns center vertically rather than forcing equal height.
+
 ### Left column — explainer panels ("What" / "How")
-- Reduce panel padding: `md:p-6` → `md:p-5`.
-- Heading text: `md:text-xl` → `md:text-lg`.
-- Bullet text: `md:text-lg` → `md:text-base`.
-- Bullet vertical spacing: `md:space-y-2` → `md:space-y-1.5`.
-- Timeframe note: `md:text-base` → `md:text-sm`.
+- Remove `flex-1` from both GlassPanels so they shrink to content instead of stretching.
+- Reduce padding: `md:p-5` → `md:p-4`.
+- Reduce heading margin: `md:mb-3` → `md:mb-2`.
+- Keep text at `md:text-base`.
 
 ### Right column — case study cards
-- Card padding: `md:p-3` → `md:p-4`.
-- Thumbnail: `md:w-[110px] md:h-[64px]` → `md:w-[170px] md:h-[100px]` (clearly larger, near-16:9).
-- Header row gap: `md:gap-3` → `md:gap-4`, keep `items-center`.
-- Artist name: `md:text-lg` → `md:text-base`.
-- "Case study" eyebrow + track text: keep small, slight tracking.
-- Metric tile padding: `md:py-1.5 md:px-1` → `md:py-2 md:px-1.5`.
-- Metric value: `md:text-sm` → `md:text-[13px]` to balance with the bigger thumb.
-- Gap between cards: `md:gap-3` → `md:gap-4`.
+- Remove `md:flex-1 md:min-h-0` from each GlassPanel so cards size to content instead of stretching to fill the column.
+- Reduce thumbnail: `md:w-[170px] md:h-[100px]` → `md:w-[120px] md:h-[70px]`.
+- Reduce card padding: `md:p-4` → `md:p-3`.
+- Keep `md:mt-auto` on the metrics grid so it still anchors at the bottom of each content-sized card.
+- Gap between cards: keep `md:gap-4`.
 
 ### Header (title block)
-- No changes; keep current title/subtitle sizing.
+- No changes.
 
 ## Out of scope
 - Mobile layout, copy, translations, other slides, image assets.
