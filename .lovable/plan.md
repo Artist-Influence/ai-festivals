@@ -1,46 +1,35 @@
-# Slide 15 — YouTube Ads case study layout fix
-
-## Problem
-On desktop, the right column (3 case study cards) currently stretches to the full slide height, while the left column has a title/subtitle block plus two explainer panels ("What" and "How"). The case studies end up taller than the explainer panels, which makes the cards feel oversized and the internal spacing (thumbnail vs. metrics) awkward.
+# Slide 15 — tighten text, enlarge case-study thumbnails
 
 ## Goal
-- The 3 case study cards on the right should collectively match the height of just the two explainer panels on the left (excluding the title/subtitle block).
-- Each case study card distributes its internal space cleanly: thumbnail + artist row on top, metrics grid filling the rest with consistent padding.
-- Mobile layout stays as-is (vertical stack, no fixed heights).
+Make slide 15 feel more evenly spaced by:
+- Enlarging each case-study thumbnail so it visually anchors the card.
+- Reducing text size/padding on both columns so panels stop dominating the canvas.
+- Letting the body row breathe with consistent vertical rhythm.
 
-## Approach (desktop only)
+## Changes (desktop only — `src/components/deck/slides/YouTubeAdsSlide.tsx`)
 
-In `src/components/deck/slides/YouTubeAdsSlide.tsx`:
+### Left column — explainer panels ("What" / "How")
+- Reduce panel padding: `md:p-6` → `md:p-5`.
+- Heading text: `md:text-xl` → `md:text-lg`.
+- Bullet text: `md:text-lg` → `md:text-base`.
+- Bullet vertical spacing: `md:space-y-2` → `md:space-y-1.5`.
+- Timeframe note: `md:text-base` → `md:text-sm`.
 
-1. Wrap the left column's two explainer GlassPanels in a flex sub-container that grows (`flex-1`) and split equally (`flex-1` each). Keep the title/subtitle block as a non-growing header.
-2. Make the right column align to that same growing region only:
-   - Remove `md:h-full` from the right column.
-   - Use a flex layout where the right column matches the height of the left's explainer region. Easiest: make the outer row `items-stretch` (already is), then on the left column, wrap title/subtitle + explainer-stack so the explainer-stack has the same `flex-1` behavior; on the right column, use `flex-1` distributed across the 3 cards.
-   - Add a spacer at the top of the right column with the same height as the left's title/subtitle block — or restructure so the right column starts aligned to the explainer stack. Cleanest: nest both columns' content with a header row + body row, where the body row aligns horizontally and contains the explainers (left) and the 3 cards (right).
-3. Tighten case-card internals:
-   - Card padding `md:p-3`.
-   - Header row uses `items-center`, slightly smaller thumbnail (`md:w-[110px] md:h-[64px]`).
-   - Metrics grid uses `gap-1.5`, `py-1.5`, consistent vertical centering, with `mt-auto` so metrics anchor to the bottom.
-   - Equal `gap-3` between the 3 cards.
+### Right column — case study cards
+- Card padding: `md:p-3` → `md:p-4`.
+- Thumbnail: `md:w-[110px] md:h-[64px]` → `md:w-[170px] md:h-[100px]` (clearly larger, near-16:9).
+- Header row gap: `md:gap-3` → `md:gap-4`, keep `items-center`.
+- Artist name: `md:text-lg` → `md:text-base`.
+- "Case study" eyebrow + track text: keep small, slight tracking.
+- Metric tile padding: `md:py-1.5 md:px-1` → `md:py-2 md:px-1.5`.
+- Metric value: `md:text-sm` → `md:text-[13px]` to balance with the bigger thumb.
+- Gap between cards: `md:gap-3` → `md:gap-4`.
 
-## Technical detail
-
-Restructure the desktop layout to a header + body grid:
-
-```text
-[ Title + Subtitle (left) ] [ (empty / hidden on desktop) ]
-[ What panel | How panel  ] [ Case 1 / Case 2 / Case 3   ]
-        flex-1 stack              flex-1 stack, equal
-```
-
-Implementation: change the outer `flex flex-row` into a left column that contains:
-- header div (title/subtitle, no flex-grow)
-- body div `flex-1 flex flex-row gap-10` containing the two explainer panels (as `flex-1` each in a column) AND the right-side case studies column (`flex-1` with 3 equal `flex-1` cards).
-
-That guarantees the 3 cards span exactly the explainer region height.
-
-## Files
-- `src/components/deck/slides/YouTubeAdsSlide.tsx` (only)
+### Header (title block)
+- No changes; keep current title/subtitle sizing.
 
 ## Out of scope
-- Mobile layout, copy, translations, other slides.
+- Mobile layout, copy, translations, other slides, image assets.
+
+## File
+- `src/components/deck/slides/YouTubeAdsSlide.tsx`
