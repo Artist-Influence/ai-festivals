@@ -51,30 +51,30 @@ const YouTubeAdsSlide = () => {
 
         <div className="flex flex-col md:flex-row gap-4 md:gap-10 md:items-start md:flex-1 md:min-h-0">
           <div className="flex-1 flex flex-col gap-3 md:gap-4 md:min-h-0">
-            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center">
-              <p className="text-sm md:text-lg font-semibold text-primary mb-2 md:mb-2">{t('youtube.whatTitle')}</p>
-              <div className="space-y-1.5 md:space-y-1.5">
+            <GlassPanel variant="bright" className="p-4 md:p-8 flex flex-col justify-center">
+              <p className="text-sm md:text-2xl font-semibold text-primary mb-2 md:mb-3">{t('youtube.whatTitle')}</p>
+              <div className="space-y-1.5 md:space-y-2.5">
                 {[0, 1].map((i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-2" />
-                    <p className="text-xs md:text-base text-muted-foreground">{t(`youtube.what.${i}`)}</p>
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
+                    <p className="text-xs md:text-2xl text-muted-foreground">{t(`youtube.what.${i}`)}</p>
                   </div>
                 ))}
               </div>
             </GlassPanel>
 
-            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center">
-              <p className="text-sm md:text-lg font-semibold text-primary mb-2 md:mb-2">{t('youtube.howTitle')}</p>
-              <div className="space-y-1.5 md:space-y-1.5">
+            <GlassPanel variant="bright" className="p-4 md:p-8 flex flex-col justify-center">
+              <p className="text-sm md:text-2xl font-semibold text-primary mb-2 md:mb-3">{t('youtube.howTitle')}</p>
+              <div className="space-y-1.5 md:space-y-2.5">
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-2" />
-                    <p className="text-xs md:text-base text-muted-foreground">{t(`youtube.how.${i}`)}</p>
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
+                    <p className="text-xs md:text-2xl text-muted-foreground">{t(`youtube.how.${i}`)}</p>
                   </div>
                 ))}
               </div>
-              <div className="pt-2 border-t border-white/[0.06] mt-2">
-                <p className="text-xs md:text-sm text-primary font-medium">{t('youtube.timeframe')}</p>
+              <div className="pt-2 md:pt-3 border-t border-white/[0.06] mt-2 md:mt-3">
+                <p className="text-xs md:text-2xl text-primary font-medium">{t('youtube.timeframe')}</p>
               </div>
             </GlassPanel>
           </div>
