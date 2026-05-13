@@ -1,27 +1,24 @@
-# Slide 15 — shrink case-study cards and left panels for better proportions
+# Slide 15 — match left and right column heights
 
 ## Goal
-Fix the remaining awkwardness on slide 15 by making both columns feel compact and evenly balanced, not oversized.
+Make the right column's 3 case-study cards collectively match the height of the left column's two explainer panels (What/How), so both sides look balanced.
 
 ## Changes (desktop only — `src/components/deck/slides/YouTubeAdsSlide.tsx`)
 
 ### Body row layout
-- Change `md:items-stretch` → `md:items-center` so both columns center vertically rather than forcing equal height.
+- Restore `md:items-stretch` (currently `md:items-center`) so columns share equal height.
 
-### Left column — explainer panels ("What" / "How")
-- Remove `flex-1` from both GlassPanels so they shrink to content instead of stretching.
-- Reduce padding: `md:p-5` → `md:p-4`.
-- Reduce heading margin: `md:mb-3` → `md:mb-2`.
-- Keep text at `md:text-base`.
+### Left column — explainer panels
+- Restore `flex-1` on both GlassPanels so they stretch to fill the column equally.
+- Keep current padding (`md:p-4`), text sizes, and spacing.
 
 ### Right column — case study cards
-- Remove `md:flex-1 md:min-h-0` from each GlassPanel so cards size to content instead of stretching to fill the column.
-- Reduce thumbnail: `md:w-[170px] md:h-[100px]` → `md:w-[120px] md:h-[70px]`.
-- Reduce card padding: `md:p-4` → `md:p-3`.
-- Keep `md:mt-auto` on the metrics grid so it still anchors at the bottom of each content-sized card.
-- Gap between cards: keep `md:gap-4`.
+- Restore `md:flex-1 md:min-h-0` on each card so the 3 cards divide column height evenly and match the left side.
+- Keep thumbnail at `md:w-[120px] md:h-[70px]`.
+- Keep card padding `md:p-3`.
+- Keep `md:mt-auto` on metrics grid so they anchor at the bottom of each (now-stretched) card.
 
-### Header (title block)
+### Header
 - No changes.
 
 ## Out of scope

@@ -49,9 +49,9 @@ const YouTubeAdsSlide = () => {
           <p className="text-sm md:text-xl text-on-visual-soft max-w-[700px]">{t('youtube.subtitle')}</p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 md:gap-10 md:items-center md:flex-1 md:min-h-0">
+        <div className="flex flex-col md:flex-row gap-4 md:gap-10 md:items-stretch md:flex-1 md:min-h-0">
           <div className="flex-1 flex flex-col gap-3 md:gap-4 md:min-h-0">
-            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center">
+            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center md:flex-1 md:min-h-0">
               <p className="text-sm md:text-lg font-semibold text-primary mb-2 md:mb-2">{t('youtube.whatTitle')}</p>
               <div className="space-y-1.5 md:space-y-1.5">
                 {[0, 1].map((i) => (
@@ -63,7 +63,7 @@ const YouTubeAdsSlide = () => {
               </div>
             </GlassPanel>
 
-            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center">
+            <GlassPanel variant="bright" className="p-4 md:p-4 flex flex-col justify-center md:flex-1 md:min-h-0">
               <p className="text-sm md:text-lg font-semibold text-primary mb-2 md:mb-2">{t('youtube.howTitle')}</p>
               <div className="space-y-1.5 md:space-y-1.5">
                 {[0, 1, 2].map((i) => (
@@ -81,7 +81,7 @@ const YouTubeAdsSlide = () => {
 
           <div className="flex-1 flex flex-col gap-2 md:gap-4 md:min-h-0">
             {cases.map((c) => (
-              <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-3 flex flex-col overflow-hidden">
+              <GlassPanel key={c.artistKey} variant="bright" className="p-2 md:p-3 flex flex-col overflow-hidden md:flex-1 md:min-h-0">
                 <div className="flex flex-row items-center gap-2 md:gap-4 mb-1.5 md:mb-2">
                   <div className="w-[70px] h-[50px] md:w-[120px] md:h-[70px] shrink-0 rounded-lg md:rounded-xl overflow-hidden border border-white/[0.08]">
                     <img src={c.thumb} alt={t(c.artistKey)} loading="eager" decoding="sync" className="w-full h-full object-cover rounded-lg md:rounded-xl" />
