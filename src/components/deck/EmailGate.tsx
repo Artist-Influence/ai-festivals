@@ -86,7 +86,7 @@ const EmailGate = ({ onAccess }: EmailGateProps) => {
           </button>
         </form>
 
-        <p className="text-muted-foreground/50 text-[10px] mt-4">Confidential — for intended recipients only</p>
+        <p className="text-muted-foreground/50 text-[10px] mt-4">Confidential. For intended recipients only.</p>
       </GlassPanel>
     </div>
   );

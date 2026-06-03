@@ -9,7 +9,7 @@ const weNeed = [
 const dontExpect = [
   'One viral video to carry the whole release',
   'Perfect creative taste from volume-based tactics',
-  'Results without iteration — if the market says "not yet"',
+  'Results without iteration, if the market says "not yet"',
 ];
 
 const ExpectationsSlide = () => (

@@ -132,7 +132,7 @@ const WebsitesSlide = () => {
           <Zap className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary shrink-0" />
           <p className="text-[11px] md:text-sm text-foreground/90">
             <span className="text-primary font-semibold">{t('websites.automationLabel')}</span>
-            {' — '}
+            {': '}
             {t('websites.automation')}
           </p>
         </div>

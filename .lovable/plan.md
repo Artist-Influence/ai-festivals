@@ -1,23 +1,54 @@
-## Mobile cover slide fix
+# Plan: fix overlapping copy + remove em-dashes
 
-Two issues on the mobile hero (CoverSlide):
+## 1. Fix TicketFunnelSlide mobile overlap (the screenshot)
 
-1. **Bottom UI is broken** — the "Confidential / Artist Influence · Music Marketing Infrastructure" tracked label wraps to two lines and the centered "Swipe up ⌄" hint overlaps it. They're fighting for the same bottom region.
-2. **Background is empty** — `NetworkVisual` and the orbits/comets/equalizer/conic-spin layers in `CoverVisual` are all gated behind `hidden md:block`, so mobile gets only the two aurora blobs plus the center vignette, which reads as a flat black slide.
+In `src/components/deck/slides/TicketFunnelSlide.tsx`, each stage row is a horizontal flex with a fixed-width label (`w-20`) next to the description. "Retargeting" and "Conversion" are longer than 80px in mono, so they spill into the description text.
 
-### Changes
+Change the row to **stack vertically on mobile**, horizontal on desktop:
 
-**`src/components/deck/slides/CoverSlide.tsx`**
-- Remove the `hidden md:block` wrapper around `NetworkVisual` so the network shows on mobile too (lower opacity, fewer nodes — e.g. `nodeCount={40} opacity-20`).
-- Shrink confidential footer on mobile (`text-[9px]`, tighter tracking `tracking-[0.2em]`) and keep it on a single line; lift it above the safe-area inset.
-- Add bottom padding to the hero content stack so logo/tagline/subtitle don't crowd the footer area.
+- Outer wrapper: `flex flex-col md:flex-row items-start md:items-start gap-1 md:gap-6`
+- Label: drop `w-20`, keep `md:w-40 md:shrink-0`, add `md:tracking-widest` (slightly looser on mobile is fine)
+- Description: full width on mobile
 
-**`src/components/deck/visuals/CoverVisual.tsx`**
-- Drop `hidden md:block` on the equalizer ring, conic shimmer beam, and the orbits/comets/particles SVG so they render on mobile. Keep the radial mask, but tune the mobile sizing so the ring fits inside the viewport (scale via a smaller `RING_RADIUS` or wrap the ring in a `scale-50 md:scale-100` container; same for the orbits SVG which uses a 1920×1080 viewBox — `preserveAspectRatio="xMidYMid slice"` already covers fit, just unhide it).
-- Aurora blobs already render — leave as is.
+This also gives the description room to breathe instead of wrapping in a narrow column.
 
-**`src/components/deck/DeckViewer.tsx`** (MobilePager)
-- Move the "Swipe up" hint up (e.g. `bottom-20`) or hide it on the cover slide if the confidential footer is present, so the two never overlap. Alternatively, hide the confidential footer on slide 0 while the hint is visible, then restore it after first scroll.
+## 2. Sweep other slides for similar overlap risk
 
-### Out of scope
-Desktop cover layout, other slides, copy changes.
+Quick visual audit of slides with fixed-width label/value rows or tight 2-column mobile layouts. Specific candidates to recheck and adjust the same way (stack on mobile when label is mono/long):
+
+- `PricingSlide` row labels
+- `WhatWeNeedSlide` numbered list
+- `FinalPushStrategySlide` city/budget grid (already 2 cols, OK — just verify)
+- `OutcomesSlide` metric rows
+- `MashBitPhase2Slide`, `ZedsDeadPhase2Slide` stat rows
+
+If a slide already stacks cleanly, leave it alone. No copy or desktop changes.
+
+## 3. Remove em-dashes ( — ) and double-hyphens ( -- ) from user-visible copy
+
+Per the new preference, rewrite anywhere em-dashes appear in displayed strings, replacing with natural punctuation (period, comma, colon, parentheses, or just a line break) based on context. Examples:
+
+- `"VOYDOME 2025 — #3 search term for artist"` → `"VOYDOME 2025, #3 search term for artist"`
+- `"Verified SoundCloud network — genre-aligned, fully tracked"` → `"Verified SoundCloud network. Genre-aligned, fully tracked."`
+- `"1,500+ clips, ~42% album UGC in month one — no bots"` → `"1,500+ clips, ~42% album UGC in month one. No bots."`
+
+Files to update (visible copy only, not code comments):
+
+- All 11 i18n files: `src/i18n/{en,es,fr,de,nl,pt,ja,ko,zh,ar,hi}.ts`
+- Hardcoded JSX strings in: `TicketFunnelSlide`, `TheShiftSlide`, `WebsitesSlide`, `SpotifyPlaylistingSlide`, `CaseStudyPlatformSlide`, `SoundCloudRepostsSlide`, `FanpagesSlide`, `AdditionalServicesSlide`, `InstagramSeedingSlide`, `ExpectationsSlide`, `EmailGate`, `DeckViewer`, and visualizer components (`BrokenSystemVisualizer`, `DiscoveryVisualizer`, `ClippingVisualizer`, `FunnelSignalVisualizer`, `OutcomesVisualizer`, `ServicesVisualizer`) where the em-dash is in a rendered string.
+- Skip `.lovable/` files, code comments, and decorative SVG/visual files where the dash is not user-visible text.
+
+Translations: replace em-dashes in non-English files with the natural punctuation each language uses (period or comma). I will not invent new copy — just swap punctuation.
+
+## 4. Update memory
+
+Flip the existing rule in `mem://index.md` Core and rewrite `mem://style/copy-tone`:
+
+- Old: "Em-dashes (—), no double-hyphens."
+- New: "No em-dashes (—) and no double-hyphens (--). Use periods, commas, or colons for natural pacing."
+
+## Out of scope
+
+- Desktop layouts (only mobile overlap is broken)
+- Rewriting copy beyond punctuation swaps
+- New slides or feature changes

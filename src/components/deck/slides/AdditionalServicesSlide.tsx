@@ -25,7 +25,7 @@ const MetaTikTokIcon = () => (
 
 const cases = [
   {
-    platform: 'META ADS', artist: 'MashBit', track: 'Houston 5.29.26 — Persians + Charity Push · 14-day flight',
+    platform: 'META ADS', artist: 'MashBit', track: 'Houston 5.29.26, Persians + Charity Push · 14-day flight',
     descKey: 'metaTiktok.case1Desc', thumb: mashbitImg, imgPosition: 'object-top',
     metrics: [
       { val: '$785', labelKey: 'kpi.spend' },
