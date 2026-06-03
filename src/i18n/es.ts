@@ -135,7 +135,7 @@ const es: Record<string, string> = {
   'metaTiktok.how.1': 'Segmentación por género, ubicación geográfica y comportamiento',
   'metaTiktok.how.2': 'Centrado en reproducciones, venta de entradas, merchandising y crecimiento de la base de fans',
   'metaTiktok.timeframe': 'Plazo: depende de cada campaña',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'Campaña multifacética para recopilar registros por SMS a través de Laylo. Más de 100 creatividades en 6 campañas simultáneas dirigidas a ciudades específicas.',
   'pricing.title': 'Precios personalizados y a la carta',
   'pricing.subtitle': 'Cada paquete se crea en función de tu calendario de lanzamientos, tu público y tus objetivos. Elige servicios individuales o déjanos diseñar un paquete a medida.',

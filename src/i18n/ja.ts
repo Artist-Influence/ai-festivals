@@ -135,7 +135,7 @@ const ja: Record<string, string> = {
   'metaTiktok.how.1': 'ジャンル、地域、行動によるターゲティング',
   'metaTiktok.how.2': 'ストリーム、チケット販売、グッズ、ファンベースの成長に焦点を当てています',
   'metaTiktok.timeframe': '期間：各キャンペーンによる',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'Laylo経由でSMS登録を収集する多層キャンペーン。6つの同時都市ターゲットキャンペーンで100以上のクリエイティブを作成。',
   'pricing.title': 'カスタマイズ＆アラカルト価格設定',
   'pricing.subtitle': 'すべてのパッケージは、お客様のリリーススケジュール、オーディエンス、目標に基づいて構築されます。個別のサービスを選択するか、カスタムバンドルの設計を私たちにお任せください。',

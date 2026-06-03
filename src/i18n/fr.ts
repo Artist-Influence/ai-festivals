@@ -168,7 +168,7 @@ const fr: Record<string, string> = {
   'metaTiktok.how.1': 'Ciblage par genre, zone géographique et comportement',
   'metaTiktok.how.2': 'Axé sur les écoutes, les ventes de billets, les produits dérivés et la croissance de la base de fans',
   'metaTiktok.timeframe': 'Durée : dépend de chaque campagne',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': "Campagne à plusieurs niveaux visant à collecter des inscriptions par SMS via Laylo. Plus de 100 créations réparties sur 6 campagnes simultanées ciblant différentes villes.",
 
   // Slide 9 — Culture Edits

@@ -145,7 +145,7 @@ const en: Record<string, string> = {
   'metaTiktok.how.1': 'Targeting by city, genre, artist affinity, behavior, lookalikes, and retargeting pools',
   'metaTiktok.how.2': 'Creative testing across trailers, flyers, crowd POVs, lineup edits, and urgency messaging',
   'metaTiktok.timeframe': 'Timeframe: strongest across presale, announcement, amplification, and final-push windows',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'Phase 2 ticket traffic push across 6 city campaigns. Active campaign data as of Apr 21, 2026.',
 
   // ── PricingSlide ──

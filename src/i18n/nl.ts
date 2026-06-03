@@ -168,7 +168,7 @@ const nl: Record<string, string> = {
   'metaTiktok.how.1': 'Gericht op genre, geografie en gedrag',
   'metaTiktok.how.2': 'Gericht op streams, ticketverkoop, merchandise en fanbasegroei',
   'metaTiktok.timeframe': 'Tijdsbestek: afhankelijk van elke campagne',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'Meerlagige campagne voor het verzamelen van SMS-aanmeldingen via Laylo. Meer dan 100 creatives verdeeld over 6 gelijktijdige, stadsgerichte campagnes.',
 
   // Slide 9 — Culture Edits

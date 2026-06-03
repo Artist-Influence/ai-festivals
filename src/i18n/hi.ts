@@ -203,7 +203,7 @@ const hi: Record<string, string> = {
   'metaTiktok.how.1': 'शैली, भूगोल और व्यवहार के अनुसार लक्ष्यीकरण',
   'metaTiktok.how.2': 'स्ट्रीम्स, टिकट बिक्री, मर्च और प्रशंसक आधार की वृद्धि पर ध्यान केंद्रित',
   'metaTiktok.timeframe': 'समय-सीमा: प्रत्येक कैंपेन पर निर्भर',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'लेलो के माध्यम से एसएमएस साइनअप एकत्र करने वाला बहु-स्तरीय अभियान। 6 एक साथ चल रहे शहर-लक्षित अभियानों में 100+ क्रिएटिव।',
 
   // Slide 15 — Websites
