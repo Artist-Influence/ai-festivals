@@ -69,7 +69,7 @@ const OperatingSystemSlide = () => {
 
         {/* Bottom takeaway */}
         <GlassPanel variant="subtle" className="mt-4 md:mt-8 p-3 md:p-5">
-          <p className="text-xs md:text-lg text-muted-foreground leading-relaxed text-center">
+          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed text-center">
             {t('opSystem.takeaway')}
           </p>
         </GlassPanel>

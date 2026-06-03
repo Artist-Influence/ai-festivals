@@ -23,51 +23,51 @@ const ZedsDeadPhase2Slide = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden py-3 px-3 md:p-12 flex flex-col justify-start md:justify-center">
+    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden pt-14 pb-8 px-4 md:p-12 flex flex-col justify-start md:justify-center">
       <PatternVisual />
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         <p className="text-xs md:text-sm text-primary font-medium tracking-[0.25em] uppercase mb-2 md:mb-3">{t('zd2.kicker')}</p>
-        <h1 className="text-xl md:text-5xl font-bold text-on-visual mb-1 md:mb-3 leading-tight">{t('zd2.title')}</h1>
-        <p className="text-sm md:text-xl text-on-visual-soft mb-4 md:mb-6 max-w-[1200px]">{t('zd2.subtitle')}</p>
+        <h1 className="text-2xl md:text-5xl font-bold text-on-visual mb-2 md:mb-3 leading-tight">{t('zd2.title')}</h1>
+        <p className="text-base md:text-xl text-on-visual-soft mb-5 md:mb-6 max-w-[1200px]">{t('zd2.subtitle')}</p>
 
         {/* Meta row: objective + timeline */}
-        <div className="grid grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
           <GlassPanel variant="subtle" className="p-3 md:p-4">
-            <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Objective</p>
-            <p className="text-sm md:text-xl text-foreground font-semibold">{t('zd2.objective')}</p>
+            <p className="text-[11px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Objective</p>
+            <p className="text-base md:text-xl text-foreground font-semibold">{t('zd2.objective')}</p>
           </GlassPanel>
           <GlassPanel variant="subtle" className="p-3 md:p-4">
-            <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Timeline</p>
-            <p className="text-sm md:text-xl text-foreground font-semibold">{t('zd2.timeline')}</p>
+            <p className="text-[11px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Timeline</p>
+            <p className="text-base md:text-xl text-foreground font-semibold">{t('zd2.timeline')}</p>
           </GlassPanel>
         </div>
 
         {/* Account summary stats */}
-        <div className="grid grid-cols-5 gap-1.5 md:gap-3 mb-4 md:mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 mb-4 md:mb-6">
           {accountStats.map((s) => (
-            <GlassPanel key={s.label} variant="bright" className="p-2 md:p-4 text-center">
-              <p className="text-sm md:text-3xl font-bold text-foreground leading-tight">{s.val}</p>
-              <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-wider mt-0.5 md:mt-1">{s.label}</p>
+            <GlassPanel key={s.label} variant="bright" className="p-3 md:p-4 text-center">
+              <p className="text-xl md:text-3xl font-bold text-foreground leading-tight">{s.val}</p>
+              <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mt-1">{s.label}</p>
             </GlassPanel>
           ))}
         </div>
 
         {/* City highlights */}
-        <p className="text-[10px] md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">{t('zd2.cityHighlights')}</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 mb-3 md:mb-4">
+        <p className="text-xs md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">{t('zd2.cityHighlights')}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-3 mb-4">
           {cities.map((c) => (
-            <GlassPanel key={c.city} variant="bright" className="p-2.5 md:p-4">
+            <GlassPanel key={c.city} variant="bright" className="p-3 md:p-4">
               <div className="flex items-center justify-between mb-2 md:mb-3">
-                <p className="text-sm md:text-xl font-bold text-foreground">{c.city}</p>
+                <p className="text-base md:text-xl font-bold text-foreground">{c.city}</p>
                 {c.tag && (
-                  <span className={`text-[8px] md:text-[10px] uppercase tracking-widest px-1.5 py-0.5 md:px-2 md:py-1 rounded border ${c.tagColor}`}>{c.tag}</span>
+                  <span className={`text-[9px] md:text-[10px] uppercase tracking-widest px-2 py-1 rounded border ${c.tagColor}`}>{c.tag}</span>
                 )}
               </div>
-              <div className={`grid gap-1 md:gap-2 ${c.stats.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
+              <div className={`grid gap-2 ${c.stats.length === 3 ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 {c.stats.map(([val, label]) => (
-                  <div key={label} className="bg-white/[0.04] rounded p-1 md:p-2 text-center">
-                    <p className="text-[10px] md:text-base font-bold text-foreground leading-tight">{val}</p>
-                    <p className="text-[7px] md:text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
+                  <div key={label} className="bg-white/[0.04] rounded p-2 text-center">
+                    <p className="text-sm md:text-base font-bold text-foreground leading-tight">{val}</p>
+                    <p className="text-[9px] md:text-[10px] text-muted-foreground uppercase tracking-wider">{label}</p>
                   </div>
                 ))}
               </div>
@@ -75,7 +75,7 @@ const ZedsDeadPhase2Slide = () => {
           ))}
         </div>
 
-        <p className="text-[10px] md:text-sm text-muted-foreground italic text-center">{t('zd2.note')}</p>
+        <p className="text-[11px] md:text-sm text-muted-foreground italic text-center">{t('zd2.note')}</p>
       </div>
     </div>
   );

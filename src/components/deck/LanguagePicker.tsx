@@ -23,21 +23,21 @@ const LanguagePicker = ({ className }: { className?: string }) => {
     <div ref={ref} className={cn('relative', className)}>
       <button
         onClick={() => setOpen(v => !v)}
-        className="flex items-center gap-1.5 px-2 py-1.5 rounded-lg hover:bg-secondary transition text-sm"
+        className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-background/70 backdrop-blur-md border border-border/40 hover:bg-secondary transition text-sm"
         title="Change language"
       >
         <Globe className="w-4 h-4 text-muted-foreground" />
-        <span className="text-xs text-muted-foreground font-medium">{current.flag}</span>
+        <span className="text-sm text-muted-foreground font-medium">{current.flag}</span>
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-1 z-50 bg-card border border-border rounded-lg shadow-xl py-1 min-w-[180px] max-h-[320px] overflow-auto">
+        <div className="absolute right-0 top-full mt-1 z-50 bg-card border border-border rounded-lg shadow-xl py-1 min-w-[200px] max-h-[70vh] overflow-auto">
           {locales.map(l => (
             <button
               key={l.code}
               onClick={() => { setLocale(l.code); setOpen(false); }}
               className={cn(
-                'w-full flex items-center gap-2.5 px-3 py-2 text-sm hover:bg-secondary/60 transition-colors text-left',
+                'w-full flex items-center gap-2.5 px-3 py-3 md:py-2 text-sm hover:bg-secondary/60 transition-colors text-left',
                 l.code === locale && 'bg-primary/10 text-primary'
               )}
             >

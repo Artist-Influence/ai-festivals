@@ -54,7 +54,7 @@ const FinalPushStrategySlide = () => {
         </div>
 
         <GlassPanel variant="subtle" className="p-3 md:p-5">
-          <p className="text-xs md:text-lg text-muted-foreground text-center">{t('finalPush.footer')}</p>
+          <p className="text-sm md:text-lg text-muted-foreground text-center">{t('finalPush.footer')}</p>
         </GlassPanel>
       </div>
     </div>

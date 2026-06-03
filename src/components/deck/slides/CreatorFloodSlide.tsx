@@ -34,7 +34,7 @@ const CreatorFloodSlide = () => {
               {[0, 1, 2, 3].map((i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                  <p className="text-xs md:text-2xl text-muted-foreground">{t(`creatorFlood.pros.${i}`)}</p>
+                  <p className="text-sm md:text-2xl text-muted-foreground">{t(`creatorFlood.pros.${i}`)}</p>
                 </div>
               ))}
             </div>
@@ -46,12 +46,12 @@ const CreatorFloodSlide = () => {
               {[0, 1, 2].map((i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                  <p className="text-xs md:text-2xl text-muted-foreground">{t(`creatorFlood.when.${i}`)}</p>
+                  <p className="text-sm md:text-2xl text-muted-foreground">{t(`creatorFlood.when.${i}`)}</p>
                 </div>
               ))}
             </div>
             <div className="pt-2 md:pt-3 border-t border-white/[0.06] mt-2 md:mt-3">
-              <p className="text-xs md:text-2xl text-primary font-medium">{t('creatorFlood.timeframe')}</p>
+              <p className="text-sm md:text-2xl text-primary font-medium">{t('creatorFlood.timeframe')}</p>
             </div>
           </GlassPanel>
         </div>
@@ -69,7 +69,7 @@ const CreatorFloodSlide = () => {
             <div className="grid grid-cols-3 gap-1 md:gap-3">
               {metricsData.map((m) => (
                 <div key={m.labelKey} className="bg-white/[0.04] rounded p-1.5 md:p-3 text-center">
-                  <p className="text-xs md:text-lg font-bold text-foreground">{m.val}</p>
+                  <p className="text-sm md:text-lg font-bold text-foreground">{m.val}</p>
                   <p className="text-[8px] md:text-sm text-muted-foreground uppercase tracking-wider">{t(m.labelKey)}</p>
                 </div>
               ))}

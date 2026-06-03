@@ -48,7 +48,7 @@ const FanpagesSlide = () => (
         <div className="flex-1 min-w-0 flex flex-col justify-between gap-2 md:gap-2">
           <GlassPanel className="p-4 md:p-5 flex-1">
             <p className="text-sm md:text-2xl font-semibold text-primary mb-1 md:mb-2">What it is</p>
-            <p className="text-xs md:text-2xl text-muted-foreground leading-relaxed mb-1 md:mb-2">
+            <p className="text-sm md:text-2xl text-muted-foreground leading-relaxed mb-1 md:mb-2">
               A structured content and distribution layer through genre and edit-style pages that already know how to get reach.
             </p>
             <div className="hidden md:block w-full h-16 mt-2"><FanpageVisualizer /></div>
@@ -64,7 +64,7 @@ const FanpagesSlide = () => (
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                  <p className="text-xs md:text-2xl text-muted-foreground">{item}</p>
+                  <p className="text-sm md:text-2xl text-muted-foreground">{item}</p>
                 </div>
               ))}
             </div>
@@ -80,12 +80,12 @@ const FanpagesSlide = () => (
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                  <p className="text-xs md:text-2xl text-muted-foreground">{item}</p>
+                  <p className="text-sm md:text-2xl text-muted-foreground">{item}</p>
                 </div>
               ))}
             </div>
             <div className="pt-2 md:pt-3 border-t border-white/[0.06]">
-              <p className="text-xs md:text-2xl text-primary font-medium">Timeframe: Best results from 4 to 8+ weeks</p>
+              <p className="text-sm md:text-2xl text-primary font-medium">Timeframe: Best results from 4 to 8+ weeks</p>
             </div>
           </GlassPanel>
         </div>
@@ -102,14 +102,14 @@ const FanpagesSlide = () => (
                 </div>
                 <div className="flex-1 flex flex-col justify-between min-w-0">
                   <div className="mb-2 md:mb-3">
-                    <p className="text-xs md:text-2xl text-primary font-mono tracking-widest mb-0.5">FANPAGES</p>
+                    <p className="text-sm md:text-2xl text-primary font-mono tracking-widest mb-0.5">FANPAGES</p>
                     <p className="text-sm md:text-3xl font-bold text-foreground leading-tight">{c.artist}</p>
-                    <p className="text-xs md:text-2xl text-muted-foreground leading-relaxed">{c.project}: {c.goal}</p>
+                    <p className="text-sm md:text-2xl text-muted-foreground leading-relaxed">{c.project}: {c.goal}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-1.5 md:gap-3">
                     {c.metrics.map((m) => (
                       <div key={m.label} className="bg-white/[0.04] rounded-lg p-1.5 md:p-3 text-center">
-                        <p className="text-xs md:text-2xl font-bold text-foreground">{m.val}</p>
+                        <p className="text-sm md:text-2xl font-bold text-foreground">{m.val}</p>
                         <p className="text-[8px] md:text-base text-muted-foreground uppercase tracking-wider">{m.label}</p>
                       </div>
                     ))}
