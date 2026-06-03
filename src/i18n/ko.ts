@@ -135,7 +135,7 @@ const ko: Record<string, string> = {
   'metaTiktok.how.1': '장르, 지역 및 행동별 타겟팅',
   'metaTiktok.how.2': '스트림, 티켓 판매, 상품 및 팬덤 성장에 중점을 둡니다.',
   'metaTiktok.timeframe': '기간: 각 캠페인에 따라 다름',
-  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
+  'metaTiktok.case1Desc': 'Houston push sold 228 more tickets in 14 days. Started at 46, ended at 274. $785 ad spend turned into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'Laylo를 통해 SMS 가입을 수집하는 다단계 캠페인. 6개의 동시 도시 타겟 캠페인에 걸쳐 100개 이상의 크리에이티브.',
   'pricing.title': '맞춤형 & 개별 가격',
   'pricing.subtitle': '모든 패키지는 귀하의 발매 일정, 청중, 목표를 중심으로 구성됩니다. 개별 서비스를 선택하거나, 저희가 맞춤형 번들을 설계해 드리겠습니다.',
