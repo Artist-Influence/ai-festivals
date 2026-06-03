@@ -298,7 +298,7 @@ const MobilePager = ({ current, setCurrent }: MobilePagerProps) => {
       {/* First-load swipe hint */}
       {hintVisible && snap === 0 && (
         <div
-          className="pointer-events-none fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-muted-foreground/70 animate-bounce"
+          className="pointer-events-none fixed bottom-16 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-muted-foreground/70 animate-bounce"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
           <span className="text-[10px] uppercase tracking-[0.25em]">Swipe up</span>
