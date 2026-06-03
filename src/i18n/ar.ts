@@ -203,7 +203,7 @@ const ar: Record<string, string> = {
   'metaTiktok.how.1': 'الاستهداف حسب النوع والموقع الجغرافي والسلوك',
   'metaTiktok.how.2': 'التركيز على البث ومبيعات التذاكر والمنتجات ونمو قاعدة المعجبين',
   'metaTiktok.timeframe': 'الإطار الزمني: يعتمد على كل حملة',
-  'metaTiktok.case1Desc': 'حملة وعي بالعلامة التجارية لمدة 24 ساعة تركز بشكل كامل على المشاهدات.',
+  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': 'حملة متعددة المستويات لجمع الاشتراكات عبر الرسائل القصيرة (SMS) باستخدام Laylo. أكثر من 100 تصميم إبداعي عبر 6 حملات متزامنة تستهدف مدنًا مختلفة.',
 
   // Slide 15 — Websites

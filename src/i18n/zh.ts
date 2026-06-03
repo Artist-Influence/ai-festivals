@@ -160,7 +160,7 @@ const zh: Record<string, string> = {
   'metaTiktok.how.1': '按曲风、地理位置和行为进行定位',
   'metaTiktok.how.2': '专注于流媒体播放量、门票销售、周边商品和粉丝增长',
   'metaTiktok.timeframe': '时间范围：取决于每个活动',
-  'metaTiktok.case1Desc': '为期 24 小时的品牌知名度活动，纯粹专注于观看量。',
+  'metaTiktok.case1Desc': 'Houston event push — drove +228 net new ticket sales in 14 days (46 to 274), turning $785 of ad spend into $3,949 in ticket revenue.',
   'metaTiktok.case2Desc': '通过 Laylo 收集短信注册的多层次活动。在 6 个同步进行的城市定向活动中使用了 100 多种创意素材。',
 
   // ── PricingSlide ──
