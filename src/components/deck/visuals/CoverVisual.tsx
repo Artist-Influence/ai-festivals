@@ -109,7 +109,7 @@ const CoverVisual = ({ className }: CoverVisualProps) => (
 
     {/* Orbits + comets + particles */}
     <svg
-      className="absolute inset-0 w-full h-full hidden md:block"
+      className="absolute inset-0 w-full h-full block"
       viewBox="0 0 1920 1080"
       fill="none"
       preserveAspectRatio="xMidYMid slice"
