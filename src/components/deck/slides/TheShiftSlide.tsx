@@ -10,7 +10,7 @@ const TheShiftSlide = () => {
   const winItems = winIcons.map((Icon, i) => ({ icon: Icon, text: t(`shift.win.${i}`) }));
 
   return (
-    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-24 flex flex-col items-center justify-start md:justify-center">
+    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden pt-14 pb-8 px-5 md:p-24 flex flex-col items-center justify-start md:justify-center">
       <PatternVisual />
 
       <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-12 items-start w-full max-w-[1600px] mx-auto">

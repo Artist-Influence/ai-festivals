@@ -1,7 +1,7 @@
 import GlassPanel from '../GlassPanel';
 
 const UGCHacksSlide = () => (
-  <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-24 flex flex-col items-center justify-center">
+  <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden pt-14 pb-8 px-5 md:p-24 flex flex-col items-center justify-center">
     <div className="relative z-10 w-full max-w-[1200px] mx-auto">
       <p className="text-sm md:text-lg text-primary font-medium mb-2 md:mb-4 tracking-wider uppercase">Service</p>
       <h1 className="text-xl md:text-5xl font-bold text-on-visual mb-2 md:mb-4 leading-tight">

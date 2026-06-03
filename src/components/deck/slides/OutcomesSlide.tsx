@@ -10,7 +10,7 @@ const outcomes = [
 ];
 
 const OutcomesSlide = () => (
-  <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-24 flex flex-col items-center justify-start md:justify-center">
+  <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden pt-14 pb-8 px-5 md:p-24 flex flex-col items-center justify-start md:justify-center">
     <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-16 items-center w-full max-w-[1600px] mx-auto justify-center">
       <div className="flex-1 max-w-[700px]">
         <h1 className="text-2xl md:text-7xl font-bold text-on-visual mb-2 md:mb-4">What "good" looks like</h1>

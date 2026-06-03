@@ -7,7 +7,7 @@ const TheProblemSlide = () => {
   const cards = [0, 1, 2, 3];
 
   return (
-    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden p-5 md:p-20 flex flex-col justify-start md:justify-center">
+    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-hidden pt-14 pb-8 px-5 md:p-20 flex flex-col justify-start md:justify-center">
       <PatternVisual />
 
       <div className="relative z-10 w-full max-w-[1500px] mx-auto">
