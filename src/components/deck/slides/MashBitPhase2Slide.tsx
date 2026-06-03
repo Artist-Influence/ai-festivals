@@ -88,13 +88,12 @@ const MashBitPhase2Slide = () => {
           ))}
         </div>
 
-        {/* Benchmarks + Daily chart side by side */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4 items-stretch">
+          <div className="flex flex-col h-full">
             <p className="text-[10px] md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Benchmarks vs industry</p>
-            <div className="grid gap-2 md:gap-3">
+            <div className="flex flex-col gap-2 md:gap-3 flex-1">
               {benchmarks.map((b) => (
-                <GlassPanel key={b.label} variant="bright" className="p-2.5 md:p-3 flex items-center gap-3">
+                <GlassPanel key={b.label} variant="bright" className="p-2.5 md:p-3 flex items-center gap-3 flex-1">
                   <span className="text-[8px] md:text-[10px] uppercase tracking-widest px-1.5 py-0.5 md:px-2 md:py-1 rounded border bg-primary/20 text-primary border-primary/40 shrink-0">
                     {b.tag}
                   </span>
@@ -110,10 +109,11 @@ const MashBitPhase2Slide = () => {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col h-full">
             <p className="text-[10px] md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Daily pacing · spend, clicks, CTR</p>
-            <GlassPanel variant="bright" className="p-3 md:p-4">
-              <div className="flex items-end gap-[2px] md:gap-1 h-[120px] md:h-[180px]">
+            <GlassPanel variant="bright" className="p-3 md:p-4 flex-1 flex flex-col">
+              <div className="flex items-end gap-[2px] md:gap-1 h-[120px] md:h-auto md:flex-1 md:min-h-0">
+
                 {daily.map((day) => {
                   const spendH = (day.spend / maxSpend) * 100;
                   const clicksH = (day.clicks / maxClicks) * 100;
