@@ -23,8 +23,8 @@ const TicketFunnelSlide = () => {
           <div className="flex-1 md:max-w-[900px] flex flex-col gap-2 md:gap-5">
             {stages.map((i) => (
               <GlassPanel key={i} variant="subtle" className="p-3 md:p-6">
-                <div className="flex items-start gap-3 md:gap-6">
-                  <span className="text-primary font-mono text-sm md:text-xl tracking-widest shrink-0 w-20 md:w-40">{t(`funnel.stage.${i}.label`)}</span>
+                <div className="flex flex-col md:flex-row md:items-start gap-1 md:gap-6">
+                  <span className="text-primary font-mono text-sm md:text-xl tracking-widest md:w-40 md:shrink-0">{t(`funnel.stage.${i}.label`)}</span>
                   <p className="text-sm md:text-2xl text-muted-foreground leading-relaxed">{t(`funnel.stage.${i}.desc`)}</p>
                 </div>
               </GlassPanel>
