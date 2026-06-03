@@ -189,26 +189,51 @@ interface MobilePagerProps {
 }
 
 const MobilePager = ({ current, setCurrent }: MobilePagerProps) => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({
-    loop: false,
-    align: 'start',
-    skipSnaps: false,
-    containScroll: 'trimSnaps',
-  });
+  const scrollerRef = useRef<HTMLDivElement>(null);
+  const slideRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const initialIndex = useRef(current);
   const [snap, setSnap] = useState(current);
   const [showCounter, setShowCounter] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [hintVisible, setHintVisible] = useState(true);
 
+  // Jump to initial slide on mount, without smooth animation
   useEffect(() => {
-    if (!emblaApi) return;
-    const onSelect = () => setSnap(emblaApi.selectedScrollSnap());
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
-    onSelect();
-    return () => {
-      emblaApi.off('select', onSelect);
-      emblaApi.off('reInit', onSelect);
+    const el = slideRefs.current[initialIndex.current];
+    if (el) el.scrollIntoView({ block: 'start', behavior: 'auto' });
+  }, []);
+
+  // Observe which slide is most in view
+  useEffect(() => {
+    const root = scrollerRef.current;
+    if (!root) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        let best = { idx: snap, ratio: 0 };
+        for (const e of entries) {
+          const idx = Number((e.target as HTMLElement).dataset.idx);
+          if (e.intersectionRatio > best.ratio) best = { idx, ratio: e.intersectionRatio };
+        }
+        if (best.ratio > 0.55 && best.idx !== snap) setSnap(best.idx);
+      },
+      { root, threshold: [0.4, 0.6, 0.8] }
+    );
+    slideRefs.current.forEach((el) => el && io.observe(el));
+    return () => io.disconnect();
+  }, [snap]);
+
+  // Track scroll progress through the deck
+  useEffect(() => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const onScroll = () => {
+      const max = el.scrollHeight - el.clientHeight;
+      setProgress(max > 0 ? el.scrollTop / max : 0);
+      if (hintVisible) setHintVisible(false);
     };
-  }, [emblaApi]);
+    el.addEventListener('scroll', onScroll, { passive: true });
+    return () => el.removeEventListener('scroll', onScroll);
+  }, [hintVisible]);
 
   useEffect(() => {
     setCurrent(snap);
@@ -216,19 +241,23 @@ const MobilePager = ({ current, setCurrent }: MobilePagerProps) => {
 
   useEffect(() => {
     setShowCounter(true);
-    const timeout = window.setTimeout(() => setShowCounter(false), 1800);
-    return () => window.clearTimeout(timeout);
+    const t = window.setTimeout(() => setShowCounter(false), 1800);
+    return () => window.clearTimeout(t);
   }, [snap]);
-
-  useEffect(() => {
-    if (emblaApi && current !== emblaApi.selectedScrollSnap()) {
-      emblaApi.scrollTo(current, true);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emblaApi]);
 
   return (
     <div className="fixed inset-0 bg-background overflow-hidden">
+      {/* Top progress bar */}
+      <div
+        className="fixed top-0 left-0 right-0 z-[60] h-[2px] bg-foreground/5"
+        style={{ paddingTop: 'env(safe-area-inset-top)' }}
+      >
+        <div
+          className="h-full bg-primary transition-[width] duration-150"
+          style={{ width: `${progress * 100}%` }}
+        />
+      </div>
+
       <div
         className={cn(
           'absolute left-3 z-50 rounded-full border border-border/40 bg-background/70 px-3 py-1.5 backdrop-blur-md pointer-events-none transition-opacity duration-300',
@@ -245,15 +274,37 @@ const MobilePager = ({ current, setCurrent }: MobilePagerProps) => {
         <LanguagePicker />
       </div>
 
-      <div ref={emblaRef} className="h-dvh w-full overflow-hidden">
-        <div className="flex h-full touch-pan-y">
-          {slides.map((S, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0 h-dvh overflow-y-auto overscroll-contain bg-background">
-              <ScaledSlide isMobile><Suspense fallback={<div className="min-h-dvh w-full bg-background" />}><S /></Suspense></ScaledSlide>
-            </div>
-          ))}
-        </div>
+      <div
+        ref={scrollerRef}
+        className="h-dvh w-full overflow-y-auto overscroll-y-contain snap-y snap-mandatory"
+        style={{ WebkitOverflowScrolling: 'touch' as any, scrollBehavior: 'smooth' }}
+      >
+        {slides.map((S, i) => (
+          <div
+            key={i}
+            data-idx={i}
+            ref={(el) => (slideRefs.current[i] = el)}
+            className="snap-start snap-always w-full min-h-dvh bg-background"
+          >
+            <ScaledSlide isMobile>
+              <Suspense fallback={<div className="min-h-dvh w-full bg-background" />}>
+                <S />
+              </Suspense>
+            </ScaledSlide>
+          </div>
+        ))}
       </div>
+
+      {/* First-load swipe hint */}
+      {hintVisible && snap === 0 && (
+        <div
+          className="pointer-events-none fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-1 text-muted-foreground/70 animate-bounce"
+          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+        >
+          <span className="text-[10px] uppercase tracking-[0.25em]">Swipe up</span>
+          <ChevronUp className="w-4 h-4" />
+        </div>
+      )}
     </div>
   );
 };
