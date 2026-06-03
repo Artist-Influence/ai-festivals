@@ -13,6 +13,7 @@ const TicketFunnelSlide = lazy(() => import('./TicketFunnelSlide'));
 const ClippingSlide = lazy(() => import('./ClippingSlide'));
 const InstagramSeedingSlide = lazy(() => import('./InstagramSeedingSlide'));
 const AdditionalServicesSlide = lazy(() => import('./AdditionalServicesSlide'));
+const MashBitPhase2Slide = lazy(() => import('./MashBitPhase2Slide'));
 const ZedsDeadPhase2Slide = lazy(() => import('./ZedsDeadPhase2Slide'));
 const FinalPushStrategySlide = lazy(() => import('./FinalPushStrategySlide'));
 const YouTubeAdsSlide = lazy(() => import('./YouTubeAdsSlide'));
@@ -36,7 +37,8 @@ export const slides: LazyExoticComponent<ComponentType>[] = [
   ClippingSlide,              // 10
   InstagramSeedingSlide,      // 11
   AdditionalServicesSlide,    // 12 — Meta & TikTok Ads
-  ZedsDeadPhase2Slide,        // 13
+  MashBitPhase2Slide,         // 13 — MashBit deep-dive
+  ZedsDeadPhase2Slide,        // 14
   FinalPushStrategySlide,     // 14
   YouTubeAdsSlide,            // 15
   SoundCloudRepostsSlide,     // 16
