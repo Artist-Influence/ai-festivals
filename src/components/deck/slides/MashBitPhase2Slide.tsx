@@ -45,48 +45,49 @@ const maxCtr = Math.max(...daily.map((x) => x.ctr));
 
 const MashBitPhase2Slide = () => {
   return (
-    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden py-3 px-3 md:p-12 flex flex-col justify-start md:justify-center">
+    <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden pt-14 pb-8 px-4 md:p-12 flex flex-col justify-start md:justify-center">
       <PatternVisual />
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         <p className="text-xs md:text-sm text-primary font-medium tracking-[0.25em] uppercase mb-2 md:mb-3">Campaign Report</p>
-        <h1 className="text-xl md:text-5xl font-bold text-on-visual mb-1 md:mb-3 leading-tight">MashBit · Houston 5.29.26</h1>
-        <p className="text-sm md:text-xl text-on-visual-soft mb-4 md:mb-6 max-w-[1200px]">
+        <h1 className="text-3xl md:text-5xl font-bold text-on-visual mb-2 md:mb-3 leading-tight">MashBit · Houston 5.29.26</h1>
+        <p className="text-base md:text-xl text-on-visual-soft mb-5 md:mb-6 max-w-[1200px]">
           Persian diaspora event push. 14 day Meta flight built to drive ticket page traffic and event-day conversions.
         </p>
 
         {/* Meta row */}
-        <div className="grid grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mb-4 md:mb-6">
           <GlassPanel variant="subtle" className="p-3 md:p-4">
-            <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Objective</p>
-            <p className="text-sm md:text-xl text-foreground font-semibold">Traffic / Ticket Sales</p>
+            <p className="text-[11px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Objective</p>
+            <p className="text-base md:text-xl text-foreground font-semibold">Traffic / Ticket Sales</p>
           </GlassPanel>
           <GlassPanel variant="subtle" className="p-3 md:p-4">
-            <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Timeline</p>
-            <p className="text-sm md:text-xl text-foreground font-semibold">May 16 to May 29, 2026 · 14 days</p>
+            <p className="text-[11px] md:text-xs text-muted-foreground uppercase tracking-widest mb-0.5">Timeline</p>
+            <p className="text-base md:text-xl text-foreground font-semibold">May 16 to May 29, 2026 · 14 days</p>
           </GlassPanel>
         </div>
 
         {/* Account summary stats */}
-        <div className="grid grid-cols-5 gap-1.5 md:gap-3 mb-4 md:mb-6">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 mb-4 md:mb-6">
           {accountStats.map((s) => (
-            <GlassPanel key={s.label} variant="bright" className="p-2 md:p-4 text-center">
-              <p className="text-sm md:text-3xl font-bold text-foreground leading-tight">{s.val}</p>
-              <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-wider mt-0.5 md:mt-1">{s.label}</p>
+            <GlassPanel key={s.label} variant="bright" className="p-3 md:p-4 text-center">
+              <p className="text-xl md:text-3xl font-bold text-foreground leading-tight">{s.val}</p>
+              <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mt-1">{s.label}</p>
             </GlassPanel>
           ))}
         </div>
 
         {/* Ticket outcomes */}
-        <p className="text-[10px] md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Ticket outcomes</p>
-        <div className="grid grid-cols-5 gap-1.5 md:gap-3 mb-4 md:mb-6">
+        <p className="text-xs md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Ticket outcomes</p>
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 mb-4 md:mb-6">
           {ticketStats.map((s) => (
-            <GlassPanel key={s.label} variant="bright" className="p-2 md:p-3 text-center">
-              <p className="text-sm md:text-2xl font-bold text-foreground leading-tight">{s.val}</p>
-              <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-wider mt-0.5">{s.label}</p>
-              <p className="text-[7px] md:text-[10px] text-muted-foreground/80 mt-0.5">{s.sub}</p>
+            <GlassPanel key={s.label} variant="bright" className="p-3 text-center">
+              <p className="text-lg md:text-2xl font-bold text-foreground leading-tight">{s.val}</p>
+              <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-wider mt-0.5">{s.label}</p>
+              <p className="text-[10px] md:text-[10px] text-muted-foreground/80 mt-0.5">{s.sub}</p>
             </GlassPanel>
           ))}
         </div>
+
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4 items-stretch">
           <div className="flex flex-col h-full">
