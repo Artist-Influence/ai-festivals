@@ -67,7 +67,7 @@ const CoverVisual = ({ className }: CoverVisualProps) => (
 
     {/* Conic shimmer scan beam */}
     <div
-      className="absolute inset-0 hidden md:block animate-conic-spin motion-reduce:animate-none"
+      className="absolute inset-0 block animate-conic-spin motion-reduce:animate-none"
       style={{
         background:
           'conic-gradient(from 0deg at 50% 50%, transparent 0deg, hsl(var(--primary) / 0.08) 30deg, transparent 80deg, transparent 360deg)',
@@ -76,7 +76,7 @@ const CoverVisual = ({ className }: CoverVisualProps) => (
 
     {/* Equalizer ring — hidden behind logo via radial mask */}
     <div
-      className="absolute inset-0 hidden md:flex items-center justify-center"
+      className="absolute inset-0 flex items-center justify-center scale-50 md:scale-100"
       style={{
         WebkitMaskImage:
           'radial-gradient(ellipse 380px 240px at center, transparent 0%, transparent 55%, black 78%)',
