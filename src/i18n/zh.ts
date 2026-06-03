@@ -111,7 +111,7 @@ const zh: Record<string, string> = {
   'spotify.why.1': 'Spotify 会将歌曲推送到《发现周刊》、《发行雷达》和电台',
   'spotify.why.2': '保证达到流媒体播放量目标',
   'spotify.timeframe': '时间范围：12 周',
-  'spotify.mobileSummary.0': '由真正品味引领者管理的精选歌单,,无机器人，符合曲风流派',
+  'spotify.mobileSummary.0': '由真正品味引领者管理的精选歌单,无机器人，符合曲风流派',
   'spotify.mobileSummary.1': '自然流媒体播放量会产生收藏、关注和算法信号',
   'spotify.mobileSummary.2': '保证达到流媒体播放量目标 · 时间范围：12 周',
 
@@ -128,9 +128,9 @@ const zh: Record<string, string> = {
   'soundcloud.why.1': '来自知名账号的转发会推动有机的播放量、喜欢和关注，产生复合效应',
   'soundcloud.why.2': '仍然是地下音乐和电子音乐的发现引擎',
   'soundcloud.timeframe': '时间范围：2 到 8 周',
-  'soundcloud.mobileSummary.0': '由拥有真实粉丝的 SoundCloud 已验证账号网络,,符合曲风流派，全程跟踪',
+  'soundcloud.mobileSummary.0': '由拥有真实粉丝的 SoundCloud 已验证账号网络,符合曲风流派，全程跟踪',
   'soundcloud.mobileSummary.1': '早期互动信号会叠加产生有机播放量、喜欢和关注',
-  'soundcloud.mobileSummary.2': '超过 2500 万粉丝覆盖 · 时间范围：2–8 周',
+  'soundcloud.mobileSummary.2': '超过 2500 万粉丝覆盖 · 时间范围：2,8 周',
 
   // ── InstagramSeedingSlide ──
   'instagram.title': 'Instagram 植入',
@@ -146,7 +146,7 @@ const zh: Record<string, string> = {
   'instagram.timeframe': '时间范围：1 到 3 周',
   'instagram.mobileSummary.0': '音频和视频内容植入到精选的 IG 主题页面和模因账号',
   'instagram.mobileSummary.1': '以远低于付费广告的成本驱动收藏、分享和音频使用',
-  'instagram.mobileSummary.2': '旨在实现相关性和成本效益 · 时间范围：1–3 周',
+  'instagram.mobileSummary.2': '旨在实现相关性和成本效益 · 时间范围：1,3 周',
 
   // ── AdditionalServicesSlide (Meta & TikTok Ads) ──
   'metaTiktok.title': 'Meta 与 TikTok 广告',

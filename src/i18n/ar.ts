@@ -173,7 +173,7 @@ const ar: Record<string, string> = {
   'soundcloud.timeframe': 'الإطار الزمني: من 2 إلى 8 أسابيع',
   'soundcloud.mobileSummary.0': 'شبكة معتمدة من حسابات SoundCloud ذات متابعين حقيقيين. متوافقة مع النوع، متتبعة بالكامل',
   'soundcloud.mobileSummary.1': 'إشارات التفاعل المبكرة تؤدي إلى مشاهدات وإعجابات ومتابعات عضوية',
-  'soundcloud.mobileSummary.2': 'وصول 25 مليون+ متابع · الإطار الزمني: 2–8 أسابيع',
+  'soundcloud.mobileSummary.2': 'وصول 25 مليون+ متابع · الإطار الزمني: 2,8 أسابيع',
 
   // Slide 13 — Instagram
   'instagram.title': 'نشر المحتوى على Instagram',
@@ -189,7 +189,7 @@ const ar: Record<string, string> = {
   'instagram.timeframe': 'الإطار الزمني: من 1 إلى 3 أسابيع',
   'instagram.mobileSummary.0': 'محتوى صوتي ومرئي يُنشر عبر صفحات مواضيع IG وحسابات الميمات المختارة',
   'instagram.mobileSummary.1': 'تحفز عمليات الحفظ والمشاركة واستخدامات الصوت بجزء بسيط من تكلفة الإعلانات المدفوعة',
-  'instagram.mobileSummary.2': 'مصممة للأهمية والكفاءة من حيث التكلفة · الإطار الزمني: 1–3 أسابيع',
+  'instagram.mobileSummary.2': 'مصممة للأهمية والكفاءة من حيث التكلفة · الإطار الزمني: 1,3 أسابيع',
 
   // Slide 14 — Meta & TikTok
   'metaTiktok.title': 'إعلانات Meta و TikTok',

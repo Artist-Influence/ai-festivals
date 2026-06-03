@@ -319,7 +319,7 @@ const en: Record<string, string> = {
   'zd2.title': 'Zeds Dead · Journey of a Lifetime Tour 2026',
   'zd2.subtitle': 'City-level Meta campaigns built to drive ticket page traffic across six North American markets.',
   'zd2.objective': 'Traffic / Link Clicks',
-  'zd2.timeline': 'Phase 2 · April – June 15, 2026',
+  'zd2.timeline': 'Phase 2 · April, June 15, 2026',
   'zd2.note': 'Data reflects active Phase 2 Meta campaigns as of Apr 21, 2026.',
   'zd2.cityHighlights': 'City highlights',
 

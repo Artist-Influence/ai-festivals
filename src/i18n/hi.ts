@@ -173,7 +173,7 @@ const hi: Record<string, string> = {
   'soundcloud.timeframe': 'समय-सीमा: 2 से 8 सप्ताह',
   'soundcloud.mobileSummary.0': 'असली अनुयायियों वाले SoundCloud खातों का सत्यापित नेटवर्क. शैली-अनुरूप, पूरी तरह ट्रैक किया गया',
   'soundcloud.mobileSummary.1': 'शुरुआती एंगेजमेंट संकेत ऑर्गेनिक प्ले, लाइक और फॉलो उत्पन्न करते हैं',
-  'soundcloud.mobileSummary.2': '25M+ फॉलोअर्स तक पहुंच · समय-सीमा: 2–8 सप्ताह',
+  'soundcloud.mobileSummary.2': '25M+ फॉलोअर्स तक पहुंच · समय-सीमा: 2,8 सप्ताह',
 
   // Slide 13 — Instagram
   'instagram.title': 'इंस्टाग्राम सीडिंग',
@@ -189,7 +189,7 @@ const hi: Record<string, string> = {
   'instagram.timeframe': 'समय-सीमा: 1 से 3 सप्ताह',
   'instagram.mobileSummary.0': 'क्यूरेटेड IG थीम पेजों और मीम खातों के माध्यम से सीड की गई ऑडियो और वीडियो सामग्री',
   'instagram.mobileSummary.1': 'पेड विज्ञापनों की लागत के एक अंश पर सेव, शेयर और ऑडियो उपयोग को बढ़ावा देता है',
-  'instagram.mobileSummary.2': 'प्रासंगिकता और लागत दक्षता के लिए बनाया गया · समय-सीमा: 1–3 सप्ताह',
+  'instagram.mobileSummary.2': 'प्रासंगिकता और लागत दक्षता के लिए बनाया गया · समय-सीमा: 1,3 सप्ताह',
 
   // Slide 14 — Meta & TikTok
   'metaTiktok.title': 'मेटा और टिकटॉक विज्ञापन',
