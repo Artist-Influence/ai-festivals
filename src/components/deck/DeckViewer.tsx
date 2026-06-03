@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback, Suspense } from 'react';
-import useEmblaCarousel from 'embla-carousel-react';
+import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 
 import aiLogo from '@/assets/ai-logo-lockup.png';
 import { ChevronLeft, ChevronRight, Maximize, Minimize, LayoutGrid, PanelLeftClose, PanelLeft } from 'lucide-react';
