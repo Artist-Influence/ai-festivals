@@ -89,21 +89,21 @@ const MashBitPhase2Slide = () => {
         </div>
 
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mb-3 md:mb-4 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-4 mb-4 md:mb-4 items-stretch">
           <div className="flex flex-col h-full">
-            <p className="text-[10px] md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Benchmarks vs industry</p>
+            <p className="text-xs md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Benchmarks vs industry</p>
             <div className="flex flex-col gap-2 md:gap-3 flex-1">
               {benchmarks.map((b) => (
-                <GlassPanel key={b.label} variant="bright" className="p-2.5 md:p-3 flex items-center gap-3 flex-1">
-                  <span className="text-[8px] md:text-[10px] uppercase tracking-widest px-1.5 py-0.5 md:px-2 md:py-1 rounded border bg-primary/20 text-primary border-primary/40 shrink-0">
+                <GlassPanel key={b.label} variant="bright" className="p-3 md:p-3 flex items-center gap-3 flex-1">
+                  <span className="text-[9px] md:text-[10px] uppercase tracking-widest px-2 py-1 rounded border bg-primary/20 text-primary border-primary/40 shrink-0">
                     {b.tag}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-baseline gap-2">
-                      <p className="text-base md:text-2xl font-bold text-foreground leading-tight">{b.val}</p>
-                      <p className="text-[10px] md:text-sm text-foreground/80 truncate">{b.label}</p>
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <p className="text-lg md:text-2xl font-bold text-foreground leading-tight">{b.val}</p>
+                      <p className="text-xs md:text-sm text-foreground/80">{b.label}</p>
                     </div>
-                    <p className="text-[8px] md:text-[11px] text-muted-foreground">{b.vs}</p>
+                    <p className="text-[10px] md:text-[11px] text-muted-foreground">{b.vs}</p>
                   </div>
                 </GlassPanel>
               ))}
@@ -111,9 +111,9 @@ const MashBitPhase2Slide = () => {
           </div>
 
           <div className="flex flex-col h-full">
-            <p className="text-[10px] md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Daily pacing · spend, clicks, CTR</p>
+            <p className="text-xs md:text-sm text-primary font-medium tracking-widest uppercase mb-2 md:mb-3">Daily pacing · spend, clicks, CTR</p>
             <GlassPanel variant="bright" className="p-3 md:p-4 flex-1 flex flex-col">
-              <div className="flex items-end gap-[2px] md:gap-1 h-[120px] md:h-auto md:flex-1 md:min-h-0">
+              <div className="flex items-end gap-[3px] md:gap-1 h-[200px] md:h-auto md:flex-1 md:min-h-0">
 
                 {daily.map((day) => {
                   const spendH = (day.spend / maxSpend) * 100;
@@ -130,12 +130,12 @@ const MashBitPhase2Slide = () => {
                   );
                 })}
               </div>
-              <div className="flex justify-between mt-1 md:mt-2 px-0.5">
+              <div className="flex justify-between mt-2 px-0.5">
                 {daily.map((day) => (
-                  <span key={day.d} className="text-[7px] md:text-[9px] text-muted-foreground">{day.d}</span>
+                  <span key={day.d} className="text-[9px] md:text-[9px] text-muted-foreground">{day.d}</span>
                 ))}
               </div>
-              <div className="flex flex-wrap gap-2 md:gap-3 mt-2 md:mt-3 text-[8px] md:text-[10px] text-muted-foreground">
+              <div className="flex flex-wrap gap-3 mt-3 text-[10px] md:text-[10px] text-muted-foreground">
                 <span className="flex items-center gap-1"><span className="w-2 h-2 bg-primary/80 rounded-sm" /> Spend</span>
                 <span className="flex items-center gap-1"><span className="w-2 h-2 bg-primary/40 rounded-sm" /> Link clicks</span>
                 <span className="flex items-center gap-1"><span className="w-2 h-2 bg-foreground/60 rounded-sm" /> CTR %</span>
@@ -144,9 +144,10 @@ const MashBitPhase2Slide = () => {
           </div>
         </div>
 
-        <p className="text-[10px] md:text-sm text-muted-foreground italic text-center">
+        <p className="text-[11px] md:text-sm text-muted-foreground italic text-center">
           Source: Meta Ads Manager + Eventim live ticketing, May 30, 2026. 100% sold online plus 10 guest list comps.
         </p>
+
       </div>
     </div>
   );
