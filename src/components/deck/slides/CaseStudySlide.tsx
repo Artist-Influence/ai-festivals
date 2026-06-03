@@ -24,13 +24,13 @@ const CaseStudySlide = () => {
             <p className="text-xs md:text-base text-muted-foreground mb-4 md:mb-6">{t('csSubtronics.client')}</p>
 
             <div className="space-y-2 md:space-y-3 mb-4 md:mb-6">
-              <p className="text-xs md:text-lg text-muted-foreground">
+              <p className="text-sm md:text-lg text-muted-foreground">
                 <span className="text-primary font-medium">{t('csSubtronics.goalLabel')}</span> {t('csSubtronics.goal')}
               </p>
             </div>
 
             <p className="text-xs md:text-base text-primary font-medium mb-2 md:mb-3">{t('csSubtronics.strategyTitle')}</p>
-            <ol className="list-decimal list-inside space-y-1 md:space-y-2 text-xs md:text-lg text-muted-foreground">
+            <ol className="list-decimal list-inside space-y-1 md:space-y-2 text-sm md:text-lg text-muted-foreground">
               {[0, 1, 2, 3].map((i) => (
                 <li key={i}>{t(`csSubtronics.strategy.${i}`)}</li>
               ))}

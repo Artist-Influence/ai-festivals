@@ -107,13 +107,13 @@ const AdditionalServicesSlide = () => {
                   <div className="flex-1 flex flex-col justify-center min-w-0">
                     <p className="text-[10px] md:text-base text-primary font-mono mb-0.5 tracking-widest uppercase">{c.platform}</p>
                     <p className="text-base md:text-3xl font-bold text-foreground leading-tight">{c.artist}</p>
-                    <p className="text-xs md:text-xl text-muted-foreground">{c.track}</p>
+                    <p className="text-sm md:text-xl text-muted-foreground">{c.track}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2 mb-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-2.5" />
-                  <p className="text-xs md:text-lg text-muted-foreground">{t(c.descKey)}</p>
+                  <p className="text-sm md:text-lg text-muted-foreground">{t(c.descKey)}</p>
                 </div>
 
                 <div className={`grid gap-1.5 md:gap-3 ${c.metrics.length === 5 ? 'grid-cols-5' : 'grid-cols-4'}`}>

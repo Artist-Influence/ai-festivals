@@ -28,7 +28,7 @@ const PostEventFlywheelSlide = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="text-sm md:text-2xl font-semibold text-foreground mb-1 md:mb-2">{t(`flywheel.card.${i}.label`)}</p>
-                  <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">{t(`flywheel.card.${i}.desc`)}</p>
+                  <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">{t(`flywheel.card.${i}.desc`)}</p>
                 </div>
               </div>
             </GlassPanel>
@@ -36,7 +36,7 @@ const PostEventFlywheelSlide = () => {
         </div>
 
         <GlassPanel variant="subtle" className="mt-4 md:mt-8 p-3 md:p-5">
-          <p className="text-xs md:text-lg text-muted-foreground text-center">{t('flywheel.footer')}</p>
+          <p className="text-sm md:text-lg text-muted-foreground text-center">{t('flywheel.footer')}</p>
         </GlassPanel>
       </div>
     </div>

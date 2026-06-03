@@ -138,7 +138,7 @@ const WebsitesSlide = () => {
         </div>
 
         <GlassPanel variant="subtle" className="p-3 md:p-5">
-          <p className="text-xs md:text-lg text-foreground/90 leading-relaxed">
+          <p className="text-sm md:text-lg text-foreground/90 leading-relaxed">
             <span className="text-primary font-semibold">{t('websites.whyLabel')} </span>
             {t('websites.why')}
           </p>

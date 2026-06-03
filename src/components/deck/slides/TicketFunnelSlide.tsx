@@ -24,8 +24,8 @@ const TicketFunnelSlide = () => {
             {stages.map((i) => (
               <GlassPanel key={i} variant="subtle" className="p-3 md:p-6">
                 <div className="flex items-start gap-3 md:gap-6">
-                  <span className="text-primary font-mono text-xs md:text-xl tracking-widest shrink-0 w-20 md:w-40">{t(`funnel.stage.${i}.label`)}</span>
-                  <p className="text-xs md:text-2xl text-muted-foreground leading-relaxed">{t(`funnel.stage.${i}.desc`)}</p>
+                  <span className="text-primary font-mono text-sm md:text-xl tracking-widest shrink-0 w-20 md:w-40">{t(`funnel.stage.${i}.label`)}</span>
+                  <p className="text-sm md:text-2xl text-muted-foreground leading-relaxed">{t(`funnel.stage.${i}.desc`)}</p>
                 </div>
               </GlassPanel>
             ))}
@@ -39,7 +39,7 @@ const TicketFunnelSlide = () => {
         </div>
 
         <GlassPanel variant="subtle" className="mt-4 md:mt-8 p-3 md:p-5">
-          <p className="text-xs md:text-lg text-muted-foreground text-center">{t('funnel.footer')}</p>
+          <p className="text-sm md:text-lg text-muted-foreground text-center">{t('funnel.footer')}</p>
         </GlassPanel>
       </div>
     </div>

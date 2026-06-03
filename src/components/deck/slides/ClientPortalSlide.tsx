@@ -22,7 +22,7 @@ const ClientPortalSlide = () => {
             {[0, 1, 2].map((i) => (
               <GlassPanel key={i} className="p-4 md:p-6 flex-1">
                 <p className="text-sm md:text-2xl font-semibold text-primary mb-1 md:mb-2">{t(`clientPortal.bullets.${i}.title`)}</p>
-                <p className="text-xs md:text-lg text-muted-foreground leading-snug">{t(`clientPortal.bullets.${i}.desc`)}</p>
+                <p className="text-sm md:text-lg text-muted-foreground leading-snug">{t(`clientPortal.bullets.${i}.desc`)}</p>
               </GlassPanel>
             ))}
           </div>

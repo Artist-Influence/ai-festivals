@@ -23,7 +23,7 @@ const WhatWeNeedSlide = () => {
               {required.map((i) => (
                 <div key={i} className="flex items-start gap-2 md:gap-3">
                   <Check className="w-3 h-3 md:w-4 md:h-4 text-primary shrink-0 mt-1 md:mt-1.5" />
-                  <p className="text-xs md:text-lg text-foreground">{t(`need.required.${i}`)}</p>
+                  <p className="text-sm md:text-lg text-foreground">{t(`need.required.${i}`)}</p>
                 </div>
               ))}
             </div>
@@ -35,7 +35,7 @@ const WhatWeNeedSlide = () => {
               {recommended.map((i) => (
                 <div key={i} className="flex items-start gap-2 md:gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-2.5" />
-                  <p className="text-xs md:text-lg text-foreground">{t(`need.recommended.${i}`)}</p>
+                  <p className="text-sm md:text-lg text-foreground">{t(`need.recommended.${i}`)}</p>
                 </div>
               ))}
             </div>

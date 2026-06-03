@@ -43,7 +43,7 @@ const ClippingSlide = () => {
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                    <p className="text-xs md:text-2xl text-muted-foreground">{t(`clipping.pros.${i}`)}</p>
+                    <p className="text-sm md:text-2xl text-muted-foreground">{t(`clipping.pros.${i}`)}</p>
                   </div>
                 ))}
               </div>
@@ -55,12 +55,12 @@ const ClippingSlide = () => {
                 {[0, 1, 2, 3].map((i) => (
                   <div key={i} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                    <p className="text-xs md:text-2xl text-muted-foreground">{t(`clipping.diff.${i}`)}</p>
+                    <p className="text-sm md:text-2xl text-muted-foreground">{t(`clipping.diff.${i}`)}</p>
                   </div>
                 ))}
               </div>
               <div className="pt-3 border-t border-white/[0.06] mt-3">
-                <p className="text-xs md:text-2xl text-primary font-medium">{t('clipping.timeframe')}</p>
+                <p className="text-sm md:text-2xl text-primary font-medium">{t('clipping.timeframe')}</p>
               </div>
             </GlassPanel>
           </div>
@@ -73,7 +73,7 @@ const ClippingSlide = () => {
                     className="w-10 h-10 md:w-20 md:h-20 rounded-lg md:rounded-xl object-cover border border-white/[0.08] shrink-0" />
                   <div className="flex-1 min-w-0">
                     <p className="text-[9px] md:text-lg text-primary font-mono tracking-widest mb-0.5">{t('clipping.tagLabel')}</p>
-                    <p className="text-xs md:text-xl font-bold text-foreground leading-tight">{t(c.artistKey)}</p>
+                    <p className="text-sm md:text-xl font-bold text-foreground leading-tight">{t(c.artistKey)}</p>
                     <p className="text-[10px] md:text-lg text-muted-foreground">{t(c.trackKey)}</p>
                   </div>
                 </div>

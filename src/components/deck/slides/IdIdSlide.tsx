@@ -46,7 +46,7 @@ const IdIdSlide = () => {
               {[0, 1, 2].map((i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                  <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">{t(`idid.what.${i}`)}</p>
+                  <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">{t(`idid.what.${i}`)}</p>
                 </div>
               ))}
             </div>
@@ -58,14 +58,14 @@ const IdIdSlide = () => {
               {[0, 1, 2].map((i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                  <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">{t(`idid.why.${i}`)}</p>
+                  <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">{t(`idid.why.${i}`)}</p>
                 </div>
               ))}
             </div>
           </GlassPanel>
         </div>
 
-        <p className="text-xs md:text-lg text-on-visual-soft italic text-center max-w-[1100px] mx-auto leading-relaxed">
+        <p className="text-sm md:text-lg text-on-visual-soft italic text-center max-w-[1100px] mx-auto leading-relaxed">
           {t('idid.bottomNote')}
         </p>
       </div>

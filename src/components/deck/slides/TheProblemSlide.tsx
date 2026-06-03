@@ -23,13 +23,13 @@ const TheProblemSlide = () => {
           {cards.map((i) => (
             <GlassPanel key={i} variant="bright" className="p-5 md:p-8">
               <p className="text-sm md:text-2xl font-semibold text-primary mb-2 md:mb-3">{t(`problem.card.${i}.label`)}</p>
-              <p className="text-xs md:text-xl text-muted-foreground leading-relaxed">{t(`problem.card.${i}.desc`)}</p>
+              <p className="text-sm md:text-xl text-muted-foreground leading-relaxed">{t(`problem.card.${i}.desc`)}</p>
             </GlassPanel>
           ))}
         </div>
 
         <GlassPanel variant="subtle" className="mt-4 md:mt-8 p-3 md:p-5">
-          <p className="text-xs md:text-lg text-muted-foreground leading-relaxed text-center">{t('problem.footer')}</p>
+          <p className="text-sm md:text-lg text-muted-foreground leading-relaxed text-center">{t('problem.footer')}</p>
         </GlassPanel>
       </div>
     </div>

@@ -77,7 +77,7 @@ const CultureEditsSlide = () => {
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                    <p className="text-xs md:text-xl text-muted-foreground leading-relaxed">{t(`cultureEdits.what.${i}`)}</p>
+                    <p className="text-sm md:text-xl text-muted-foreground leading-relaxed">{t(`cultureEdits.what.${i}`)}</p>
                   </div>
                 ))}
               </div>
@@ -89,7 +89,7 @@ const CultureEditsSlide = () => {
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-                    <p className="text-xs md:text-xl text-muted-foreground leading-relaxed">{t(`cultureEdits.why.${i}`)}</p>
+                    <p className="text-sm md:text-xl text-muted-foreground leading-relaxed">{t(`cultureEdits.why.${i}`)}</p>
                   </div>
                 ))}
               </div>
@@ -110,8 +110,8 @@ const CultureEditsSlide = () => {
 
         <GlassPanel variant="bright" className="p-3 md:p-5">
           <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-3">
-            <p className="text-xs md:text-lg text-primary font-semibold tracking-wider uppercase shrink-0">{t('cultureEdits.bestForLabel')}</p>
-            <p className="text-xs md:text-lg text-foreground/90">{t('cultureEdits.bestFor')}</p>
+            <p className="text-sm md:text-lg text-primary font-semibold tracking-wider uppercase shrink-0">{t('cultureEdits.bestForLabel')}</p>
+            <p className="text-sm md:text-lg text-foreground/90">{t('cultureEdits.bestFor')}</p>
           </div>
         </GlassPanel>
       </div>

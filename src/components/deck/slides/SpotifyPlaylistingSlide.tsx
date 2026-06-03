@@ -53,10 +53,10 @@ const SpotifyPlaylistingSlide = () => {
         <div>
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-3">
             <SpotifyIcon size={18} />
-            <p className="text-xs md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
+            <p className="text-sm md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
           </div>
           <h1 className="text-2xl md:text-5xl font-bold text-on-visual mb-1 md:mb-3 leading-tight">{t('spotify.title')}</h1>
-          <p className="text-xs md:text-xl text-on-visual-soft mb-3 md:mb-0 max-w-[700px]">{t('spotify.subtitle')}</p>
+          <p className="text-sm md:text-xl text-on-visual-soft mb-3 md:mb-0 max-w-[700px]">{t('spotify.subtitle')}</p>
         </div>
 
         {/* Mobile summary */}

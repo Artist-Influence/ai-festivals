@@ -35,7 +35,7 @@ const Top50TrendingSlide = () => {
 
           <GlassPanel variant="bright" className="p-4 md:p-8 flex-1 flex flex-col justify-center">
             <p className="text-sm md:text-2xl font-semibold text-primary mb-2 md:mb-3">{t('trending.howTitle')}</p>
-            <p className="text-xs md:text-lg text-muted-foreground leading-relaxed">{t('trending.howDesc')}</p>
+            <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">{t('trending.howDesc')}</p>
           </GlassPanel>
 
           <GlassPanel variant="subtle" className="p-4 md:p-8 flex-1 flex flex-col justify-center">
@@ -44,12 +44,12 @@ const Top50TrendingSlide = () => {
               {[0, 1, 2].map((i) => (
                 <div key={i} className="flex items-start gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-2" />
-                  <p className="text-xs md:text-lg text-muted-foreground">{t(`trending.when.${i}`)}</p>
+                  <p className="text-sm md:text-lg text-muted-foreground">{t(`trending.when.${i}`)}</p>
                 </div>
               ))}
             </div>
             <div className="pt-3 md:pt-5 border-t border-white/[0.06] mt-3 md:mt-5">
-              <p className="text-xs md:text-lg text-primary font-medium">{t('trending.timeframe')}</p>
+              <p className="text-sm md:text-lg text-primary font-medium">{t('trending.timeframe')}</p>
             </div>
           </GlassPanel>
         </div>

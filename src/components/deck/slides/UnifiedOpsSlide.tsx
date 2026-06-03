@@ -64,7 +64,7 @@ const UnifiedOpsSlide = () => {
               <p className="text-xs md:text-base font-semibold text-primary mb-1 tracking-wider uppercase">
                 {t('unifiedOps.calloutTitle')}
               </p>
-              <p className="text-xs md:text-lg text-foreground/90 leading-relaxed">
+              <p className="text-sm md:text-lg text-foreground/90 leading-relaxed">
                 {t('unifiedOps.calloutBody')}
               </p>
             </div>
@@ -72,7 +72,7 @@ const UnifiedOpsSlide = () => {
         </div>
 
         <div className="rounded-xl border border-primary/35 bg-primary/[0.06] p-3 md:p-5 text-center">
-          <p className="text-xs md:text-lg text-foreground font-medium leading-relaxed">
+          <p className="text-sm md:text-lg text-foreground font-medium leading-relaxed">
             {t('unifiedOps.footer')}
           </p>
         </div>

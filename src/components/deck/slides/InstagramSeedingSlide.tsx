@@ -27,10 +27,10 @@ const InstagramSeedingSlide = () => {
         <div>
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-4">
             <Instagram size={18} className="text-primary md:w-7 md:h-7" />
-            <p className="text-xs md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
+            <p className="text-sm md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
           </div>
           <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-1 md:mb-4 leading-tight">{t('instagram.title')}</h1>
-          <p className="text-xs md:text-2xl text-on-visual-soft mb-0 max-w-[700px]">{t('instagram.subtitle')}</p>
+          <p className="text-sm md:text-2xl text-on-visual-soft mb-0 max-w-[700px]">{t('instagram.subtitle')}</p>
         </div>
 
         {/* Mobile summary */}
@@ -86,7 +86,7 @@ const InstagramSeedingSlide = () => {
                   <div className="flex-1 min-w-0">
                     <p className="text-[10px] md:text-lg text-primary font-mono tracking-widest mb-0.5">{t('instagram.tagLabel')}</p>
                     <p className="text-sm md:text-2xl font-bold text-foreground leading-tight">{c.artist}</p>
-                    <p className="text-xs md:text-lg text-muted-foreground">{c.track}</p>
+                    <p className="text-sm md:text-lg text-muted-foreground">{c.track}</p>
                   </div>
                 </div>
 
