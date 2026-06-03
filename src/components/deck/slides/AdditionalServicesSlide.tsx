@@ -50,8 +50,8 @@ const cases = [
 
 const BulletPoint = ({ children }: { children: React.ReactNode }) => (
   <div className="flex items-start gap-2">
-    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-1.5 md:mt-3" />
-    <p className="text-xs md:text-xl text-muted-foreground">{children}</p>
+    <div className="w-1.5 h-1.5 rounded-full bg-primary/60 shrink-0 mt-2 md:mt-3" />
+    <p className="text-sm md:text-xl text-muted-foreground">{children}</p>
   </div>
 );
 
