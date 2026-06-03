@@ -1,7 +1,7 @@
 import GlassPanel from '../GlassPanel';
 import PatternVisual from '../visuals/PatternVisual';
 import { useTranslation } from '@/i18n/LanguageContext';
-import gordoImg from '@/assets/gordo-meta-tiktok.webp';
+import mashbitImg from '@/assets/case-mashbit.png';
 import zedsDeadImg from '@/assets/zeds-dead-logo.png';
 
 const TikTokIcon = ({ size = 28 }: { size?: number }) => (
@@ -25,9 +25,15 @@ const MetaTikTokIcon = () => (
 
 const cases = [
   {
-    platform: 'TIKTOK ADS', artist: 'Gordo (@gordoszn)', track: 'Brand Awareness Campaign',
-    descKey: 'metaTiktok.case1Desc', thumb: gordoImg, imgPosition: 'object-top',
-    metrics: [{ val: '1.4M', labelKey: 'kpi.impressions' }, { val: '$0.31', labelKey: 'kpi.cpm' }, { val: '500.7K', labelKey: 'kpi.sixSecViews' }, { val: '34.7%', labelKey: 'kpi.viewRate' }],
+    platform: 'META ADS', artist: 'MashBit', track: 'Houston 5.29.26 — Persians + Charity Push · 14-day flight',
+    descKey: 'metaTiktok.case1Desc', thumb: mashbitImg, imgPosition: 'object-top',
+    metrics: [
+      { val: '$785', labelKey: 'kpi.spend' },
+      { val: '274', labelKey: 'kpi.ticketsSold' },
+      { val: '$3,949', labelKey: 'kpi.revenue' },
+      { val: '5.03×', labelKey: 'kpi.roas' },
+      { val: '9.06%', labelKey: 'kpi.ctr' },
+    ],
   },
   {
     platform: 'META ADS', artist: 'Zeds Dead', track: 'Journey of a Lifetime Tour 2026 · 6 city campaigns · Phase 2',

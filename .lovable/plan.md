@@ -1,48 +1,40 @@
-# Slide 15 — match SoundCloud explainer text size
 
-## Goal
-1. Bring the YouTube slide's "What It Is" / "How It Works" panels up to the same typography scale as the SoundCloud Reposts slide.
-2. Investigate the reported preview/thumbnail mismatch where explainer text appears centered in sidebar/grid previews but starts top-left on the live slide.
+# Replace Gordo case study with MashBit on the Meta + TikTok Ads slide
 
-## Part 1 — Typography (`src/components/deck/slides/YouTubeAdsSlide.tsx`)
+## File
+`src/components/deck/slides/AdditionalServicesSlide.tsx` — the slide that currently shows two cards (Gordo / TikTok Ads + Zeds Dead / Meta Ads).
 
-Match SoundCloud (which uses `md:p-8`, `text-2xl` headings, `text-2xl` bullets, `space-y-2.5`, `mb-3`):
+## What changes
 
-### Both explainer panels (What It Is + How It Works)
-- Padding: `md:p-4` → `md:p-8`.
-- Section heading (`whatTitle` / `howTitle`): `md:text-lg` → `md:text-2xl`. Margin `md:mb-2` → `md:mb-3`.
-- Bullet container spacing: `md:space-y-1.5` → `md:space-y-2.5`.
-- Bullet dot offset: `md:mt-2` → `md:mt-3` (to match larger text baseline).
-- Bullet body text: `md:text-base` → `md:text-2xl`.
+Replace the first case study (Gordo) with MashBit Houston, condensed to the ticket-sales angle and matching the Zeds Dead card format (label, artist, descriptor, 1-line bullet, metrics grid).
 
-### How It Works timeframe footer
-- Divider wrapper: `pt-2 ... mt-2` → `md:pt-3 md:mt-3`.
-- Timeframe text: `md:text-sm` → `md:text-2xl`.
+### New MashBit card
+- Thumbnail: new asset from uploaded press photo, saved to `src/assets/case-mashbit.webp` (cropped to face, square).
+- Platform label: `META ADS` (replaces `TIKTOK ADS`). Both case studies will now be Meta Ads — this is honest to the campaign data; the slide's headline still covers Meta + TikTok as services.
+- Artist: `MashBit`
+- Track / descriptor: `Houston 5.29.26 — Persians + Charity Push · 14-day flight`
+- Description bullet (`metaTiktok.case1Desc` in en.ts): rewrite to ticket-sales framing, e.g. `Houston event push: drove +228 net new ticket sales in 14 days (46 → 274), turning $785 of ad spend into $3,949 in ticket revenue.`
+- Metrics (5, matching Zeds Dead's 5-col grid):
+  1. `$785` — Spend
+  2. `274` — Tickets sold (label: `kpi.ticketsSold`, new)
+  3. `$3,949` — Revenue (label: `kpi.revenue`, new)
+  4. `5.03×` — ROAS (label: `kpi.roas`, new)
+  5. `9.06%` — CTR
 
-Right column (case study cards) is left untouched — only the left column scales up.
+Drop the existing Gordo-only metric labels (sixSecViews, viewRate, cpm) from the card; keep their translation keys intact since other slides may use them — only the array contents change.
 
-Note: with the previously approved change (panels at top, no `md:flex-1`), they will naturally grow taller to fit the larger type. No height-equalization changes needed.
+### i18n
+Update `metaTiktok.case1Desc` in all 9 locale files with the new MashBit copy (English authored; other languages get the English string as a placeholder unless localized copies exist for Zeds Dead — match whatever pattern is already used).
+Add 3 new KPI keys (`kpi.ticketsSold`, `kpi.revenue`, `kpi.roas`) in every locale file. Use natural translations where the file already has full localization; fall back to English where it doesn't.
 
-## Part 2 — Preview/thumbnail mismatch investigation
-
-Before changing any code, capture screenshots to confirm what differs between the sidebar preview and the live slide:
-
-1. Run dev preview, open SoundCloud Reposts slide.
-2. Screenshot the sidebar thumbnail and the main canvas at the same time.
-3. Compare alignment of explainer text (vertical position inside the GlassPanels and within the slide).
-
-Possible causes to check (no fix written yet — confirm root cause first):
-- `ScaledSlide` renders the slide at fixed 1920×1080 then transforms — content should look identical, just smaller. If it doesn't, the slide likely has a layout that depends on real viewport width via Tailwind `md:` breakpoints (which fire on window width, not container width). Since the window is desktop, `md:` classes apply equally in both — so this normally isn't the cause.
-- Slides whose root uses `md:justify-center` plus a content block shorter than 1080px will render visually centered. The thumbnail shows that same centering; the user may be reading "vertically centered in the slide frame" as a preview-only artifact even though it's also true on the live slide. If so, the fix is to align the live slide to the top (`md:justify-start` + appropriate top padding) — not to change the preview.
-- Some slides intentionally center while others top-align; mismatch is between slides, not between preview and slide.
-
-Deliverable from this investigation: a short list of which slides actually differ between preview and live, plus a concrete fix proposal per slide. No edits will be made until I confirm the cause with screenshots and report back.
+### Asset
+Save the uploaded artist photo to `src/assets/case-mashbit.webp` (or `.jpg` if conversion adds friction — the existing case study assets use both). Replace the `gordoImg` import with `mashbitImg`. Leave `@/assets/gordo-meta-tiktok.webp` in place (still referenced nowhere else after this change; can be deleted later, out of scope here).
 
 ## Out of scope
-- Mobile layout, copy, translations, image assets.
-- Right column case-study cards on slide 15.
-- Bulk restructuring of all slides before the preview-mismatch root cause is confirmed.
+- YouTube slide (Gordo @ MUTE case study stays).
+- Layout/typography changes to the slide itself.
+- Mobile-specific tweaks beyond what already exists.
+- Deleting the now-unused Gordo image asset.
 
-## Files
-- `src/components/deck/slides/YouTubeAdsSlide.tsx` (Part 1)
-- Investigation only for Part 2 — no files edited until confirmed.
+## Open question (will assume default unless told otherwise)
+Both cards will read `META ADS`. If you'd rather one card show `TIKTOK ADS` to keep the slide visually balanced across both platforms, say so and I'll find/swap in a TikTok-native case study instead — but the MashBit data you sent is Meta-only, so labelling it TikTok would be inaccurate.
