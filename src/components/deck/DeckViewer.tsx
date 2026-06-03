@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
 
 import aiLogo from '@/assets/ai-logo-lockup.png';
-import { ChevronLeft, ChevronRight, Maximize, Minimize, LayoutGrid, PanelLeftClose, PanelLeft } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ChevronUp, Maximize, Minimize, LayoutGrid, PanelLeftClose, PanelLeft } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { useTranslation } from '@/i18n/LanguageContext';
