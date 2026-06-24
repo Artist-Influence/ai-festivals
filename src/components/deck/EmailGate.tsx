@@ -59,11 +59,11 @@ const EmailGate = ({ onAccess }: EmailGateProps) => {
         <div className="w-72 mx-auto overflow-hidden" style={{ marginTop: '-2rem', marginBottom: '-3.5rem' }}>
           <img src={aiLogo} alt="Artist Influence" className="w-full" />
         </div>
-        <p className="t-eyebrow text-[0.68rem] mb-5">The growth system for modern festivals</p>
+        <p className="t-eyebrow text-[0.68rem] mb-5">Festivals · Tours · Live Events</p>
 
         <div className="mb-6">
           <h2 className="t-h2 text-3xl mb-1.5">View our <em>Deck</em></h2>
-          <p className="text-muted-foreground text-sm">Enter your email to access our event growth deck.</p>
+          <p className="text-muted-foreground text-sm">Enter your email to access our live-event growth deck.</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">

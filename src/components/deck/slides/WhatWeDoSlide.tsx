@@ -81,9 +81,9 @@ const WhatCloutedDoesSlide = () => {
           <p className="t-eyebrow text-sm md:text-[21px] text-on-visual-accent mb-4 md:mb-8">{t('whatWeDo.section')}</p>
           <div className="space-y-3 md:space-y-4">
             {[0, 1, 2].map((i) => (
-              <GlassPanel key={i} variant="subtle" className="p-5 md:p-7 flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-12">
-                <span className="text-primary t-h3 text-sm md:text-[21px] shrink-0 md:w-40">{t(`whatWeDo.pillar.${i}.label`)}</span>
-                <p className="text-sm md:text-[21px] text-muted-foreground">{t(`whatWeDo.pillar.${i}.desc`)}</p>
+              <GlassPanel key={i} variant="subtle" className="p-5 md:p-7">
+                <p className="text-primary t-h3 text-base md:text-[22px] mb-2.5 md:mb-3.5">{t(`whatWeDo.pillar.${i}.label`)}</p>
+                <p className="text-sm md:text-[19px] text-muted-foreground leading-relaxed">{t(`whatWeDo.pillar.${i}.desc`)}</p>
               </GlassPanel>
             ))}
           </div>
