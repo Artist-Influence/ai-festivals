@@ -148,7 +148,7 @@ const DeckViewer = () => {
 
       <div className="flex-1 flex flex-col min-w-0">
         {!fullscreen && (
-          <div className="flex items-center justify-between px-4 h-12 border-b border-border bg-card/40 backdrop-blur-md shrink-0">
+          <div className="relative z-30 flex items-center justify-between px-4 h-12 border-b border-border bg-card/40 backdrop-blur-md shrink-0">
             <div className="flex items-center gap-3">
               {!sidebar && (
                 <button onClick={() => setSidebar(true)} className="text-muted-foreground hover:text-foreground transition">
