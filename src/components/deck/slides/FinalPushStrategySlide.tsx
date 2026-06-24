@@ -21,10 +21,10 @@ const FinalPushStrategySlide = () => {
       <div className="relative z-10 w-full max-w-[1500px] mx-auto">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 mb-3 md:mb-5 rounded-full border border-primary/40 bg-primary/[0.08]">
           <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          <p className="text-[10px] md:text-xs text-primary font-mono tracking-[0.25em] uppercase">{t('finalPush.kicker')}</p>
+          <p className="t-eyebrow text-[10px] md:text-xs">{t('finalPush.kicker')}</p>
         </div>
 
-        <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-2 md:mb-4 leading-tight">{t('finalPush.title')}</h1>
+        <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-2 md:mb-4">{t('finalPush.title')}</h1>
         <p className="text-sm md:text-2xl text-on-visual-soft mb-4 md:mb-8 max-w-[1100px]">{t('finalPush.subtitle')}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-4 md:mb-6">
@@ -41,12 +41,12 @@ const FinalPushStrategySlide = () => {
           </GlassPanel>
 
           <GlassPanel variant="bright" className="p-5 md:p-7">
-            <p className="text-sm md:text-xl font-semibold text-primary mb-3 md:mb-4">{t('finalPush.budgetTitle')}</p>
+            <p className="t-h3 text-primary text-sm md:text-xl mb-3 md:mb-4">{t('finalPush.budgetTitle')}</p>
             <div className="grid grid-cols-2 gap-2 md:gap-3">
               {cityBudgets.map((c) => (
                 <div key={c.city} className="bg-white/[0.04] border border-white/[0.06] rounded-md p-2.5 md:p-3">
-                  <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{c.city}</p>
-                  <p className="text-sm md:text-xl font-bold text-foreground">{c.budget}</p>
+                  <p className="mono text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{c.city}</p>
+                  <p className="stat-num num text-sm md:text-xl text-foreground">{c.budget}</p>
                 </div>
               ))}
             </div>

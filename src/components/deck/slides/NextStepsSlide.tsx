@@ -39,14 +39,14 @@ const NextStepsSlide = () => {
       <CoverVisual className="opacity-90" />
 
       <div className="relative z-10 max-w-[1400px] w-full">
-        <h1 className="text-2xl md:text-7xl font-extrabold text-white mb-1 md:mb-2 tracking-tight">{t('nextSteps.title')}</h1>
+        <h1 className="t-hero text-2xl md:text-7xl text-white mb-1 md:mb-2">{t('nextSteps.title')}</h1>
         <p className="text-sm md:text-xl text-white/70 mb-6 md:mb-14 tracking-wide">{t('nextSteps.subtitle')}</p>
 
         <div className="grid grid-cols-2 md:flex gap-3 md:gap-6 mb-8 md:mb-16">
           {steps.map((s, i) => (
             <GlassPanel key={i} variant="bright" className={`flex-1 p-4 md:p-8 text-left next-step-card next-step-card-${i}`}>
-              <p className="text-primary text-sm md:text-xl font-mono mb-1 md:mb-3 tracking-widest relative z-10">{s.num}</p>
-              <p className="text-sm md:text-2xl font-semibold text-foreground mb-1 md:mb-2 relative z-10">{s.title}</p>
+              <p className="mono num text-primary text-sm md:text-xl mb-1 md:mb-3 tracking-widest relative z-10">{s.num}</p>
+              <p className="t-h3 text-sm md:text-2xl text-foreground mb-1 md:mb-2 relative z-10">{s.title}</p>
               <p className="text-sm md:text-xl text-muted-foreground relative z-10">{s.desc}</p>
             </GlassPanel>
           ))}

@@ -30,7 +30,7 @@ const ScaledSlide = ({ children, className, isMobile = false, forceFullSize = fa
   // to make sure the slide background covers the full panel.
   if (isMobile) {
     return (
-      <div className={cn('w-full min-h-full bg-background', className)}>
+      <div className={cn('slide-content-m w-full min-h-full bg-background', className)}>
         {children}
       </div>
     );

@@ -195,7 +195,7 @@ const CoverVisual = ({ className }: CoverVisualProps) => (
       className="absolute inset-0"
       style={{
         background:
-          'radial-gradient(ellipse 700px 420px at center, hsl(var(--background) / 0.75) 0%, hsl(var(--background) / 0.4) 40%, transparent 70%)',
+          'radial-gradient(ellipse 680px 400px at center, hsl(var(--background) / 0.55) 0%, hsl(var(--background) / 0.22) 45%, transparent 72%)',
       }}
     />
   </div>

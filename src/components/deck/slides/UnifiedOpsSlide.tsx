@@ -25,10 +25,10 @@ const UnifiedOpsSlide = () => {
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
           <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-          <p className="text-[10px] md:text-sm text-primary text-on-visual-accent font-medium tracking-wider uppercase">{t('unifiedOps.kicker')}</p>
+          <p className="t-eyebrow text-[10px] md:text-sm text-on-visual-accent">{t('unifiedOps.kicker')}</p>
         </div>
 
-        <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-3 md:mb-5 leading-tight">
+        <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-3 md:mb-5">
           {t('unifiedOps.title')}
         </h1>
         <p className="text-sm md:text-2xl text-on-visual-soft mb-5 md:mb-10 max-w-[1200px] leading-relaxed">
@@ -43,11 +43,11 @@ const UnifiedOpsSlide = () => {
               <GlassPanel key={i} variant="bright" className="p-4 md:p-5">
                 <div className="flex items-center gap-2 mb-2 md:mb-3">
                   <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                  <p className="text-[10px] md:text-xs text-primary font-mono tracking-widest uppercase">
+                  <p className="mono text-[10px] md:text-xs text-primary tracking-widest uppercase">
                     0{i + 1}
                   </p>
                 </div>
-                <p className="text-sm md:text-xl font-semibold text-foreground mb-1.5 md:mb-2">{m.label}</p>
+                <p className="t-h3 text-sm md:text-xl mb-1.5 md:mb-2">{m.label}</p>
                 <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
               </GlassPanel>
             );
@@ -61,7 +61,7 @@ const UnifiedOpsSlide = () => {
               <Brain className="w-4 h-4 md:w-5 md:h-5 text-primary" />
             </div>
             <div className="flex-1">
-              <p className="text-xs md:text-base font-semibold text-primary mb-1 tracking-wider uppercase">
+              <p className="t-eyebrow text-xs md:text-base mb-1">
                 {t('unifiedOps.calloutTitle')}
               </p>
               <p className="text-sm md:text-lg text-foreground/90 leading-relaxed">

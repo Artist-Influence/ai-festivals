@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef, Suspense } from 'react';
+import { useState, useEffect, useCallback, useRef, Suspense, type ReactNode } from 'react';
 
 import aiLogo from '@/assets/ai-logo-lockup.png';
 import { ChevronLeft, ChevronRight, ChevronUp, Maximize, Minimize, LayoutGrid, PanelLeftClose, PanelLeft } from 'lucide-react';
@@ -9,6 +9,46 @@ import ScaledSlide from './ScaledSlide';
 import { slides } from './slides';
 import ExportPdfButton from './ExportPdfButton';
 import LanguagePicker from './LanguagePicker';
+
+/**
+ * Wraps the active slide. The actual reveal is a CSS animation on the
+ * .slide-stage targets (eyebrow, title, cards, [data-reveal]) so it survives
+ * re-renders; this component only assigns each target a staggered delay
+ * (--rd) in DOM order, re-running via a MutationObserver as lazily-resolved
+ * (Suspense) content mounts. Reduced-motion disables the animation in CSS.
+ */
+const SlideStage = ({ index, children }: { index: number; children: ReactNode }) => {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let applied = false;
+    const run = () => {
+      if (applied || !root) return;
+      const targets = Array.from(
+        root.querySelectorAll<HTMLElement>('.t-eyebrow, .t-hero, h1, h2, .gp-card, [data-reveal]')
+      );
+      if (!targets.length) return;
+      applied = true;
+      // Stagger delay only; the CSS `stage-reveal` animation handles the reveal.
+      targets.forEach((el, i) => el.style.setProperty('--rd', `${Math.min(i, 9) * 70}ms`));
+    };
+    run();
+    const mo = new MutationObserver(run);
+    mo.observe(root, { childList: true, subtree: true });
+    const stop = window.setTimeout(() => mo.disconnect(), 1500);
+    return () => {
+      mo.disconnect();
+      window.clearTimeout(stop);
+    };
+  }, [index]);
+  return (
+    <div ref={ref} className="slide-stage w-full h-full">
+      {children}
+    </div>
+  );
+};
 
 const DeckViewer = () => {
   const isMobile = useIsMobile();
@@ -61,10 +101,10 @@ const DeckViewer = () => {
 
   if (grid) {
     return (
-      <div className="h-dvh bg-background p-8 overflow-auto">
+      <div className="h-dvh p-8 overflow-auto">
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-foreground text-xl font-semibold">{t('ui.allSlides')}</h2>
-          <button onClick={() => setGrid(false)} className="text-sm text-muted-foreground hover:text-foreground transition">{t('ui.close')}</button>
+          <h2 className="t-h3 text-2xl">{t('ui.allSlides')}</h2>
+          <button onClick={() => setGrid(false)} className="mono text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-primary transition">{t('ui.close')}</button>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {slides.map((S, i) => (
@@ -85,11 +125,11 @@ const DeckViewer = () => {
   }
 
   return (
-    <div className="h-dvh flex bg-background overflow-hidden">
+    <div className="h-dvh flex overflow-hidden">
       {sidebar && !fullscreen && (
-        <div className="w-48 border-r border-border flex flex-col bg-card/50 backdrop-blur-sm shrink-0">
+        <div className="w-48 border-r border-border flex flex-col bg-card/60 backdrop-blur-md shrink-0">
           <div className="p-3 border-b border-border flex items-center justify-between">
-            <span className="text-[10px] text-muted-foreground font-medium uppercase tracking-[0.15em]">{t('ui.slides')}</span>
+            <span className="text-[10px] text-muted-foreground font-mono uppercase tracking-[0.2em]">{t('ui.slides')}</span>
             <button onClick={() => setSidebar(false)} className="text-muted-foreground hover:text-foreground transition">
               <PanelLeftClose className="w-3.5 h-3.5" />
             </button>
@@ -108,7 +148,7 @@ const DeckViewer = () => {
 
       <div className="flex-1 flex flex-col min-w-0">
         {!fullscreen && (
-          <div className="flex items-center justify-between px-4 h-12 border-b border-border shrink-0">
+          <div className="flex items-center justify-between px-4 h-12 border-b border-border bg-card/40 backdrop-blur-md shrink-0">
             <div className="flex items-center gap-3">
               {!sidebar && (
                 <button onClick={() => setSidebar(true)} className="text-muted-foreground hover:text-foreground transition">
@@ -132,25 +172,32 @@ const DeckViewer = () => {
         )}
 
         <div className="flex-1 relative min-h-0">
-          <div key={current} className="w-full h-full animate-fade-in">
+          {/* Glowing progress rail */}
+          <div className="absolute top-0 inset-x-0 h-px z-40 bg-white/[0.05]">
+            <div
+              className="h-full bg-primary shadow-[0_0_8px_hsl(var(--primary))] transition-[width] duration-500 ease-out"
+              style={{ width: `${((current + 1) / slides.length) * 100}%` }}
+            />
+          </div>
+          <SlideStage key={current} index={current}>
             <ScaledSlide>
-              <Suspense fallback={<div className="w-full h-full bg-background" />}>
+              <Suspense fallback={<div className="w-full h-full" />}>
                 <Slide />
               </Suspense>
             </ScaledSlide>
-          </div>
+          </SlideStage>
         </div>
 
         <div className={cn(
           'flex items-center justify-center gap-4 h-12 shrink-0',
-          fullscreen && 'absolute bottom-6 left-1/2 -translate-x-1/2 h-auto bg-background/60 backdrop-blur-md rounded-full px-6 py-2 z-50'
+          fullscreen && 'absolute bottom-6 left-1/2 -translate-x-1/2 h-auto bg-card/70 backdrop-blur-md border border-border rounded-full px-6 py-2 z-50'
         )}>
-          <button onClick={prev} disabled={current === 0} className="p-1.5 rounded hover:bg-secondary transition disabled:opacity-20">
-            <ChevronLeft className="w-4 h-4 text-foreground" />
+          <button onClick={prev} disabled={current === 0} className="p-1.5 rounded-full hover:bg-secondary hover:text-primary text-foreground transition disabled:opacity-20">
+            <ChevronLeft className="w-4 h-4" />
           </button>
-          <span className="text-xs text-muted-foreground font-mono min-w-[60px] text-center">{current + 1} / {slides.length}</span>
-          <button onClick={next} disabled={current === slides.length - 1} className="p-1.5 rounded hover:bg-secondary transition disabled:opacity-20">
-            <ChevronRight className="w-4 h-4 text-foreground" />
+          <span className="text-xs text-muted-foreground font-mono num tracking-wider min-w-[64px] text-center">{current + 1} / {slides.length}</span>
+          <button onClick={next} disabled={current === slides.length - 1} className="p-1.5 rounded-full hover:bg-secondary hover:text-primary text-foreground transition disabled:opacity-20">
+            <ChevronRight className="w-4 h-4" />
           </button>
         </div>
       </div>

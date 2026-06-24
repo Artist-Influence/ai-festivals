@@ -24,9 +24,9 @@ const AtelierFieldVisual = ({ className, variant = 'default' }: AtelierFieldVisu
 
   return (
     <div className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)}>
-      {/* Aurora wash blobs — same warmth as PatternVisual */}
-      <div className="absolute top-[12%] left-[8%] w-[720px] h-[720px] rounded-full bg-primary/[0.06] blur-[180px] animate-aurora-drift" />
-      <div className="absolute bottom-[8%] right-[4%] w-[640px] h-[640px] rounded-full bg-primary/[0.045] blur-[160px] animate-aurora-drift-rev" />
+      {/* Aurora wash blobs — bold oxblood/red drift, the brand's signature glow */}
+      <div className="absolute top-[6%] left-[2%] w-[860px] h-[860px] rounded-full bg-[hsl(var(--coral)/0.13)] blur-[150px] animate-aurora-drift" />
+      <div className="absolute bottom-[2%] right-[0%] w-[800px] h-[800px] rounded-full bg-[hsl(var(--red-deep)/0.55)] blur-[150px] animate-aurora-drift-rev" />
 
       <svg
         className="absolute inset-0 w-full h-full hidden md:block"
@@ -140,12 +140,12 @@ const AtelierFieldVisual = ({ className, variant = 'default' }: AtelierFieldVisu
         />
       </div>
 
-      {/* Vignette + inward legibility shield */}
+      {/* Edge-only vignette: frames content, keeps the center glow bright */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 105% 100% at 50% 50%, hsl(var(--background)/0.26) 0%, transparent 58%, hsl(var(--background)/0.18) 100%)',
+            'radial-gradient(ellipse 118% 108% at 50% 45%, transparent 46%, hsl(var(--bg)/0.5) 100%)',
         }}
       />
     </div>

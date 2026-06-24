@@ -13,12 +13,12 @@ const WhatWeNeedSlide = () => {
       <PatternVisual />
 
       <div className="relative z-10 w-full max-w-[1500px] mx-auto">
-        <p className="text-xs md:text-sm text-primary font-medium tracking-[0.25em] uppercase mb-2 md:mb-4">{t('need.kicker')}</p>
-        <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-6 md:mb-10 leading-tight">{t('need.title')}</h1>
+        <p className="t-eyebrow text-xs md:text-sm mb-2 md:mb-4">{t('need.kicker')}</p>
+        <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-6 md:mb-10">{t('need.title')}</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-4 md:mb-6">
           <GlassPanel variant="bright" className="p-5 md:p-8">
-            <p className="text-sm md:text-2xl font-semibold text-primary mb-3 md:mb-5">{t('need.requiredTitle')}</p>
+            <p className="t-h3 text-sm md:text-2xl text-primary mb-3 md:mb-5">{t('need.requiredTitle')}</p>
             <div className="space-y-1.5 md:space-y-2">
               {required.map((i) => (
                 <div key={i} className="flex items-start gap-2 md:gap-3">
@@ -30,7 +30,7 @@ const WhatWeNeedSlide = () => {
           </GlassPanel>
 
           <GlassPanel variant="bright" className="p-5 md:p-8">
-            <p className="text-sm md:text-2xl font-semibold text-primary mb-3 md:mb-5">{t('need.recommendedTitle')}</p>
+            <p className="t-h3 text-sm md:text-2xl text-primary mb-3 md:mb-5">{t('need.recommendedTitle')}</p>
             <div className="space-y-1.5 md:space-y-2">
               {recommended.map((i) => (
                 <div key={i} className="flex items-start gap-2 md:gap-3">
