@@ -22,10 +22,10 @@ const OperatingSystemSlide = () => {
         {/* Tagline chip */}
         <div className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 mb-3 md:mb-6 rounded-full border border-primary/30 bg-primary/[0.06]">
           <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-          <p className="text-[10px] md:text-sm text-primary font-medium tracking-wider uppercase">{t('opSystem.tagline')}</p>
+          <p className="t-eyebrow text-[10px] md:text-sm">{t('opSystem.tagline')}</p>
         </div>
 
-        <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-3 md:mb-5 leading-tight max-w-[1200px]">
+        <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-3 md:mb-5 max-w-[1200px]">
           {t('opSystem.title')}
         </h1>
         <p className="text-sm md:text-2xl text-on-visual-soft mb-6 md:mb-10 max-w-[1100px] leading-relaxed">
@@ -44,7 +44,7 @@ const OperatingSystemSlide = () => {
                       <Icon className="w-4 h-4 md:w-6 md:h-6 text-primary" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm md:text-2xl font-semibold text-foreground mb-1 md:mb-2">{p.label}</p>
+                      <p className="t-h3 text-sm md:text-2xl mb-1 md:mb-2">{p.label}</p>
                       <p className="text-xs md:text-base text-muted-foreground leading-relaxed md:whitespace-nowrap">{p.desc}</p>
                     </div>
                   </div>

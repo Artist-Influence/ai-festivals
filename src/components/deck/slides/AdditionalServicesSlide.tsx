@@ -62,13 +62,13 @@ const AdditionalServicesSlide = () => {
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden pt-14 pb-8 px-4 md:p-12 flex flex-col justify-start md:justify-center">
       <PatternVisual />
       <div className="relative z-10 flex flex-col gap-4 md:gap-4 w-full max-w-[1600px] mx-auto">
-        {/* Header — full width above the two-column row */}
+        {/* Header, full width above the two-column row */}
         <div>
           <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-4">
             <MetaTikTokIcon />
-            <p className="text-sm md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
+            <p className="t-eyebrow text-sm md:text-lg">{t('common.service')}</p>
           </div>
-          <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-2 md:mb-4 leading-tight">{t('metaTiktok.title')}</h1>
+          <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-2 md:mb-4">{t('metaTiktok.title')}</h1>
           <p className="text-base md:text-2xl text-on-visual-soft mb-0 max-w-[700px]">{t('metaTiktok.subtitle')}</p>
         </div>
 
@@ -76,7 +76,7 @@ const AdditionalServicesSlide = () => {
         <div className="flex flex-col md:flex-row gap-4 md:gap-10 items-stretch flex-1">
           <div className="flex-1 min-w-0 flex flex-col gap-3 md:gap-4">
             <GlassPanel variant="bright" className="p-4 md:p-8 flex-1">
-              <p className="text-base md:text-2xl font-semibold text-primary mb-3 md:mb-3">{t('metaTiktok.whatTitle')}</p>
+              <p className="t-h3 text-primary text-base md:text-2xl mb-3 md:mb-3">{t('metaTiktok.whatTitle')}</p>
               <div className="space-y-2 md:space-y-2.5">
                 {[0, 1, 2].map((i) => (
                   <BulletPoint key={i}>{t(`metaTiktok.what.${i}`)}</BulletPoint>
@@ -85,7 +85,7 @@ const AdditionalServicesSlide = () => {
             </GlassPanel>
 
             <GlassPanel variant="bright" className="p-4 md:p-8 flex-1 flex flex-col">
-              <p className="text-base md:text-2xl font-semibold text-primary mb-3 md:mb-3">{t('metaTiktok.howTitle')}</p>
+              <p className="t-h3 text-primary text-base md:text-2xl mb-3 md:mb-3">{t('metaTiktok.howTitle')}</p>
               <div className="space-y-2 md:space-y-2.5">
                 {[0, 1, 2].map((i) => (
                   <BulletPoint key={i}>{t(`metaTiktok.how.${i}`)}</BulletPoint>
@@ -105,8 +105,8 @@ const AdditionalServicesSlide = () => {
                     <img loading="lazy" decoding="async" src={c.thumb} alt={c.artist} className={`w-full h-full object-cover rounded-lg md:rounded-xl ${c.imgPosition || 'object-center'}`} />
                   </div>
                   <div className="flex-1 flex flex-col justify-center min-w-0">
-                    <p className="text-[10px] md:text-base text-primary font-mono mb-0.5 tracking-widest uppercase">{c.platform}</p>
-                    <p className="text-base md:text-3xl font-bold text-foreground leading-tight">{c.artist}</p>
+                    <p className="t-eyebrow text-[10px] md:text-base mb-0.5">{c.platform}</p>
+                    <p className="t-h3 text-base md:text-3xl text-foreground">{c.artist}</p>
                     <p className="text-sm md:text-xl text-muted-foreground">{c.track}</p>
                   </div>
                 </div>
@@ -119,8 +119,8 @@ const AdditionalServicesSlide = () => {
                 <div className={`grid gap-1.5 md:gap-3 ${c.metrics.length === 5 ? 'grid-cols-5' : 'grid-cols-4'}`}>
                   {c.metrics.map((m) => (
                     <div key={m.labelKey} className="bg-white/[0.04] rounded p-1.5 md:px-2 md:py-3 text-center flex flex-col items-center justify-center">
-                      <p className="text-[11px] md:text-xl font-bold text-foreground">{m.val}</p>
-                      <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-wider leading-tight">{t(m.labelKey)}</p>
+                      <p className="stat-num num text-[11px] md:text-xl text-foreground">{m.val}</p>
+                      <p className="mono text-[8px] md:text-xs text-muted-foreground uppercase tracking-wider leading-tight">{t(m.labelKey)}</p>
                     </div>
                   ))}
                 </div>

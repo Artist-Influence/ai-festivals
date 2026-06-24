@@ -23,13 +23,13 @@ const InstagramSeedingSlide = () => {
     <div className="w-full min-h-dvh md:h-full bg-background relative overflow-x-hidden md:overflow-hidden py-6 px-5 md:p-12 flex flex-col justify-start md:justify-center">
       <PatternVisual />
       <div className="relative z-10 flex flex-col gap-3 md:gap-4 w-full max-w-[1600px] mx-auto">
-        {/* Header — full width above the two-column row */}
+        {/* Header, full width above the two-column row */}
         <div>
           <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-4">
             <Instagram size={18} className="text-primary md:w-7 md:h-7" />
-            <p className="text-sm md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
+            <p className="t-eyebrow text-sm md:text-lg">{t('common.service')}</p>
           </div>
-          <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-1 md:mb-4 leading-tight">{t('instagram.title')}</h1>
+          <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-1 md:mb-4">{t('instagram.title')}</h1>
           <p className="text-sm md:text-2xl text-on-visual-soft mb-0 max-w-[700px]">{t('instagram.subtitle')}</p>
         </div>
 
@@ -49,7 +49,7 @@ const InstagramSeedingSlide = () => {
         <div className="flex flex-col md:flex-row gap-3 md:gap-10 items-stretch flex-1">
           <div className="flex-1 min-w-0 flex flex-col gap-3 md:gap-4">
             <GlassPanel variant="bright" className="p-4 md:p-8 hidden md:flex md:flex-col flex-1">
-              <p className="text-2xl font-semibold text-primary mb-3">{t('instagram.whatTitle')}</p>
+              <p className="t-h3 text-primary text-2xl mb-3">{t('instagram.whatTitle')}</p>
               <div className="space-y-2.5">
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="flex items-start gap-2">
@@ -61,7 +61,7 @@ const InstagramSeedingSlide = () => {
             </GlassPanel>
 
             <GlassPanel variant="bright" className="p-4 md:p-8 flex-1 hidden md:flex md:flex-col">
-              <p className="text-2xl font-semibold text-primary mb-3">{t('instagram.whyTitle')}</p>
+              <p className="t-h3 text-primary text-2xl mb-3">{t('instagram.whyTitle')}</p>
               <div className="space-y-2.5">
                 {[0, 1, 2].map((i) => (
                   <div key={i} className="flex items-start gap-2">
@@ -84,8 +84,8 @@ const InstagramSeedingSlide = () => {
                     <img loading="lazy" decoding="async" src={c.artwork} alt={`${c.artist} - ${c.track}`} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-[10px] md:text-lg text-primary font-mono tracking-widest mb-0.5">{t('instagram.tagLabel')}</p>
-                    <p className="text-sm md:text-2xl font-bold text-foreground leading-tight">{c.artist}</p>
+                    <p className="t-eyebrow text-[10px] md:text-lg mb-0.5">{t('instagram.tagLabel')}</p>
+                    <p className="t-h3 text-sm md:text-2xl text-foreground">{c.artist}</p>
                     <p className="text-sm md:text-lg text-muted-foreground">{c.track}</p>
                   </div>
                 </div>
@@ -93,8 +93,8 @@ const InstagramSeedingSlide = () => {
                 <div className="grid grid-cols-3 gap-1 md:gap-2">
                   {c.metrics.map((m) => (
                     <div key={m.labelKey} className="bg-white/[0.04] rounded p-1.5 md:p-3 flex flex-col items-center justify-center text-center">
-                      <p className="text-sm md:text-2xl font-bold text-foreground">{m.val}</p>
-                      <p className="text-[8px] md:text-base text-muted-foreground uppercase tracking-wider">{t(m.labelKey)}</p>
+                      <p className="stat-num num text-sm md:text-2xl text-foreground">{m.val}</p>
+                      <p className="mono text-[8px] md:text-base text-muted-foreground uppercase tracking-wider">{t(m.labelKey)}</p>
                     </div>
                   ))}
                 </div>

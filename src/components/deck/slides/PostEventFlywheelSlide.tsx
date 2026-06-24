@@ -13,8 +13,8 @@ const PostEventFlywheelSlide = () => {
       <PatternVisual />
 
       <div className="relative z-10 w-full max-w-[1500px] mx-auto">
-        <p className="text-xs md:text-sm text-primary font-medium tracking-[0.25em] uppercase mb-2 md:mb-4">{t('flywheel.kicker')}</p>
-        <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-2 md:mb-4 leading-tight">
+        <p className="t-eyebrow text-xs md:text-sm mb-2 md:mb-4">{t('flywheel.kicker')}</p>
+        <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-2 md:mb-4">
           {t('flywheel.title')}
         </h1>
         <p className="text-sm md:text-2xl text-on-visual-soft mb-6 md:mb-12 max-w-[1100px]">{t('flywheel.subtitle')}</p>
@@ -27,7 +27,7 @@ const PostEventFlywheelSlide = () => {
                   <Icon className="w-5 h-5 md:w-7 md:h-7 text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm md:text-2xl font-semibold text-foreground mb-1 md:mb-2">{t(`flywheel.card.${i}.label`)}</p>
+                  <p className="t-h3 text-sm md:text-2xl text-foreground mb-1 md:mb-2">{t(`flywheel.card.${i}.label`)}</p>
                   <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">{t(`flywheel.card.${i}.desc`)}</p>
                 </div>
               </div>

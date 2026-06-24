@@ -10,7 +10,7 @@ const cardConfig = [
   {
     icon: Globe,
     image: pierceImg,
-    alt: 'Pierce — artist site',
+    alt: 'Pierce, artist site',
     name: 'Pierce',
     url: 'https://piercesounds.com/',
     label: 'piercesounds.com',
@@ -18,7 +18,7 @@ const cardConfig = [
   {
     icon: Layers,
     image: kompanyImg,
-    alt: 'Kompany — artist site',
+    alt: 'Kompany, artist site',
     name: 'Kompany',
     url: 'https://kompanymusic.com',
     label: 'kompanymusic.com',
@@ -26,7 +26,7 @@ const cardConfig = [
   {
     icon: Zap,
     image: levityImg,
-    alt: 'Levity — artist site',
+    alt: 'Levity, artist site',
     name: 'Levity',
     url: 'https://levityofficial.com',
     label: 'levityofficial.com',
@@ -65,10 +65,10 @@ const WebsitesSlide = () => {
       <div className="relative z-10 w-full max-w-[1600px] mx-auto">
         <div className="flex items-center gap-2 md:gap-3 mb-2 md:mb-3">
           <Globe className="w-4 h-4 md:w-7 md:h-7 text-primary" />
-          <p className="text-sm md:text-lg text-primary font-medium tracking-wider uppercase">{t('common.service')}</p>
+          <p className="t-eyebrow text-sm md:text-lg">{t('common.service')}</p>
         </div>
 
-        <h1 className="text-2xl md:text-6xl font-bold text-on-visual mb-2 md:mb-4">{t('websites.title')}</h1>
+        <h1 className="t-hero text-2xl md:text-6xl text-on-visual mb-2 md:mb-4">{t('websites.title')}</h1>
         <p className="text-sm md:text-2xl text-on-visual-soft mb-5 md:mb-8 max-w-[1100px] leading-relaxed">{t('websites.subtitle')}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-5 mb-3 md:mb-5">
@@ -80,7 +80,7 @@ const WebsitesSlide = () => {
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${c.name} — ${c.label}`}
+                aria-label={`${c.name}, ${c.label}`}
                 className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 rounded-2xl"
               >
                 <GlassPanel
@@ -96,7 +96,7 @@ const WebsitesSlide = () => {
                   </div>
                   <div className="flex items-center gap-2 mb-1 md:mb-1.5">
                     <Icon className="w-4 h-4 md:w-5 md:h-5 text-primary" />
-                    <p className="text-sm md:text-xl font-semibold text-foreground">{c.title}</p>
+                    <p className="t-h3 text-sm md:text-xl text-foreground">{c.title}</p>
                   </div>
                   <div className="flex items-center gap-1.5 mb-1.5 md:mb-2 text-[11px] md:text-sm">
                     <span className="font-medium text-foreground/85">{c.name}</span>

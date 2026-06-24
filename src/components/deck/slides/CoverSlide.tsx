@@ -15,7 +15,7 @@ const CoverSlide = () => {
         <div className="w-[280px] md:w-[800px] mx-auto overflow-hidden" style={{ marginBottom: '-2rem' }}>
           <img src={aiLogo} alt="Artist Influence" className="w-full" style={{ marginBottom: '-25%' }} />
         </div>
-        <p className="text-xl md:text-5xl font-bold text-white mb-4 md:mb-6 tracking-wide">{t('cover.tagline')}</p>
+        <p className="t-hero text-xl md:text-5xl text-white mb-4 md:mb-6">{t('cover.tagline')}</p>
         <p className="text-base md:text-3xl text-foreground">{t('cover.subtitle')}</p>
       </div>
 

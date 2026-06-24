@@ -7,14 +7,16 @@ interface GlassPanelProps {
   variant?: 'default' | 'bright' | 'subtle';
   noShimmer?: boolean;
   noCorner?: boolean;
+  /** Disable the pointer-driven 3D tilt (e.g. for dense/secondary cards). */
+  noTilt?: boolean;
 }
 
 const variantStyles = {
   default:
-    'bg-white/[0.04] shadow-[inset_0_1px_0_hsl(var(--foreground)/0.06),0_8px_32px_hsl(var(--primary)/0.06)]',
+    'bg-white/[0.05] shadow-[inset_0_1px_0_hsl(var(--foreground)/0.09),0_20px_50px_-12px_hsl(225_45%_1%/0.65),0_0_44px_hsl(var(--primary)/0.07)]',
   bright:
-    'bg-primary/[0.08] shadow-[inset_0_1px_0_hsl(var(--foreground)/0.10),0_10px_40px_hsl(var(--primary)/0.12)]',
-  subtle: 'bg-white/[0.02] shadow-[inset_0_1px_0_hsl(var(--foreground)/0.04)]',
+    'bg-primary/[0.09] shadow-[inset_0_1px_0_hsl(var(--foreground)/0.12),0_22px_55px_-12px_hsl(225_45%_1%/0.7),0_0_52px_hsl(var(--primary)/0.16)]',
+  subtle: 'bg-white/[0.03] shadow-[inset_0_1px_0_hsl(var(--foreground)/0.05),0_12px_32px_-12px_hsl(225_45%_1%/0.5)]',
 };
 
 const variantBorder = {
@@ -32,6 +34,7 @@ const GlassPanel = ({
   variant = 'default',
   noShimmer,
   noCorner,
+  noTilt,
 }: GlassPanelProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
@@ -57,6 +60,33 @@ const GlassPanel = ({
     obs.observe(el);
     return () => obs.disconnect();
   }, [showShimmer]);
+
+  // Pointer-driven 3D tilt. Reads screen-space pointer position against the
+  // card rect, so it stays correct even inside the scaled slide canvas.
+  useEffect(() => {
+    if (noTilt || !ref.current) return;
+    const fine = window.matchMedia('(pointer: fine)').matches;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!fine || reduce) return;
+    const el = ref.current;
+    const onMove = (e: MouseEvent) => {
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      el.classList.add('tilting');
+      el.style.transform = `perspective(900px) rotateX(${-y * 4}deg) rotateY(${x * 4}deg) translateY(-2px)`;
+    };
+    const onLeave = () => {
+      el.classList.remove('tilting');
+      el.style.transform = '';
+    };
+    el.addEventListener('mousemove', onMove);
+    el.addEventListener('mouseleave', onLeave);
+    return () => {
+      el.removeEventListener('mousemove', onMove);
+      el.removeEventListener('mouseleave', onLeave);
+    };
+  }, [noTilt]);
 
   return (
     <div

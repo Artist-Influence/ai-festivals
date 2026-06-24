@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import DeckViewer from '@/components/deck/DeckViewer';
 import EmailGate from '@/components/deck/EmailGate';
 import ErrorBoundary from '@/components/ErrorBoundary';
+import AmbientGlow from '@/components/deck/AmbientGlow';
+import CursorDot from '@/components/deck/CursorDot';
 
 const readGate = (): boolean => {
   try {
@@ -15,12 +17,16 @@ const Index = () => {
   const [hasAccess, setHasAccess] = useState(readGate);
 
   useEffect(() => {
-    document.title = 'Artist Influence — The Growth System for Modern Music';
+    document.title = 'Artist Influence | The Growth System for Modern Festivals';
   }, []);
 
   return (
     <ErrorBoundary>
-      {hasAccess ? <DeckViewer /> : <EmailGate onAccess={() => setHasAccess(true)} />}
+      <AmbientGlow />
+      <div className="relative z-[1]">
+        {hasAccess ? <DeckViewer /> : <EmailGate onAccess={() => setHasAccess(true)} />}
+      </div>
+      <CursorDot />
     </ErrorBoundary>
   );
 };

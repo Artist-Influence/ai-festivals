@@ -75,14 +75,14 @@ const WhatCloutedDoesSlide = () => {
 
       <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-16 items-start w-full max-w-[1600px]">
         <div className="flex-1 max-w-[700px]">
-          <h1 className="text-xl md:text-5xl font-bold text-on-visual mb-4 md:mb-8 leading-tight md:whitespace-nowrap">
+          <h1 className="text-xl md:text-5xl t-hero text-on-visual mb-4 md:mb-8 md:whitespace-nowrap">
             {t('whatWeDo.title')}
           </h1>
-          <p className="text-sm md:text-[21px] text-primary text-on-visual-accent font-medium mb-4 md:mb-8 tracking-wider uppercase">{t('whatWeDo.section')}</p>
+          <p className="t-eyebrow text-sm md:text-[21px] text-on-visual-accent mb-4 md:mb-8">{t('whatWeDo.section')}</p>
           <div className="space-y-3 md:space-y-4">
             {[0, 1, 2].map((i) => (
               <GlassPanel key={i} variant="subtle" className="p-5 md:p-7 flex flex-col md:flex-row items-start md:items-center gap-5 md:gap-12">
-                <span className="text-primary font-semibold text-sm md:text-[21px] shrink-0 md:w-40">{t(`whatWeDo.pillar.${i}.label`)}</span>
+                <span className="text-primary t-h3 text-sm md:text-[21px] shrink-0 md:w-40">{t(`whatWeDo.pillar.${i}.label`)}</span>
                 <p className="text-sm md:text-[21px] text-muted-foreground">{t(`whatWeDo.pillar.${i}.desc`)}</p>
               </GlassPanel>
             ))}

@@ -15,12 +15,12 @@ const TheShiftSlide = () => {
 
       <div className="relative z-10 flex flex-col md:flex-row gap-6 md:gap-12 items-start w-full max-w-[1600px] mx-auto">
         <div className="flex-1 max-w-[800px]">
-          <h1 className="text-2xl md:text-7xl font-bold text-on-visual mb-4 md:mb-10 leading-tight md:whitespace-nowrap">{t('shift.title')}</h1>
+          <h1 className="text-2xl md:text-7xl t-hero text-on-visual mb-4 md:mb-10 md:whitespace-nowrap">{t('shift.title')}</h1>
           <p className="text-base md:text-3xl text-on-visual-soft font-medium leading-relaxed mb-6 md:mb-12">
             {t('shift.subtitle')}
           </p>
 
-          <p className="text-sm md:text-lg text-primary text-on-visual-accent font-medium mb-4 md:mb-6 tracking-wider uppercase">{t('shift.section')}</p>
+          <p className="t-eyebrow text-sm md:text-lg text-on-visual-accent mb-4 md:mb-6">{t('shift.section')}</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
             {winItems.map((item, i) => (
               <GlassPanel key={i} variant="subtle" className="p-4 md:p-6">

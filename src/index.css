@@ -1,39 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================================
+ * Artist Influence Music Deck, styled to match www.artistinfluence.com
+ * Dark blue-black canvas, bright red accent + oxblood, Helvetica Neue headings,
+ * Inter body, JetBrains Mono labels/data, drifting red glow + film grain.
+ *
+ * The brand palette below is the single source of truth. The shadcn semantic
+ * tokens every slide already consumes (--background, --primary, ...) are
+ * aliased onto it, so retuning the brand re-skins the whole deck.
+ * ========================================================================== */
+
 @layer base {
   :root {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 72% 51%;
+    /* ---- Brand palette (source of truth) ---- */
+    --bg: 225 18% 6%;
+    --surface-1: 225 14% 8%;
+    --surface-2: 225 14% 11%;
+    --surface-3: 225 14% 14%;
+    --hairline: 225 12% 24%;
+
+    --ink: 40 10% 96%;
+    --ink-2: 0 0% 80%;
+    --ink-3: 0 0% 60%;
+
+    --coral: 0 84% 54%;        /* brand red */
+    --coral-deep: 0 86% 62%;
+    --coral-soft: 0 90% 66%;
+    --red-deep: 355 80% 22%;   /* oxblood */
+
+    --positive: 158 64% 44%;
+    --amber: 42 100% 67%;
+
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* ---- shadcn semantic tokens mapped onto the brand palette ---- */
+    --background: var(--bg);
+    --foreground: var(--ink);
+    --card: var(--surface-2);
+    --card-foreground: var(--ink);
+    --popover: var(--surface-2);
+    --popover-foreground: var(--ink);
+    --primary: var(--coral);
     --primary-foreground: 0 0% 100%;
-    --secondary: 0 10% 14%;
-    --secondary-foreground: 0 0% 95%;
-    --muted: 0 8% 18%;
+    --secondary: var(--surface-3);
+    --secondary-foreground: var(--ink);
+    --muted: var(--surface-3);
     --muted-foreground: 0 0% 70%;
-    --accent: 15 80% 50%;
+    --accent: var(--coral);
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 0 10% 18%;
-    --input: 0 10% 18%;
-    --ring: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: var(--hairline);
+    --input: var(--hairline);
+    --ring: var(--coral);
     --radius: 0.75rem;
-    --sidebar-background: 0 0% 5%;
-    --sidebar-foreground: 0 8% 55%;
-    --sidebar-primary: 0 72% 51%;
+
+    --sidebar-background: var(--surface-1);
+    --sidebar-foreground: var(--ink-3);
+    --sidebar-primary: var(--coral);
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 10% 14%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 10% 16%;
-    --sidebar-ring: 0 72% 51%;
+    --sidebar-accent: var(--surface-3);
+    --sidebar-accent-foreground: var(--ink);
+    --sidebar-border: var(--hairline);
+    --sidebar-ring: var(--coral);
   }
 }
 
@@ -41,36 +75,387 @@
   * {
     @apply border-border;
   }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    margin: 0;
+    min-height: 100dvh;
+    background-color: hsl(var(--bg));
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Kinetic oxblood glow, brightest top-center, fading to near-black. */
+    background-image:
+      radial-gradient(ellipse 90% 50% at 50% -8%, hsl(var(--red-deep) / 0.55), transparent 60%),
+      radial-gradient(ellipse 120% 60% at 0% 18%, hsl(var(--red-deep) / 0.20), transparent 60%),
+      radial-gradient(ellipse 120% 60% at 100% 92%, hsl(var(--red-deep) / 0.16), transparent 60%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background: hsl(var(--coral) / 0.32);
+    color: hsl(var(--ink));
+  }
+  *:focus-visible {
+    outline: 2px solid hsl(var(--coral) / 0.7);
+    outline-offset: 2px;
+    border-radius: 6px;
   }
 }
 
+/* Authored slide canvas: bump base size so 1920x1080 content reads well. */
 .slide-content {
   font-size: 125%;
 }
 
-/* Hero text sitting directly on visualizer backdrops (no GlassPanel).
-   Forces white + soft glow so copy lifts cleanly off monogram/atelier fields. */
+/* Cinematic brand backdrop on EVERY authored slide: blue-black + bright
+   oxblood/red radials so the artistinfluence.com glow reads on each slide,
+   not just in the letterbox. Sits behind each slide's own visual + content.
+   This is the single biggest brand lever, applied deck-wide from one rule. */
+.slide-content > div,
+.slide-content-m {
+  background-color: hsl(var(--bg));
+  background-image:
+    radial-gradient(ellipse 80% 62% at 50% -14%, hsl(var(--red-deep) / 0.75), transparent 60%),
+    radial-gradient(circle at 100% 0%, hsl(var(--coral) / 0.16), transparent 42%),
+    radial-gradient(ellipse 90% 60% at 6% 112%, hsl(var(--red-deep) / 0.6), transparent 60%),
+    radial-gradient(circle at 50% 50%, hsl(var(--coral) / 0.05), transparent 55%);
+}
+/* Mobile: glow lives on the wrapper; the slide root goes transparent so the
+   glow stays seamless beneath the top padding that drops content clear of the
+   floating top controls (language picker + slide counter), notch included. */
+.slide-content-m {
+  padding-top: calc(env(safe-area-inset-top, 0px) + 2.5rem);
+}
+.slide-content-m > div {
+  background-color: transparent;
+}
+
+@layer components {
+  /* ---- Typography: the brand's voice ---- */
+
+  /* Mono red eyebrow, the section kicker. */
+  .t-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: hsl(var(--coral-deep));
+  }
+
+  /* Helvetica Neue, bold, tight. Accent a single word with <em>. */
+  .t-hero {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+    color: hsl(var(--ink));
+  }
+  .t-h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+    color: hsl(var(--ink));
+  }
+  .t-h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Inter', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: hsl(var(--ink));
+  }
+  /* Accent word inside a heading: brand red, never italic. */
+  .t-hero em,
+  .t-h2 em,
+  .t-h3 em {
+    font-style: normal;
+    color: hsl(var(--coral));
+  }
+
+  .ink-2 { color: hsl(var(--ink-2)); }
+  .ink-3 { color: hsl(var(--ink-3)); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+  .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum' 1;
+  }
+  /* Big Helvetica stat number. */
+  .stat-num {
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Inter', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+    color: hsl(var(--ink));
+  }
+
+  /* ---- Dark glass card (CSS twin of GlassPanel for simple cases) ---- */
+  .glass {
+    position: relative;
+    background: linear-gradient(145deg, hsl(var(--surface-2) / 0.85) 0%, hsl(var(--surface-1) / 0.85) 100%);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    backdrop-filter: blur(14px) saturate(1.1);
+    border: 1px solid hsl(var(--hairline));
+    border-radius: 0.75rem;
+    box-shadow:
+      inset 0 1px 0 hsl(var(--ink) / 0.05),
+      0 12px 32px hsl(225 18% 2% / 0.5);
+  }
+  .glass-hover {
+    transition:
+      transform 0.4s var(--ease-smooth),
+      box-shadow 0.4s var(--ease-smooth),
+      border-color 0.4s var(--ease-smooth);
+  }
+  .glass-hover:hover {
+    border-color: hsl(var(--coral) / 0.45);
+    box-shadow:
+      inset 0 1px 0 hsl(var(--ink) / 0.06),
+      0 0 0 1px hsl(var(--coral) / 0.12),
+      0 18px 40px hsl(225 18% 2% / 0.6),
+      0 0 36px hsl(var(--coral) / 0.12);
+  }
+
+  /* ---- Red pill button ---- */
+  .btn-coral {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: white;
+    background: linear-gradient(180deg, hsl(var(--coral-soft)) 0%, hsl(var(--coral)) 55%, hsl(0 80% 44%) 100%);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.25),
+      0 6px 16px hsl(var(--coral) / 0.28);
+    transition: transform 0.2s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth), filter 0.2s ease;
+    overflow: hidden;
+  }
+  .btn-coral::before {
+    content: '';
+    position: absolute;
+    inset: 1px 1px 50% 1px;
+    border-radius: 999px 999px 40% 40%;
+    background: linear-gradient(180deg, hsl(0 0% 100% / 0.28), hsl(0 0% 100% / 0));
+    pointer-events: none;
+  }
+  .btn-coral:hover {
+    filter: brightness(1.05);
+    box-shadow:
+      inset 0 1px 0 hsl(0 0% 100% / 0.3),
+      0 6px 16px hsl(var(--coral) / 0.34),
+      0 0 30px hsl(var(--coral) / 0.3);
+  }
+  .btn-coral:active { transform: scale(0.97); }
+
+  /* Ghost / glassy neutral button */
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: hsl(var(--ink));
+    background: hsl(var(--surface-2) / 0.7);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid hsl(var(--hairline));
+    transition: transform 0.2s var(--ease-smooth), border-color 0.2s ease;
+  }
+  .btn-glass:hover { border-color: hsl(var(--coral) / 0.4); }
+  .btn-glass:active { transform: scale(0.97); }
+
+  /* Status pill: mono uppercase, red outline */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    padding: 0.3rem 0.7rem;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pill-red {
+    color: hsl(var(--coral-deep));
+    border: 1px solid hsl(var(--coral) / 0.4);
+    background: hsl(var(--coral) / 0.08);
+  }
+  .pill-green {
+    color: hsl(var(--positive));
+    border: 1px solid hsl(var(--positive) / 0.4);
+    background: hsl(var(--positive) / 0.1);
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid hsl(var(--hairline));
+    background: hsl(var(--surface-2) / 0.7);
+    padding: 0.45rem 0.85rem;
+    font-size: 0.85rem;
+    color: hsl(var(--ink-2));
+  }
+
+  .hairline-t { border-top: 1px solid hsl(var(--hairline)); }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+
+/* ============================================================================
+ * Text sitting directly over a visualizer backdrop (no card). Forces white +
+ * soft glow so copy lifts cleanly off monogram / atelier fields.
+ * ========================================================================== */
 @layer utilities {
   .text-on-visual {
     color: hsl(0 0% 100%);
     text-shadow:
-      0 1px 2px hsl(var(--background) / 0.85),
-      0 2px 18px hsl(var(--background) / 0.7);
+      0 1px 2px hsl(var(--bg) / 0.85),
+      0 2px 18px hsl(var(--bg) / 0.7);
   }
   .text-on-visual-soft {
     color: hsl(0 0% 100% / 0.94);
     text-shadow:
-      0 1px 2px hsl(var(--background) / 0.9),
-      0 2px 16px hsl(var(--background) / 0.75),
-      0 0 28px hsl(var(--background) / 0.5);
+      0 1px 2px hsl(var(--bg) / 0.9),
+      0 2px 16px hsl(var(--bg) / 0.75),
+      0 0 28px hsl(var(--bg) / 0.5);
   }
   .text-on-visual-accent {
-    /* Keep brand red, but add a glow so chips/kickers stay legible */
     text-shadow:
-      0 1px 2px hsl(var(--background) / 0.85),
-      0 2px 12px hsl(var(--background) / 0.55);
+      0 1px 2px hsl(var(--bg) / 0.85),
+      0 2px 12px hsl(var(--bg) / 0.55);
+  }
+}
+
+/* ============================================================================
+ * Global FX: film grain, drifting ambient glow, custom cursor, card tilt.
+ * Rendered once at the app root by <AmbientGlow /> + <CursorDot />.
+ * ========================================================================== */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.ambient i {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(100px);
+  will-change: transform;
+}
+.ambient .g1 {
+  width: 60vw; height: 60vw; left: -12vw; top: -16vw;
+  background: radial-gradient(circle, hsl(var(--red-deep) / 0.55), transparent 70%);
+  animation: dA 26s var(--ease-smooth) infinite alternate;
+}
+.ambient .g2 {
+  width: 52vw; height: 52vw; right: -14vw; top: 8vh;
+  background: radial-gradient(circle, hsl(var(--coral) / 0.12), transparent 70%);
+  animation: dB 34s var(--ease-smooth) infinite alternate;
+}
+.ambient .g3 {
+  width: 66vw; height: 66vw; left: 18vw; bottom: -30vw;
+  background: radial-gradient(circle, hsl(var(--red-deep) / 0.42), transparent 70%);
+  animation: dC 42s var(--ease-smooth) infinite alternate;
+}
+@keyframes dA { to { transform: translate(8vw, 6vh) scale(1.16); } }
+@keyframes dB { to { transform: translate(-7vw, 5vh) scale(1.1); } }
+@keyframes dC { to { transform: translate(6vw, -6vh) scale(1.2); } }
+
+.cursor-dot {
+  position: fixed;
+  top: 0; left: 0;
+  width: 7px; height: 7px;
+  border-radius: 99px;
+  background: hsl(var(--coral));
+  box-shadow: 0 0 12px hsl(var(--coral) / 0.85);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+/* Card tilt: a smooth easing while the pointer drives the transform. */
+.tilting { transition: transform 0.12s ease-out !important; }
+
+/* ---- Choreographed slide-enter reveal ----
+   SlideStage hides a slide's key blocks from first paint, then cascades them
+   up with the spring curve on each slide change. Scoped to .slide-stage, so
+   grid thumbnails and the PDF-export portal stay fully visible. */
+.slide-stage :is(.t-eyebrow, .t-hero, h1, h2, .gp-card, [data-reveal]) {
+  /* Auto-playing animation (not a toggled class), so the revealed end-state
+     survives React re-renders. fill-mode: both holds opacity:0 during the
+     per-element delay, then locks opacity:1 after. */
+  animation: stage-reveal 0.65s var(--ease-spring) both;
+  animation-delay: var(--rd, 0ms);
+  will-change: opacity, transform;
+}
+@keyframes stage-reveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .slide-stage :is(.t-eyebrow, .t-hero, h1, h2, .gp-card, [data-reveal]) {
+    animation: none;
+  }
+}
+
+/* Card hover: tilt (JS) handles the lift; add a red edge-glow + deeper shadow. */
+@media (pointer: fine) {
+  .gp-card {
+    transition: box-shadow 0.4s var(--ease-smooth);
+  }
+  .gp-card:hover {
+    box-shadow:
+      inset 0 1px 0 hsl(var(--foreground) / 0.14),
+      0 28px 64px -14px hsl(225 45% 1% / 0.75),
+      0 0 64px hsl(var(--primary) / 0.22) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-dot { display: none; }
+  .ambient i { animation: none; }
+}
+
+@media (max-width: 767px) {
+  .glass, .btn-glass, .chip {
+    -webkit-backdrop-filter: blur(10px) saturate(1.1);
+    backdrop-filter: blur(10px) saturate(1.1);
   }
 }
