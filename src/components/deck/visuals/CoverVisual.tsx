@@ -10,192 +10,116 @@ const seeded = (i: number) => {
   return x - Math.floor(x);
 };
 
-// Equalizer bars arranged in a ring
-const BAR_COUNT = 56;
-const RING_RADIUS = 380;
-const bars = Array.from({ length: BAR_COUNT }, (_, i) => {
-  const angle = (i / BAR_COUNT) * Math.PI * 2;
-  return {
-    angle: (angle * 180) / Math.PI,
-    delay: seeded(i + 3) * 1.2,
-    dur: 0.9 + seeded(i + 11) * 1.1,
-    height: 18 + seeded(i + 19) * 36,
-  };
-});
+/**
+ * CoverVisual — a refined live-events backdrop (used by the cover + closing
+ * slides). Soft stage-light beams fan up from a single source, a warm glow
+ * "horizon" sits at the base like stage/crowd light, fine embers drift up, and
+ * a couple of hairline arcs frame the logo. Premium and evocative rather than
+ * the busy equalizer-ring/comet look. Beams + embers are desktop-only for
+ * performance; the glow horizon, arcs, and vignette render everywhere.
+ */
 
-// Comets traveling along orbits
-const comets = [
-  { r: 320, dur: 14, delay: 0, opacity: 0.9 },
-  { r: 320, dur: 14, delay: 7, opacity: 0.7 },
-  { r: 460, dur: 22, delay: 0, opacity: 0.8 },
-  { r: 460, dur: 22, delay: 11, opacity: 0.5 },
-  { r: 600, dur: 30, delay: 5, opacity: 0.6 },
+// Search-light beams, all emanating from one source below center, fanned out.
+const BEAMS = [
+  { angle: -28, w: 16, hue: 'red-deep', op: 0.5, dur: 15, delay: 0 },
+  { angle: -11, w: 11, hue: 'coral', op: 0.32, dur: 19, delay: -5 },
+  { angle: 6, w: 12, hue: 'coral', op: 0.3, dur: 17, delay: -9 },
+  { angle: 22, w: 17, hue: 'red-deep', op: 0.46, dur: 21, delay: -3 },
 ];
 
-// Background pulse particles
-const particles = Array.from({ length: 22 }, (_, i) => ({
-  cx: seeded(i + 1) * 1920,
-  cy: seeded(i + 17) * 1080,
-  r: 1 + seeded(i + 31) * 1.8,
-  delay: seeded(i + 53) * 4,
-  dur: 3 + seeded(i + 71) * 3,
+// Rising embers (fine drifting light over the crowd).
+const EMBERS = Array.from({ length: 30 }, (_, i) => ({
+  left: seeded(i + 1) * 100,
+  size: 1.4 + seeded(i + 7) * 2.6,
+  delay: -seeded(i + 13) * 18,
+  dur: 13 + seeded(i + 19) * 14,
+  op: 0.18 + seeded(i + 29) * 0.42,
 }));
 
 const CoverVisual = ({ className }: CoverVisualProps) => (
-  <div
-    className={cn(
-      'pointer-events-none absolute inset-0 overflow-hidden motion-reduce:animate-none',
-      className
-    )}
-    aria-hidden
-  >
-    {/* Aurora mesh — slow drifting blurred conic blobs */}
+  <div className={cn('pointer-events-none absolute inset-0 overflow-hidden', className)} aria-hidden>
+    <style>{`
+      @keyframes cv-beam {
+        0%, 100% { transform: translateX(-50%) rotate(var(--a)); opacity: var(--o); }
+        50% { transform: translateX(-50%) rotate(calc(var(--a) + 5deg)); opacity: calc(var(--o) * 1.45); }
+      }
+      @keyframes cv-ember {
+        0% { bottom: -2%; opacity: 0; }
+        12%, 84% { opacity: var(--eo); }
+        100% { bottom: 104%; opacity: 0; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .cv-beam, .cv-ember { animation: none !important; }
+        .cv-ember { opacity: var(--eo); bottom: 50%; }
+      }
+    `}</style>
+
+    {/* Stage-light beams (one source, fanned) */}
+    {BEAMS.map((b, i) => (
+      <div
+        key={`beam-${i}`}
+        className="cv-beam absolute left-1/2 bottom-[6%] origin-bottom hidden md:block"
+        style={{
+          width: `${b.w}%`,
+          height: '128%',
+          ['--a' as string]: `${b.angle}deg`,
+          ['--o' as string]: b.op,
+          transform: `translateX(-50%) rotate(${b.angle}deg)`,
+          background: `linear-gradient(to top, hsl(var(--${b.hue}) / 0.6), transparent 70%)`,
+          clipPath: 'polygon(45% 100%, 55% 100%, 100% 0, 0 0)',
+          filter: 'blur(38px)',
+          opacity: b.op,
+          mixBlendMode: 'screen',
+          animation: `cv-beam ${b.dur}s ease-in-out ${b.delay}s infinite`,
+        }}
+      />
+    ))}
+
+    {/* Glow horizon at the base (stage / crowd glow) */}
     <div
-      className="absolute -top-[20%] -right-[15%] w-[70vw] h-[70vw] max-w-[1100px] max-h-[1100px] rounded-full blur-[120px] opacity-50 animate-aurora-drift motion-reduce:animate-none"
+      className="absolute inset-x-0 bottom-0 h-[58%]"
       style={{
         background:
-          'conic-gradient(from 0deg, hsl(var(--primary) / 0.55), hsl(var(--accent) / 0.25), transparent 60%, hsl(var(--primary) / 0.4))',
-      }}
-    />
-    <div
-      className="absolute -bottom-[20%] -left-[15%] w-[65vw] h-[65vw] max-w-[1000px] max-h-[1000px] rounded-full blur-[140px] opacity-40 animate-aurora-drift-rev motion-reduce:animate-none"
-      style={{
-        background:
-          'conic-gradient(from 180deg, hsl(var(--accent) / 0.45), transparent 50%, hsl(var(--primary) / 0.35))',
+          'radial-gradient(ellipse 75% 100% at 50% 125%, hsl(var(--coral) / 0.26), hsl(var(--red-deep) / 0.16) 38%, transparent 68%)',
       }}
     />
 
-    {/* Conic shimmer scan beam */}
-    <div
-      className="absolute inset-0 block animate-conic-spin motion-reduce:animate-none"
-      style={{
-        background:
-          'conic-gradient(from 0deg at 50% 50%, transparent 0deg, hsl(var(--primary) / 0.08) 30deg, transparent 80deg, transparent 360deg)',
-      }}
-    />
+    {/* Rising embers */}
+    {EMBERS.map((e, i) => (
+      <span
+        key={`ember-${i}`}
+        className="cv-ember absolute rounded-full hidden md:block"
+        style={{
+          left: `${e.left}%`,
+          bottom: '-2%',
+          width: `${e.size}px`,
+          height: `${e.size}px`,
+          background: 'hsl(var(--coral))',
+          boxShadow: '0 0 7px hsl(var(--coral) / 0.85)',
+          ['--eo' as string]: e.op,
+          animation: `cv-ember ${e.dur}s linear ${e.delay}s infinite`,
+        }}
+      />
+    ))}
 
-    {/* Equalizer ring — hidden behind logo via radial mask */}
-    <div
-      className="absolute inset-0 flex items-center justify-center scale-50 md:scale-100"
-      style={{
-        WebkitMaskImage:
-          'radial-gradient(ellipse 380px 240px at center, transparent 0%, transparent 55%, black 78%)',
-        maskImage:
-          'radial-gradient(ellipse 380px 240px at center, transparent 0%, transparent 55%, black 78%)',
-      }}
-    >
-      <div className="relative w-0 h-0">
-        {bars.map((b, i) => (
-          <div
-            key={i}
-            className="absolute left-0 top-0 origin-bottom motion-reduce:animate-none"
-            style={{
-              transform: `rotate(${b.angle}deg) translateY(-${RING_RADIUS}px)`,
-            }}
-          >
-            <div
-              className="w-[3px] rounded-full bg-primary/60 animate-[equalizer_var(--dur)_ease-in-out_infinite] motion-reduce:animate-none"
-              style={{
-                height: `${b.height}px`,
-                animationDelay: `${b.delay}s`,
-                ['--dur' as string]: `${b.dur}s`,
-                boxShadow: '0 0 8px hsl(var(--primary) / 0.5)',
-              }}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Orbits + comets + particles */}
+    {/* Hairline arcs framing the logo */}
     <svg
-      className="absolute inset-0 w-full h-full block"
+      className="absolute inset-0 w-full h-full"
       viewBox="0 0 1920 1080"
       fill="none"
       preserveAspectRatio="xMidYMid slice"
     >
-      <defs>
-        <radialGradient id="cometGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity="1" />
-          <stop offset="60%" stopColor="hsl(var(--primary))" stopOpacity="0.4" />
-          <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-
-      {/* Concentric dashed orbits */}
-      <circle
-        cx="960"
-        cy="540"
-        r="320"
-        stroke="hsl(var(--primary))"
-        strokeWidth="1"
-        opacity="0.10"
-        strokeDasharray="40 20"
-        style={{ animation: 'spin 60s linear infinite', transformOrigin: '960px 540px' }}
-      />
-      <circle
-        cx="960"
-        cy="540"
-        r="460"
-        stroke="hsl(var(--primary))"
-        strokeWidth="0.6"
-        opacity="0.07"
-        strokeDasharray="60 30"
-        style={{ animation: 'spin 90s linear infinite reverse', transformOrigin: '960px 540px' }}
-      />
-      <circle
-        cx="960"
-        cy="540"
-        r="600"
-        stroke="hsl(var(--accent))"
-        strokeWidth="0.4"
-        opacity="0.05"
-        strokeDasharray="2 14"
-        style={{ animation: 'spin 120s linear infinite', transformOrigin: '960px 540px' }}
-      />
-
-      {/* Comets along orbits */}
-      {comets.map((c, i) => (
-        <g key={`comet-${i}`} opacity={c.opacity}>
-          <circle r="6" fill="url(#cometGradient)">
-            <animateMotion
-              dur={`${c.dur}s`}
-              repeatCount="indefinite"
-              begin={`${c.delay}s`}
-              path={`M 960 ${540 - c.r} A ${c.r} ${c.r} 0 1 1 ${960 - 0.01} ${540 - c.r}`}
-            />
-          </circle>
-          <circle r="2" fill="hsl(var(--primary))">
-            <animateMotion
-              dur={`${c.dur}s`}
-              repeatCount="indefinite"
-              begin={`${c.delay}s`}
-              path={`M 960 ${540 - c.r} A ${c.r} ${c.r} 0 1 1 ${960 - 0.01} ${540 - c.r}`}
-            />
-          </circle>
-        </g>
-      ))}
-
-      {/* Background pulse particles */}
-      {particles.map((p, i) => (
-        <circle key={i} cx={p.cx} cy={p.cy} r={p.r} fill="hsl(var(--primary))" opacity="0.5">
-          <animate
-            attributeName="opacity"
-            values="0.1;0.85;0.1"
-            dur={`${p.dur}s`}
-            begin={`${p.delay}s`}
-            repeatCount="indefinite"
-          />
-        </circle>
-      ))}
+      <circle cx="960" cy="540" r="300" stroke="hsl(var(--coral))" strokeWidth="1" opacity="0.07" />
+      <circle cx="960" cy="540" r="440" stroke="hsl(var(--foreground))" strokeWidth="0.5" opacity="0.045" />
+      <circle cx="960" cy="540" r="610" stroke="hsl(var(--coral))" strokeWidth="0.5" opacity="0.03" strokeDasharray="2 16" />
     </svg>
 
-    {/* Center vignette to guarantee text legibility */}
+    {/* Center vignette to keep the logo + text crisp */}
     <div
       className="absolute inset-0"
       style={{
         background:
-          'radial-gradient(ellipse 680px 400px at center, hsl(var(--background) / 0.55) 0%, hsl(var(--background) / 0.22) 45%, transparent 72%)',
+          'radial-gradient(ellipse 620px 380px at 50% 46%, hsl(var(--background) / 0.5) 0%, hsl(var(--background) / 0.12) 46%, transparent 72%)',
       }}
     />
   </div>
