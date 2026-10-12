@@ -40,7 +40,7 @@ const hi: Record<string, string> = {
   // ── ClippingSlide ──
   'common.service': 'सेवा',
   'clipping.title': 'क्लिपिंग वितरण',
-  'clipping.subtitle': 'TikTok, Instagram और YouTube पर बनाने वाले 20,000+ क्लिपर्स से संचालित एक वितरण नेटवर्क।',
+  'clipping.subtitle': 'TikTok, Instagram और YouTube पर बनाने वाले 60,000+ क्लिपर्स से संचालित एक वितरण नेटवर्क।',
   'clipping.prosTitle': 'फ़ायदे',
   'clipping.pros.0': 'ट्रेलर, लाइनअप ड्रॉप, भीड़ के क्लिप, DJ पल और घोषणा संपत्तियों को नेटिव शॉर्ट-फ़ॉर्म कंटेंट में बदलें',
   'clipping.pros.1': 'एक ही समय में कई हुक टेस्ट करें और इवेंट से पहले बार-बार दृश्यता बढ़ाएँ',

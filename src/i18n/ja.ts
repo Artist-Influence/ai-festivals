@@ -40,7 +40,7 @@ const ja: Record<string, string> = {
   // ── ClippingSlide ──
   'common.service': 'サービス',
   'clipping.title': 'クリッピング流通',
-  'clipping.subtitle': 'TikTok、Instagram、YouTubeで制作する20,000人以上のクリッパーが支える流通ネットワーク。',
+  'clipping.subtitle': 'TikTok、Instagram、YouTubeで制作する60,000人以上のクリッパーが支える流通ネットワーク。',
   'clipping.prosTitle': 'メリット',
   'clipping.pros.0': 'トレーラー、ラインナップ発表、観客クリップ、DJの瞬間、告知素材を、ネイティブなショートフォーム動画に変換します',
   'clipping.pros.1': '複数のフックを同時にテストし、イベント前に繰り返しの露出を生み出します',

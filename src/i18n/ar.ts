@@ -40,7 +40,7 @@ const ar: Record<string, string> = {
   // ── ClippingSlide ──
   'common.service': 'الخدمة',
   'clipping.title': 'توزيع المقاطع القصيرة',
-  'clipping.subtitle': 'شبكة توزيع مدعومة بأكثر من 20,000 صانع مقاطع ينتجون عبر TikTok وInstagram وYouTube.',
+  'clipping.subtitle': 'شبكة توزيع مدعومة بأكثر من 60,000 صانع مقاطع ينتجون عبر TikTok وInstagram وYouTube.',
   'clipping.prosTitle': 'المزايا',
   'clipping.pros.0': 'تحويل المقاطع الترويجية وإعلانات القائمة الفنية ومقاطع الجمهور ولحظات منسّقي الأغاني وأصول الإعلانات إلى محتوى قصير أصيل',
   'clipping.pros.1': 'اختبار عدة جُمل افتتاحية في وقت واحد وتحقيق تعرّض متكرر قبل الفعالية',

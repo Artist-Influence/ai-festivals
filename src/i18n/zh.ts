@@ -40,7 +40,7 @@ const zh: Record<string, string> = {
   // ── ClippingSlide ──
   'common.service': '服务',
   'clipping.title': '切片分发',
-  'clipping.subtitle': '由 20,000+ 名切片创作者驱动的分发网络，覆盖 TikTok、Instagram 与 YouTube。',
+  'clipping.subtitle': '由 60,000+ 名切片创作者驱动的分发网络，覆盖 TikTok、Instagram 与 YouTube。',
   'clipping.prosTitle': '优势',
   'clipping.pros.0': '把预告片、阵容官宣、现场观众切片、DJ 高光与公告素材转化为原生短视频内容',
   'clipping.pros.1': '同时测试多个钩子，并在活动前形成反复曝光',

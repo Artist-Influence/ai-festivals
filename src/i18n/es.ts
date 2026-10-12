@@ -40,7 +40,7 @@ const es: Record<string, string> = {
   // ── ClippingSlide ──
   'common.service': 'Servicio',
   'clipping.title': 'Distribución de Clipping',
-  'clipping.subtitle': 'Una red de distribución impulsada por más de 20,000 clippers que crean contenido en TikTok, Instagram y YouTube.',
+  'clipping.subtitle': 'Una red de distribución impulsada por más de 60,000 clippers que crean contenido en TikTok, Instagram y YouTube.',
   'clipping.prosTitle': 'Ventajas',
   'clipping.pros.0': 'Convierte trailers, anuncios del lineup, clips del público, momentos de DJ y materiales de anuncio en contenido nativo de formato corto',
   'clipping.pros.1': 'Prueba varios hooks al mismo tiempo y genera exposición repetida antes del evento',

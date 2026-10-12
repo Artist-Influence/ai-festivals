@@ -40,7 +40,7 @@ const ko: Record<string, string> = {
   // ── ClippingSlide ──
   'common.service': '서비스',
   'clipping.title': '클리핑 유통',
-  'clipping.subtitle': 'TikTok, Instagram, YouTube 전반에서 콘텐츠를 제작하는 20,000명 이상의 클리퍼가 구동하는 유통 네트워크.',
+  'clipping.subtitle': 'TikTok, Instagram, YouTube 전반에서 콘텐츠를 제작하는 60,000명 이상의 클리퍼가 구동하는 유통 네트워크.',
   'clipping.prosTitle': '장점',
   'clipping.pros.0': '예고편, 라인업 발표, 관객 클립, DJ 순간, 발표 에셋을 네이티브 숏폼 콘텐츠로 전환',
   'clipping.pros.1': '여러 훅을 동시에 테스트하고 이벤트 전 반복 노출을 유도',
